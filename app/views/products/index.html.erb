@@ -1,0 +1,8 @@
+<h1> product index </h1>
+<div class="container">
+<ul>
+  <% @products.each do |product| %>
+    <li><%= product.title %></li>
+  <% end %>
+</ul>
+</div>
