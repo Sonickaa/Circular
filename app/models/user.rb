@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :sent_offers,
            class_name: "Offer",
-           foreign_key: "user_sender_id"
+           foreign_key: "user_sender_id", dependent: :destroy
   has_many :received_offers,
            class_name: "Offer",
-           foreign_key: "user_receiver_id"
+           foreign_key: "user_receiver_id", dependent: :destroy
 end
