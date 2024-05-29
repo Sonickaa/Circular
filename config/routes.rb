@@ -7,14 +7,13 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "dashboards#dashboard"
 
-  get "profile/:id", to: "profiles#profile"
-  resources :products, only: [:index, :show, :new, :edit, :update]
+  get "profiles/:id", to: "profiles#profile"
+
+  resources :products, only: [:index, :show, :new, :edit, :update, :destroy]
   resources :offer_products, only: [:index]
   resources :messages, only: [:index, :show, :new, :create, :destroy]
-  resources :offers, only: [:index]
-
-
-  resources :products, only: [:index, :show, :edit, :update]
-
+  resources :offers, only: [:index, :show]
+  resources :profiles, only: [:new, :show, :create, :edit, :update, :destroy]
+  resources :categories, only: [:index]
 
 end
