@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :categories, only: [:index, :destroy]
   resources :product_wishlists, only: [:destroy]
+  resources :wishlists, only: [:show]
 end

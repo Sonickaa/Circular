@@ -6,6 +6,7 @@
     </div>
 </div>
 
+
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Categories
@@ -18,10 +19,12 @@
   </ul>
 </div>
 
+
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="white">
+
         <h1><%= @products[0].title %></h1>
       </div>
     </div>
@@ -31,6 +34,7 @@
     <div class="carousel-item">
       <div class="white">
         <h1><%= product.title %></h1>
+<%= button_to ' Add to my wishlist ', product_product_wishlists_path(product_id: product.id)%>
       </div>
     </div>
   <% end %>
