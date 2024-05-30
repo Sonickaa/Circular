@@ -1,20 +1,49 @@
-<div class="greetings">
-
+<div class="container-full">
+<div class="container-greetings">
+    <h1> Hello, <%= current_user.id %> </h1>
+    <div class="container-greetings-message">
+    <h4> Ready to circle today?</h4>
+    </div>
 </div>
 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Categories
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">All categories</a></li>
+    <li><a class="dropdown-item" href="#">Category 1</a></li>
+    <li><a class="dropdown-item" href="#">Category 2</a></li>
+    <li><a class="dropdown-item" href="#">Category 3</a></li>
+  </ul>
+</div>
 
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="white">
+        <h1><%= @products[0].title %></h1>
+      </div>
+    </div>
 
-
-
-
-<h1> product index </h1>
-<h3>category dropdown</h3>
-<div class="container">
-<ul>
-  <% @products.each do |product| %>
-    <li><%= product.title %> - send offer </li>
+<% @products.each_with_index do |product,i| %>
+ <% next if i==0 %>
+    <div class="carousel-item">
+      <div class="white">
+        <h1><%= product.title %></h1>
+      </div>
+    </div>
   <% end %>
-  <li>THIS</li>
-  <li>- brings me to my dashboard with this offer on top</li>
-</ul>
+  </div>
+</div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
 </div>

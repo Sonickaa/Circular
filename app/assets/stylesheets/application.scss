@@ -13,3 +13,14 @@
 
 //here comes the footbar
 @import "components/footbar";
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(168deg, #80F2D7 50%, #348972 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
