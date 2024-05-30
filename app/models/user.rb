@@ -10,4 +10,7 @@ class User < ApplicationRecord
   has_many :received_offers,
            class_name: "Offer",
            foreign_key: "user_receiver_id", dependent: :destroy
+
+  has_one :wishlist, dependent: :destroy
+  #has_many :products, through: :wishlist
 end

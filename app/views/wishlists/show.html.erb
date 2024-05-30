@@ -1,0 +1,12 @@
+<h1> Your Wishlist! </h1>
+
+<div class="container">
+<% @wishlist.products.each do |product|  %>
+  <h3> <%= product.title %></h3>
+  <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+<% end %>
+
+<div class="container">
+<button type="button" class="btn btn-primary">Confirm</button>
+<%= link_to 'Back', dashboard_path %>
+</div>
