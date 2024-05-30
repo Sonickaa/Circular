@@ -1,0 +1,26 @@
+.footbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(221, 254, 246, 1);
+}
+
+.footbar .container-fluid {
+  flex-grow: 1;
+  display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: Helvetica;
+  font-size: 2.8vw;
+  justify-content: space-between;
+  height: 4.75rem;
+  bottom: 0;
+  align-items: center;
+}
+
+.item {
+  color:black;
+  &:hover {
+    color: rgb(52, 137, 114)
+  }
+}
