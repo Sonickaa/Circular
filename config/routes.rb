@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/profile", to: "profiles#profile", as: :my_profile
   patch "/profile", to: "profiles#update", as: :profile
 
-  resources :products, only: [:index, :show, :new, :edit, :update, :destroy]
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :offer_products, only: [:index]
   resources :messages, only: [:index, :show, :new, :create, :destroy]
   resources :offers, only: [:index, :show]

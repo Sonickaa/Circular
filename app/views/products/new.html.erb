@@ -1,7 +1,7 @@
 <h1>new item upload</h1>
 <%= simple_form_for(@product) do |f| %>
   <%= f.input :title %>
-  <%= f.input :category %>
+  <%= f.association :category, prompt: "Select a category" %>
   <%= f.input :description %>
   <%= f.input :condition %>
   <%= f.input :price %>
