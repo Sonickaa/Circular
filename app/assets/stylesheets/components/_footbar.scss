@@ -1,5 +1,6 @@
 .footbar {
-  position: sticky;
+  position: absolute;
+  width: 100%;
   bottom: 0;
   z-index: 1000;
   background: rgba(221, 254, 246, 1);

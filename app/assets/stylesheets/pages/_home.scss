@@ -1,1 +1,42 @@
-// Specific CSS for your home-page
+.container-greetings {
+
+}
+
+.container-full {
+margin: 44px;
+}
+
+.white {
+  background-color: white;
+  height: 50vh;
+  padding: 4vw;
+  border-radius: 21px;
+}
+
+.carousel-item {
+  backface-visibility:unset!important;
+}
+
+.dropdown-toggle {
+  width: 348px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  color: black;
+  background: #DDFEF6;
+  height: 42px;
+  border-radius: 21px;
+  border: 0;
+}
+
+.container-greetings-message {
+text-align: right;
+color: #348972;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h1 {
+  font-size:32px;
+}
