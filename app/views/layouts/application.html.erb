@@ -9,10 +9,22 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <style>
+    html {
+      height: 100%;
+    }
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+    body {
+      background: linear-gradient(168deg, #80F2D7 50%, #348972 100%);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+      <body>
+    <%= render "shared/flashes" %>
 
     <%= yield %>
+
+    <%= render "shared/footbar" %>
   </body>
 </html>

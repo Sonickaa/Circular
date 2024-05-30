@@ -1,0 +1,27 @@
+<div class="footbar">
+
+  <div class="container-fluid">
+
+      <div class="item item-home">
+          <%= link_to "home", "/", class: "nav-link" %>
+      </div>
+
+      <div class="item item-wishlist">
+          <%= link_to "wishlist", "/wishlist", class: "nav-link" %>
+      </div>
+
+      <div class="item item-addnew">
+          <%= link_to "add new", "/products/new", class: "nav-link" %>
+      </div>
+
+      <div class="item item-dashboard">
+          <%= link_to "dashboard", "/dashboard", class: "nav-link" %>
+      </div>
+
+        <div class="item item-profile">
+          <%= link_to "profile", "/profiles/:profile", class: "nav-link" %>
+        </div>
+
+    </div>
+
+  </div>
