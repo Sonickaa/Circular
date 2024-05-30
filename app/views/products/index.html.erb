@@ -1,17 +1,12 @@
-<div class="greetings">
-
-</div>
-
-
 <h1> product index </h1>
-
-
+<h3>category dropdown</h3>
 <div class="container">
-<ul>
-  <% @products.each do |product| %>
-    <li><%= product.title %> - send offer </li>
-  <% end %>
-  <li>THIS</li>
-  <li>- brings me to my dashboard with this offer on top</li>
-</ul>
+  <ul>
+    <% @products.each do |product| %>
+      <li><%= product.title %> - send offer </li>
+      <%= button_to ' Add to my wishlist ', product_product_wishlists_path(product_id: product.id)%>
+    <% end %>
+    <li>THIS</li>
+    <li>- brings me to my dashboard with this offer on top</li>
+  </ul>
 </div>
