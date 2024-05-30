@@ -1,4 +1,4 @@
-<%= simple_form_for(@user, url: profile_path(@user), method: :put) do |f| %>
+<%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :bio %>
