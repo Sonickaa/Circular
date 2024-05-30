@@ -22,11 +22,10 @@
           <%= link_to "dashboard", "/dashboard", class: "nav-link" %>
       </div>
 
-      <div class="item item-profile">
-      <%= image_tag "icons/btn profile.svg", style: "width: 36px" %>
-        <%= link_to "profile", profile_path(current_user.id), class: "nav-link" %>
-      </div>
+        <div class="item item-profile">
+          <%= image_tag "icons/btn profile.svg", style: "width: 36px" %>
+        <%= link_to "profile", my_profile_path, class: "nav-link" %>
+        </div>
 
     </div>
-
-  </div>
+</div>
