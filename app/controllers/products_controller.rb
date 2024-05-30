@@ -11,14 +11,16 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.new
   end
 
   def create
-    @product = product.new(product_params)
+    @product = Product.create(product_params)
+    @product.user = current_user
     if @product.save
-      redirect_to @product
+      redirect_to my_profile_path(@user)
     else
-      render “new”
+      render :new
     end
   end
 
@@ -39,7 +41,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :photo, :category, :description, :condition, :price)
+    params.require(:product).permit(:title, :photo, :category_id, :description, :condition, :price)
   end
-
 end
