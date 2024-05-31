@@ -1,20 +1,19 @@
-<%# 
+<%#
 <button onclick="window.history.go(-2); return false;" >X</button> %>
 
 <div class="profile-container">
-<img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="card-img-top" alt="...">
-<h1> Hello, <%= current_user.id %> </h1>
-<div>
-  <label for="profilePic">Profile Picture:</label>
-    <input type="file" id="profilePic" name="profilePic" accept="image/*" required>
+  <img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="card-img-top" alt="...">
+  <h1> Hello, <%= current_user.id %> </h1>
 </div>
-  </div>
 
 <br>
 <div class="create-card">
    <h5>Processing</h5>
     <div class="create-product-container">
      <img src="" alt="pending-product-img">
+      <div class="item-delete">
+        <%= image_tag "icons/btn trash.svg", style: "width: 25px" %>
+    </div>
    </div>
    <p>See More</p>
   </div>

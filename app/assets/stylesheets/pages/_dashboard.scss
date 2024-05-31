@@ -71,7 +71,7 @@ line-height: normal;
   border: 0.8px solid #0909092a;
   background: #FFF;
   display: flex;
-  width: 400px;
+  width: 300px;
   height:40px;
   padding: 0px 7.488px 8.986px 7.488px;
   // img和text之间的padding
@@ -79,7 +79,15 @@ line-height: normal;
   align-items: center;
   box-shadow: 0px 4px 10px #01000076;
 }
+.item-delete{
+  position: relative;
 
+}
+.item-delete{
+  position: absolute;
+  right : 20px;
+
+}
 .received-card{
   padding-left: 20px;
 }
@@ -88,7 +96,7 @@ line-height: normal;
     border: 0.8px solid #0909092a;
     background: #FFF;
     display: flex;
-    width: 400px;
+    width: 300px;
     height:40px;
     padding: 0px 7.488px 8.986px 7.488px;
     // img和text之间的padding
