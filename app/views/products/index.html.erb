@@ -11,22 +11,22 @@
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Categories
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">All categories</a></li>
-    <li><a class="dropdown-item" href="#">Category 1</a></li>
-    <li><a class="dropdown-item" href="#">Category 2</a></li>
-    <li><a class="dropdown-item" href="#">Category 3</a></li>
+
+  <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %></li>
+    <% end %>
   </ul>
 </div>
 
 
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
-    <div class="carousel-item active">     
+    <div class="carousel-item active">
         <div class="white">
         <% if @products[0] %>
           <h1><%= @products[0].title %></h1>
-           <%= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
+           <%#= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
 
           <% else %>
           <p>No products yet!</p>
@@ -39,7 +39,7 @@
     <div class="carousel-item">
       <div class="container-white">
         <h1><%= product.title %></h1>
-        <%= cl_image_tag product.photo.key %>
+        <%#= cl_image_tag product.photo.key %>
 <%= link_to ' Add to my wishlist ', product_product_wishlists_path(product), data: {turbo_method: :post}%>
 
       </div>

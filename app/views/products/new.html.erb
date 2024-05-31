@@ -17,7 +17,7 @@
     .submit-button {
       border-radius: 20px;
       padding: 10px 20px;
-      background-color: #999999; 
+      background-color: #999999;
       color: #333333;
       border: none;
       cursor: pointer;
@@ -33,7 +33,6 @@
 <body>
   <h1 class="dark-gray-text">Upload your offer!</h1>
   <%= simple_form_for(@product, html: { class: "dark-gray-text", multipart: true }) do |f| %>
-    <%= f.input :image, as: :file, input_html: { class: "styled-input" } %>
     <%= f.input :title, input_html: { class: "styled-input" } %>
     <%= f.association :category, prompt: "Select a category", input_html: { class: "styled-input" } %>
     <%= f.input :condition, as: :select, collection: ['New', 'Used', 'Refurbished'], input_html: { class: "styled-input" } %>
