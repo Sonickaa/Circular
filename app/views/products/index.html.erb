@@ -22,11 +22,15 @@
 
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="container-white">
-        <h1><%= @products[0].title %></h1>
-        <%= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="carousel-item active">     
+        <div class="white">
+        <% if @products[0] %>
+          <h1><%= @products[0].title %></h1>
+           <%= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
 
+          <% else %>
+          <p>No products yet!</p>
+          <% end %>
       </div>
     </div>
 
