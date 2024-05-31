@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :bio, :address])
   end
-  
+
   def find_or_create_my_wishlist
     if current_user
       if current_user.wishlist
@@ -20,3 +20,4 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+end
