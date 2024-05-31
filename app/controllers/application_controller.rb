@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
   end
 
   def find_or_create_my_wishlist
-    if current_user.wishlist
-      @wishlist = current_user.wishlist
-    else
-      @wishlist = Wishlist.create(user_id: current_user.id)
+    if current_user
+      if current_user.wishlist
+        @wishlist = current_user.wishlist
+      else
+        @wishlist = Wishlist.create(user_id: current_user.id)
+      end
     end
   end
 end

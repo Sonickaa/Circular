@@ -129,7 +129,10 @@ products = [
 ]
 
 products.each do |product|
-  Product.create!(product)
+  new_product = Product.create!(product)
+  # new_product attach photo
+  # new_product.save
+
 end
 
 puts "10 products have been created."
