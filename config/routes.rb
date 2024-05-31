@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
 
   root "products#index"
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :show, :new, :create, :destroy]
   resources :offers, only: [:index, :show]
   resources :profiles, only: [:new, :show, :create, :edit, :update, :destroy]
-  resources :categories, only: [:index, :destroy]
+  resources :categories, only: [:index]
   resources :product_wishlists, only: [:destroy]
   resources :wishlists, only: [:show]
 end
