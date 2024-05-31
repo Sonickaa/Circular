@@ -25,6 +25,8 @@
     <div class="carousel-item active">
       <div class="container-white">
         <h1><%= @products[0].title %></h1>
+        <%= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
+
       </div>
     </div>
 
@@ -33,7 +35,9 @@
     <div class="carousel-item">
       <div class="container-white">
         <h1><%= product.title %></h1>
-<%= button_to ' Add to my wishlist ', product_product_wishlists_path(product_id: product.id)%>
+        <%= cl_image_tag product.photo.key %>
+<%= link_to ' Add to my wishlist ', product_product_wishlists_path(product), data: {turbo_method: :post}%>
+
       </div>
     </div>
   <% end %>
