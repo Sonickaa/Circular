@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.all
+    @products = Product.where.not(user: current_user)
   end
 
   def show
     @product = Product.find(params[:id])
-    @whishlist = Wishlist.find(params[:id])
+    @wishlist = Wishlist.find(params[:id])
   end
 
   def new

@@ -1,3 +1,12 @@
+// .button{
+//     width: 30px;
+//     height: 30px;
+//     font-size: 12px;
+//     padding: 5px;
+//     margin: 5px;
+//     line-height: 1;
+// }
+
 .profile-container{
   width: 66px;
   height: 66px;
@@ -16,15 +25,16 @@
   border-radius: 50%;
 }
 
-.profile-container h1 {
-  margin: 10px 5px 0 0;
-}
-
 .bio-container{
   justify-content: center;
   display: flex;
   align-items: center;
 }
+
+.profile-container h1 {
+  margin: 10px 5px 0 0;
+}
+
 button{
   border-radius: 50%;
   border: 3px solid #000;
@@ -38,7 +48,6 @@ button{
   justify-content: center;
   display: flex;
   align-items: center;
-  padding-bottom: 100px;
 }
 
 // .profile-container{
@@ -58,12 +67,12 @@ line-height: normal;
   padding-left: 20px;
 }
 .create-product-container {
-  border-radius: 8.986px;
-  border: 0.8px solid #090909;
+  border-radius: 5px;
+  border: 0.8px solid #0909092a;
   background: #FFF;
   display: flex;
-  width: 100px;
-  height:100px;
+  width: 400px;
+  height:40px;
   padding: 0px 7.488px 8.986px 7.488px;
   // img和text之间的padding
   flex-direction: column;
@@ -75,12 +84,12 @@ line-height: normal;
   padding-left: 20px;
 }
 .received-product-container {
-    border-radius: 8.986px;
-    border: 0.8px solid #090909;
+    border-radius: 5px;
+    border: 0.8px solid #0909092a;
     background: #FFF;
     display: flex;
-    width: 100px;
-    height:100px;
+    width: 400px;
+    height:40px;
     padding: 0px 7.488px 8.986px 7.488px;
     // img和text之间的padding
     flex-direction: column;

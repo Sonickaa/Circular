@@ -37,8 +37,8 @@
       <div class="white">
         <h1><%= product.title %></h1>
         <%= cl_image_tag product.photo.key %>
+<%= link_to ' Add to my wishlist ', product_product_wishlists_path(product), data: {turbo_method: :post}%>
 
-<%= button_to ' Add to my wishlist ', product_product_wishlists_path(product_id: product.id)%>
       </div>
     </div>
   <% end %>
@@ -53,3 +53,4 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
