@@ -5,14 +5,27 @@ require 'faker'
 require "open-uri"
 
 
-User.destroy_all
+OfferProduct.destroy_all
+Message.destroy_all
+Review.destroy_all
+Offer.destroy_all
+ProductWishlist.destroy_all
+UserCategory.destroy_all
+Wishlist.destroy_all
 Product.destroy_all
 Category.destroy_all
+User.destroy_all
+
 
 sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@test.com", password: "123456")
 tuo = User.create!(first_name: "Tuo", last_name: "Chaboud", email: "tuo@test.com", password: "123456")
 emma = User.create!(first_name: "Emma", last_name: "Chaboud", email: "emma@test.com", password: "123456")
 chris = User.create!(first_name: "Chris", last_name: "Chaboud", email: "chris@test.com", password: "123456")
+
+User.all.each do |user|
+  Wishlist.create(user: user)
+end
+
 
 20.times do
   user = User.new(
@@ -226,6 +239,14 @@ products = [
     category_id: video_games.id,
     description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",#
     image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg",
+    condition: "new",
+    price: 59
+  },
+  {
+    title: "The Legend of Sonia: Breath of the Wild",
+    user_id: emma.id,
+    category_id: video_games.id,
+    description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
     condition: "new",
     price: 59
   }

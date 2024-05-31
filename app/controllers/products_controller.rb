@@ -1,7 +1,12 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.where.not(user: current_user)
+    @categories = Category.all
+    if params[:category].present?
+      @products = Product.where.not(user: current_user).where(category_id: params[:category])
+    else
+      @products = Product.where.not(user: current_user)
+    end
   end
 
   def show

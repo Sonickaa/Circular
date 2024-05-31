@@ -7,12 +7,13 @@
   </div>
 
   <div class="container-bio">
-      <h3>bio: <%= current_user.bio %></h3>
-    <h3>my own items: </h3>
+      <h3><%= current_user.bio %></h3>
+    <h3>My items </h3>
   </div>
 
   <% @products.each do |product| %>
   <li><%= product.title %></li>
+    <%#= cl_image_tag product.photo.key %>
   <% end %>
 
 <div class="buttons">

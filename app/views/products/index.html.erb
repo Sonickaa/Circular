@@ -4,19 +4,29 @@
     <div class="container-greetings-message">
     <h4> Ready to circle today?</h4>
     </div>
-  </div>
+</div>
 
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Categories
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">All categories</a></li>
-      <li><a class="dropdown-item" href="#">Category 1</a></li>
-      <li><a class="dropdown-item" href="#">Category 2</a></li>
-      <li><a class="dropdown-item" href="#">Category 3</a></li>
-    </ul>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Categories
+  </button>
+
+  <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+    <% @categories.each do |category| %>
+      <li><%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <div class="white">
+        <% if @products[0] %>
+          <h1><%= @products[0].title %></h1>
+           <%#= cl_image_tag @products[0].photo.key, height: 300, width: 400, crop: :fill %>
   </div>
 
 
@@ -37,7 +47,7 @@
       <% end %>
     </div>
   </div>
-
+        
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
