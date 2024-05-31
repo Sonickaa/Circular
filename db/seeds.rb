@@ -2,6 +2,8 @@
 
 # Assuming you have User and Category models
 require 'faker'
+require "open-uri"
+
 
 User.destroy_all
 Product.destroy_all
@@ -209,9 +211,9 @@ products = [
   }
 ]
 
-products.each do |product|
-  new_product = Product.create!(product)
-  # new_product attach photo
-  # new_product.save
-
+products.each_with_index do |product, index|
+  file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+  new_product = Product.new(product)
+  new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
+  new_product.save
 end
