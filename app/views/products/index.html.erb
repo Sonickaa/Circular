@@ -1,6 +1,6 @@
 <div class="container-full">
 <div class="container-greetings">
-    <h1> Hello, <%= current_user.id %> </h1>
+    <h1> Hello, <%= current_user.first_name %> </h1>
     <div class="container-greetings-message">
     <h4> Ready to circle today?</h4>
     </div>
@@ -23,8 +23,7 @@
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="white">
-
+      <div class="container-white">
         <h1><%= @products[0].title %></h1>
       </div>
     </div>
@@ -32,7 +31,7 @@
 <% @products.each_with_index do |product,i| %>
  <% next if i==0 %>
     <div class="carousel-item">
-      <div class="white">
+      <div class="container-white">
         <h1><%= product.title %></h1>
 <%= button_to ' Add to my wishlist ', product_product_wishlists_path(product_id: product.id)%>
       </div>
@@ -49,3 +48,4 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
