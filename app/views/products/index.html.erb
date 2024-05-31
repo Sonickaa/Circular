@@ -24,8 +24,11 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="white">
-
-        <h1><%= @products[0].title %></h1>
+        <% if @products[0] %>
+          <h1><%= @products[0].title %></h1>
+          <% else %>
+          <p>No products yet!</p>
+          <% end %>
       </div>
     </div>
 

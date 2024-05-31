@@ -1,9 +1,27 @@
-<h1>new item upload</h1>
-<%= simple_form_for(@product) do |f| %>
-  <%= f.input :title %>
-  <%= f.association :category, prompt: "Select a category" %>
-  <%= f.input :description %>
-  <%= f.input :condition %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<style>
+    body {
+      margin: 5px;
+    }
+
+    .dark-gray-text {
+      color: #333333;
+    }
+
+    .styled-input {
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="dark-gray-text">Upload your offer!</h1>
+  <%= simple_form_for(@product, html: { class: "dark-gray-text" }) do |f| %>
+    <%= f.input :title, input_html: { class: "styled-input" } %>
+    <%= f.association :category, prompt: "Select a category", input_html: { class: "styled-input" } %>
+    <%= f.input :description, input_html: { class: "styled-input" } %>
+    <%= f.input :condition, as: :select, collection: ['New', 'Used', 'Refurbished'], input_html: { class: "styled-input" } %>
+    <%= f.input :price, input_html: { class: "styled-input" } %>
+    <%= f.submit %>
+  <% end %>
+</body>
