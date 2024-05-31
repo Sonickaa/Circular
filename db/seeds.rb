@@ -41,95 +41,174 @@ health_wellness = Category.create!(name: "Health & Wellness")
 tools_hardware = Category.create!(name: "Tools & Hardware")
 video_games = Category.create!(name: "Video Games")
 baby_products = Category.create!(name: "Baby Products")
+services = Category.create!(name: "Services")
 
 puts "20 categories have been created."
 
 
 products = [
   {
-    title: "Apple iPhone 13",
-    user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Latest model with A15 Bionic chip and advanced dual-camera system.",
-    condition: "new",
-    price: 999
-  },
-  {
-    title: "Samsung Galaxy S21",
-    user_id: emma.id,
-    category_id: electronics.id,
-    description: "Flagship smartphone with Dynamic AMOLED display and 5G support.",
-    condition: "new",
-    price: 799
-  },
-  {
-    title: "Sony WH-1000XM4 Headphones",
+    title: "Honda Civic Car",
     user_id: chris.id,
-    category_id: electronics.id,
-    description: "Industry-leading noise cancellation with exceptional sound quality.",
+    category_id: automotive.id,
+    description: "Reliable and fuel-efficient sedan with advanced safety features.",
     condition: "new",
-    price: 349
+    price: 22000
   },
   {
-    title: "Dell XPS 13 Laptop",
-    user_id: tuo.id,
-    category_id: electronics.id,
-    description: "High-performance laptop with InfinityEdge display and Intel i7 processor.",
-    condition: "new",
-    price: 1299
-  },
-  {
-    title: "Apple MacBook Air",
+    title: "Yamaha Acoustic Guitar",
     user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Lightweight laptop with M1 chip and Retina display.",
-    condition: "new",
-    price: 999
-  },
-  {
-    title: "Nintendo Switch",
-    user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Hybrid gaming console with a variety of popular games.",
-    condition: "new",
-    price: 299
-  },
-  {
-    title: "Sony PlayStation 5",
-    user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Next-gen gaming console with ultra-high-speed SSD and 8K output.",
+    category_id: musical_instruments.id,
+    description: "High-quality acoustic guitar with excellent sound and build quality.",
     condition: "new",
     price: 499
   },
   {
-    title: "Bose QuietComfort 35 II",
-    user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Wireless Bluetooth headphones with world-class noise cancellation.",
+    title: "HP OfficeJet Pro 9015",
+    user_id: tuo.id,
+    category_id: office_supplies.id,
+    description: "All-in-one wireless printer with fast print speeds and high-quality output.",
     condition: "new",
-    price: 299
+    price: 229
   },
   {
-    title: "Canon EOS R5 Camera",
-    user_id: sonia.id,
-    category_id: electronics.id,
-    description: "Full-frame mirrorless camera with 45MP sensor and 8K video recording.",
+    title: "Fiskars Garden Tool Set",
+    user_id: emma.id,
+    category_id: gardening.id,
+    description: "Durable and ergonomic garden tools for all your gardening needs.",
     condition: "new",
-    price: 3899
+    price: 39
   },
   {
-    title: "Fitbit Charge 4",
+    title: "Blue Buffalo Dog Food",
+    user_id: chris.id,
+    category_id: pet_supplies.id,
+    description: "High-protein, grain-free dog food made with real meat.",
+    condition: "new",
+    price: 45
+  },
+  {
+    title: "Philips Norelco Electric Shaver",
+    user_id: sonia.id,
+    category_id: health_wellness.id,
+    description: "Advanced electric shaver with multi-directional shaving heads.",
+    condition: "new",
+    price: 89
+  },
+  {
+    title: "BabyBjorn Carrier One",
+    user_id: tuo.id,
+    category_id: baby_products.id,
+    description: "Comfortable and ergonomic baby carrier for infants and toddlers.",
+    condition: "new",
+    price: 189
+  },
+  {
+    title: "Puma Running T-Shirt",
+    user_id: emma.id,
+    category_id: clothing.id,
+    description: "Lightweight and breathable running t-shirt for optimal performance.",
+    condition: "new",
+    price: 25
+  },
+  {
+    title: "Home Cleaning Service",
+    user_id: chris.id,
+    category_id: services.id,
+    description: "Professional home cleaning service with flexible scheduling options.",
+    condition: "new",
+    price: 100
+  },
+  {
+    title: "Apple AirPods Pro",
     user_id: sonia.id,
     category_id: electronics.id,
-    description: "Advanced fitness tracker with built-in GPS and heart rate monitoring.",
+    description: "Noise-cancelling wireless earbuds with high-quality sound and transparency mode.",
     condition: "new",
-    price: 149
+    price: 249
+  },
+  {
+    title: "Dyson V11 Vacuum Cleaner",
+    user_id: tuo.id,
+    category_id: home_appliances.id,
+    description: "High-performance cordless vacuum with powerful suction and advanced filtration.",
+    condition: "new",
+    price: 599
+  },
+  {
+    title: "IKEA Billy Bookcase",
+    user_id: emma.id,
+    category_id: furniture.id,
+    description: "Versatile and customizable bookcase for home or office use.",
+    condition: "new",
+    price: 79
+  },
+  {
+    title: "LEGO Star Wars Millennium Falcon",
+    user_id: chris.id,
+    category_id: toys_games.id,
+    description: "Iconic Star Wars ship with over 7,500 pieces for endless building fun.",
+    condition: "new",
+    price: 799
+  },
+  {
+    title: "Harry Potter Box Set",
+    user_id: sonia.id,
+    category_id: books.id,
+    description: "Complete collection of the Harry Potter series by J.K. Rowling.",
+    condition: "new",
+    price: 99
+  },
+  {
+    title: "Nike Air Max 270",
+    user_id: tuo.id,
+    category_id: footwear.id,
+    description: "Comfortable and stylish sneakers with Air Max cushioning.",
+    condition: "new",
+    price: 150
+  },
+  {
+    title: "Adidas UltraBoost Running Shoes",
+    user_id: emma.id,
+    category_id: sports_equipment.id,
+    description: "High-performance running shoes with responsive cushioning.",
+    condition: "new",
+    price: 180
+  },
+  {
+    title: "Dove Nourishing Body Wash",
+    user_id: chris.id,
+    category_id: beauty_personal_care.id,
+    description: "Gentle and moisturizing body wash for soft and smooth skin.",
+    condition: "new",
+    price: 6
+  },
+  {
+    title: "Pandora Charm Bracelet",
+    user_id: sonia.id,
+    category_id: jewelry.id,
+    description: "Elegant charm bracelet with customizable charms.",
+    condition: "new",
+    price: 75
+  },
+  {
+    title: "Bosch Cordless Drill",
+    user_id: tuo.id,
+    category_id: tools_hardware.id,
+    description: "Powerful cordless drill with multiple speed settings.",
+    condition: "new",
+    price: 99
+  },
+  {
+    title: "The Legend of Zelda: Breath of the Wild",
+    user_id: emma.id,
+    category_id: video_games.id,
+    description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
+    condition: "new",
+    price: 59
   }
 ]
 
 products.each do |product|
   Product.create!(product)
 end
-
-puts "10 products have been created."
