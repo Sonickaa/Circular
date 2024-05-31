@@ -8,9 +8,9 @@
       </div>
 
       <div class="item item-wishlist">
-      <%= image_tag "icons/btn home.svg", style: "width: 36px" %>
-          <%= link_to "wishlist", "#", class: "nav-link" %>
-      </div>
+        <%= image_tag "icons/btn home.svg", style: "width: 36px" %>
+        <%= link_to "wishlist", wishlist_path(current_user.wishlist), class: "nav-link" %>
+    </div>
 
       <div class="item item-addnew">
       <%= image_tag "icons/btn add.svg", style: "width: 36px" %>
