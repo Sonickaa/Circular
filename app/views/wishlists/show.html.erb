@@ -1,21 +1,18 @@
 <div class="container-full">
   <div class="container-greetings">
     <h1> Hello, <%= current_user.first_name %></h1>
-      <div class="container-greetings-message">
-        <h4>Your wishlist</h4>
+    <div class="container-greetings-message">
+      <h4>Your wishlist</h4>
     </div>
   </div>
-
-    <div class="container">
+  <div class="container">
     <% @wishlist.products.each do |product|  %>
       <h3><%= product.title %></h3>
       <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
-      <% end %>
+    <% end %>
   </div>
-
   <div class="container">
     <button type="button" class="btn btn-primary">Confirm</button>
-      <%= link_to 'Back', dashboard_path %>
+    <%= link_to 'Back', dashboard_path %>
   </div>
-
-  </div>
+</div>
