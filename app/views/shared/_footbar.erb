@@ -1,31 +1,33 @@
 <div class="footbar">
-
   <div class="container-fluid">
-
-      <div class="item item-home">
-          <%= image_tag "icons/btn categories.svg", style: "width: 36px" %>
-          <%= link_to "home", "/", class: "nav-link" %>
-      </div>
-
-      <div class="item item-wishlist">
-        <%= image_tag "icons/btn home.svg", style: "width: 36px" %>
-        <%= link_to "wishlist", wishlist_path(current_user.wishlist), class: "nav-link" %>
+    <div class="item item-home">
+      <%= link_to "/", class: "nav-link" do %>
+        <%= image_tag "icons/btn Homefill.svg", style: "width: 38px" %>
+      <% end %>
     </div>
 
-      <div class="item item-addnew">
-      <%= image_tag "icons/btn add.svg", style: "width: 36px" %>
-          <%= link_to "add new", "/products/new", class: "nav-link" %>
-      </div>
-
-      <div class="item item-dashboard">
-      <%= image_tag "icons/btn dashboard.svg", style: "width: 36px" %>
-          <%= link_to "dashboard", "/dashboard", class: "nav-link" %>
-      </div>
-
-        <div class="item item-profile">
-          <%= image_tag "icons/btn profile.svg", style: "width: 36px" %>
-        <%= link_to "profile", my_profile_path, class: "nav-link" %>
-        </div>
-
+    <div class="item item-wishlist">
+      <%= link_to wishlist_path(current_user.wishlist), class: "nav-link" do %>
+        <%= image_tag "icons/btn Favoritefill.svg", style: "width: 38px" %>
+      <% end %>
     </div>
+
+    <div class="item item-addnew">
+      <%= link_to "/products/new", class: "nav-link" do %>
+        <%= image_tag "icons/btn Addsquarefill.svg", style: "width: 38px" %>
+      <% end %>
+    </div>
+
+    <div class="item item-dashboard">
+      <%= link_to "/dashboard", class: "nav-link" do %>
+        <%= image_tag "icons/btn dashboardfill.svg", style: "width: 38px" %>
+      <% end %>
+    </div>
+
+    <div class="item item-profile">
+      <%= link_to my_profile_path, class: "nav-link" do %>
+        <%= image_tag "icons/btn Userfill1.svg", style: "width: 38px" %>
+      <% end %>
+    </div>
+  </div>
 </div>

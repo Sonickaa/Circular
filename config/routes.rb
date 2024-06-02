@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :product_wishlists, only: [:destroy]
   resources :wishlists, only: [:show]
+  # resources :products, only: [:destroy]
 end

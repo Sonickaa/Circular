@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  # before_action :set_product, only: [:destroy]
 
   def index
     @products = Product.where.not(user: current_user)
@@ -38,7 +39,18 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  private
+
+  # def destroy
+  #   @product.destroy
+  #   redirect_to root_path, notice: 'Product was successfully deleted.'
+  # end
+
+  #   private
+
+  #   def set_product
+  #     @product = Product.find(params[:id])
+  #   end
+
 
   def product_params
     params.require(:product).permit(:title, :photo, :category_id, :description, :condition, :price)
