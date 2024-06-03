@@ -1,32 +1,42 @@
-<%#
-<button onclick="window.history.go(-2); return false;" >X</button> %>
-
 <div class="profile-container">
-<img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="card-img-top" alt="...">
-<h1> Hello, <%= current_user.first_name %> </h1>
+  <img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="card-img-top" alt="...">
+  <h1>Hello, <%= current_user.first_name %></h1>
+</div>
 
-  </div>
+<div class="button-container">
+  <button class="button">Sent Offer</button>
+  <button class="button">Matched Offer</button>
+  <button class="button">Finished Offer</button>
+</div>
 
-<br>
-<div class="create-card">
-   <h5>Processing / Matched - depending if user_sender_id OR user_receiver_id</h5>
+<div class="content-container">
+  <div class="create-card">
+    <h5>Processing</h5>
     <div class="create-product-container">
-     <img src="" alt="pending-product-img">
-   </div>
-   <p>See More</p>
+      <% if @pending_product.present? %>
+        <img src="<%= @pending_product.image_url %>" alt="pending-product-img">
+        <div class="item-delete">
+          <%= link_to image_tag("icons/btn trash.svg", style: "width: 25px"), product_path(@pending_product), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% else %>
+        <img src="" alt="pending-product-img">
+      <% end %>
+    </div>
+    <p>See More</p>
   </div>
 
-  <br>
-
-<div class="received-card">
-   <h5>Finished</h5>
+  <div class="received-card">
+    <h5>Finished</h5>
     <div class="received-product-container">
-     <img src="" alt="received-product-img">
-   </div>
-     <p>See More</p>
+      <% if @received_product.present? %>
+        <img src="<%= @received_product.image_url %>" alt="received-product-img">
+        <div class="item-delete">
+          <%= link_to image_tag("icons/btn trash.svg", style: "width: 25px"), product_path(@received_product), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% else %>
+        <img src="" alt="received-product-img">
+      <% end %>
+    </div>
+    <p>See More</p>
   </div>
-
-  <br>
-<div class = "button-container">
-<button type="button" class="btn btn-dark">Keep Circularing</button>
 </div>
