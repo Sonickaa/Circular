@@ -1,62 +1,84 @@
-// .container-greetings{
-//   text-align: right;
-// }
+.favorite-icon-container {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  margin-left: 10px;
+}
 .container-full {
-  margin: 35px;
-  }
+  position: relative;
+  padding: 20px;
+}
 
-  .container-white {
-    background-color: white;
-    height: 50vh;
-    padding: 4vw;
-    border-radius: 21px;
-  }
+.container-greetings {
+  width: 100%;
+}
 
-  .carousel-item {
-    backface-visibility:unset!important;
-  }
+.dropdown {
+  margin-bottom: 20px;
+  margin-left: 30px;
+}
 
-  .dropdown-toggle {
-    width: 348px;
-    margin-bottom: 20px;
-    margin-top: 50px;
-    color: black;
-    background: #DDFEF6;
-    height: 42px;
-    border-radius: 21px;
-    border: 0;
-  }
+.category-button {
+  width: 300px;
+  padding: 10px 20px;
+  background-color: #4a978bb3;
+  color: white;
+  border-radius: 21px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
 
-  .container-greetings-message {
-  text-align: right;
-  color: #348972;
-  }
+.carousel {
+  position: relative;
+}
 
-  h4 {
-    font-size: 18px;
-  }
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
 
-  h1 {
-    font-size:32px;
-  }
-  .send-offer-button-container {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    box-shadow: #DDFEF6;
-  }
+.carousel-item {
+  transition: transform 0.4s ease-in-out;
+  opacity: 10;
+}
 
-  .user-button {
-    padding: 10px 20px;
-    background-color: #114235;
-    color: white;
-    border-radius: 21px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  .user-button:hover {
-    background-color: #0b1d16;
-  }
+.send-offer-button-container {
+  position: absolute;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 300px;
+}
+
+.user-button {
+  padding: 15px 20px;
+  background-color: #0b7178;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.4s ease;
+  width: 320px;
+  height: 60px;
+  display: inline-block;
+}
+
+.user-button:hover {
+  background-color: #0a504b;
+}
+
+.container-white {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
