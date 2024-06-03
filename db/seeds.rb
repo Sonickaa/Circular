@@ -241,14 +241,6 @@ products = [
     image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg",
     condition: "new",
     price: 59
-  },
-  {
-    title: "The Legend of Sonia: Breath of the Wild",
-    user_id: emma.id,
-    category_id: video_games.id,
-    description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
-    condition: "new",
-    price: 59
   }
 ]
 
@@ -259,3 +251,9 @@ products.each_with_index do |product, index|
   new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
   new_product.save
 end
+
+offer = Offer.create(user_sender: chris, user_receiver: sonia, status: 0)
+product1 = Product.where(user: chris).first
+OfferProduct.create(offer: offer, product: product1)
+product2 = Product.where(user: sonia).first
+OfferProduct.create(offer: offer, product: product2)
