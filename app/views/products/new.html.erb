@@ -1,16 +1,5 @@
-<head>
-  <meta charset="UTF-8">
-  <title>Upload Offer</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-
-    h1 {
-      font-size: 40px;
-    }
-  </style>
-</head>
-<body>
   <p></p>
+  <!-- Big Header -->
   <h1 class="dark-gray-text">Upload your offer!</h1>
 
   <!-- Close button -->
@@ -55,15 +44,24 @@
       <input type="text" name="title">
     </div>
     <div class="styled-input">
+
+     <!-- need to be implemented -->
       <label>Category:</label>
-      <select name="category">
+      <select name="category" class="styled-input">
         <option value="" disabled selected>Select a category</option>
-        <option value="New">New</option>
-        <option value="Used">Used</option>
-        <option value="Refurbished">Refurbished</option>
+        <option value="clothing">Clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="furniture">Furniture</option>
+        <option value="service">Service</option>
+
+
+
+        <option value="other">Ohter</option>
       </select>
     </div>
     <div class="styled-input">
+        <!-- -->
+
       <label>Condition:</label>
       <select name="condition">
         <option value="New">New</option>
@@ -71,23 +69,26 @@
         <option value="Refurbished">Refurbished</option>
       </select>
     </div>
-
+     <!-- price range -->
+     <label>　Price:</label>
+     <br><br>
     <div class="range_container">
     <div class="sliders_control">
-        <input id="fromSlider" type="range" value="10" min="0" max="100"/>
-        <input id="toSlider" type="range" value="40" min="0" max="100"/>
+        <input id="fromSlider" type="range" value="10" min="0" max="1000"/>
+        <input id="toSlider" type="range" value="40" min="0" max="1000"/>
     </div>
     <div class="form_control">
         <div class="form_control_container">
             <div class="form_control_container__time">Min</div>
-            <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="100"/>
+            <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="1000"/>
         </div>
         <div class="form_control_container">
             <div class="form_control_container__time">Max</div>
-            <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="100"/>
+            <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="1000"/>
         </div>
     </div>
 </div>
+</select>
 
     <div class="styled-input">
       <label>Description:</label>
@@ -95,7 +96,7 @@
     </div>
     <button type="submit" class="submit-button">Submit</button>
   </form>
-
+   <!-- price range JS -->
   <script>
     function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
     const [from, to] = getParsed(fromInput, toInput);
@@ -185,4 +186,5 @@ toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
 fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
 toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
   </script>
+
 </body>

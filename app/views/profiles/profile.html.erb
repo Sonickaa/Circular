@@ -1,3 +1,4 @@
+
 <h3>Hello</h3>
 <h3><%= "#{current_user.first_name} #{current_user.last_name}" %></h3>
 
@@ -21,3 +22,28 @@
     <p>Profile picture not found</p>
   </div>
 <% end %>
+
+<div class="container-full">
+  <div class="container-greetings">
+    <img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="profile-picture" alt="Profile Picture">
+    <h1>Hello, <%= current_user.first_name %></h1>
+    <div class="container-greetings-message">
+    </div>
+  </div>
+
+  <div class="container-bio">
+    <h3>Bio: <%= current_user.bio %></h3>
+    <h3>My Own Items:</h3>
+    <ul>
+      <% @products.each do |product| %>
+        <li><%= product.title %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="buttons">
+    <%= link_to "Edit Profile", edit_profile_path(@user), class: "button" %>
+    <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "button" %>
+  </div>
+</div>
+

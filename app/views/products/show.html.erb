@@ -1,1 +1,26 @@
-<h1> HELLO, PRODUCT SHOW </h1>
+<!-- app/views/products/show.html.erb -->
+
+<h1>Product Show Page</h1>
+
+<div class="product-details">
+  <h2><%= @product.title %></h2>
+  <div class="product-image">
+  </div>
+  <div class="product-info">
+    <p><strong>Category:</strong> <%= @product.category.name %></p>
+    <p><strong>Description:</strong> <%= @product.description %></p>
+    <p><strong>Condition:</strong> <%= @product.condition %></p>
+    <p><strong>Price:</strong> <%= @product.price %></p>
+  </div>
+
+  <% if @product.photo.attached? %>
+    <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+
+  <div class="product-actions">
+    <%= link_to 'Send Offer', (), method: :post, class: 'btn btn-primary' %>
+    <%= link_to 'Add to Wishlist', (), method: :post, class: 'btn btn-secondary' %>
+  </div>
+</div>
+
+<%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
