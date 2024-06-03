@@ -30,13 +30,16 @@
               <% end %>
               <div class="product-image-container">
                 <% if product.photo.key.present? %>
-                  <%= cl_image_tag product.photo.key, class: 'product-image' %>
+                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
                 <% else %>
-                  <%= image_tag "default_product.jpg", class: 'product-image' %>
+                  <%= image_tag "default_product.jpg", class: 'product-image img-fluid' %>
                 <% end %>
               </div>
-              <div>
-                <span class="product-title"><%= product.title %></span>
+              <div class="product-title-container">
+                <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+              </div>
+              <div class="product-description-container">
+                <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
               </div>
               <div class="send-offer-button-container">
                 <a href="/dashboard" class="user-button">Send an Offer</a>
