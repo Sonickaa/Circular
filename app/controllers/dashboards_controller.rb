@@ -5,8 +5,13 @@ class DashboardsController < ApplicationController
   # list of offers current user sent
   def sent
 
-    @offer_products = OfferProduct.joins(:product, :offer)
-                                  .where(offer: { user_sender: current_user })
+    # @offer_products = OfferProduct.joins(:product, :offer)
+    #                               .where(offer: { user_sender: current_user })
+
+    @my_offers = Offer.where(user_sender: current_user)
+
+    # better to have a direct query for the product
+
   end
 
   # current user can delete sent offers
