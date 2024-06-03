@@ -1,45 +1,15 @@
-<head>
-  <style>
-    body {
-      margin: 15px;
-    }
-
-    .dark-gray-text {
-      color: #333333;
-    }
-
-    .styled-input {
-      width: 90%;
-      margin-left: 15px;
-      border-radius: 5px;
-    }
-
-    .submit-button {
-      border-radius: 20px;
-      padding: 10px 20px;
-      background-color: #999999; 
-      color: #333333;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-    }
-
-    .submit-button:hover {
-      background-color: #888888;
-    }
-  </style>
-</head>
-<body>
-  <h1 class="dark-gray-text">Upload your offer!</h1>
+<div class="input-container">
+ <h1 class="dark-gray-text">Upload your offer!</h1>
   <%= simple_form_for(@product, html: { class: "dark-gray-text", multipart: true }) do |f| %>
     <%= f.input :image, as: :file, input_html: { class: "styled-input" } %>
     <%= f.input :title, input_html: { class: "styled-input" } %>
     <%= f.association :category, prompt: "Select a category", input_html: { class: "styled-input" } %>
     <%= f.input :condition, as: :select, collection: ['New', 'Used', 'Refurbished'], input_html: { class: "styled-input" } %>
     <%= f.input :price, input_html: { class: "styled-input" } %>
-    <%= f.input :photo, as: :file %>
+    <%# <%= f.input :photo, as: :file %>
     <%= f.input :description, as: :text, input_html: { class: "styled-input", rows: 5 } %>
+    <div class="submit-container">
     <%= f.submit 'Submit', class: "submit-button" %>
+    </div>
   <% end %>
-</body>
+</div>

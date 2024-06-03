@@ -1,0 +1,36 @@
+
+.dark-gray-text {
+  color: #333333;
+  justify-content: center;
+  }
+
+
+.styled-input {
+  width: 90%;
+  margin-left: 15px;
+  border-radius: 5px;
+  }
+
+  .submit-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .submit-button {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #999999;
+    color: #333333;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:hover {
+    background-color: #888888;
+  }
+.input-container{
+  margin: auto;
+}

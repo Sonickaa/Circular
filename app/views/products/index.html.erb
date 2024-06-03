@@ -18,20 +18,17 @@
     </ul>
   </div>
 
- <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <% @products.each_with_index do |product, index| %>
-      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <div class="container-white">
-          <h1><%= product.title %></h1>
-          <!-- Add image and other product details here -->
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <% @products.each_with_index do |product, index| %>
+        <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+          <div class="container-white">
+            <h1><%= product.title %></h1>
+            <!-- Add image and other product details here -->
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
+      <% end %>
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -43,6 +40,6 @@
   </div>
 
   <div class="send-offer-button-container">
-    <button class="user-button">Send an Offer</button>
+    <a href="/dashboard" class="user-button">Send an Offer</a>
   </div>
 </div>

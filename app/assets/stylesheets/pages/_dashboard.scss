@@ -1,98 +1,78 @@
-.profile-container{
-  width: 66px;
-  height: 66px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
 .profile-container {
-  display: flex;
-  align-items: center;
-  padding: 10px 10px 0 0;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .profile-container img {
-  margin:10px 20px 0 20px;
-  max-width: 100px;
-  height: auto;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
-.bio-container{
+.button-container {
+  display: flex;
   justify-content: center;
+  margin: 20px 0;
+}
+
+.button {
+  flex: 1;
+  padding: 10px 20px;
+  background-color: #348972;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.content-container {
   display: flex;
-  align-items: center;
-}
-
-.profile-container h1 {
-  margin: 10px 5px 0 0;
-}
-
-button{
-  border-radius: 50%;
-  border: 3px solid #000;
-  background: rgba(217, 217, 217, 0.00);
-  width: 272px;
-  height: 35px;
-  flex-shrink: 0;
-  box-shadow: 0px 4px 10px #01000076;
-}
-.button-container{
   justify-content: center;
-  display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 300px;
 }
 
-h1{
-color: #000;
-font-family: "Montagu Slab";
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-}
-.create-card{
-  margin-top: 30px;
-  padding-left: 20px;
-}
-.create-product-container {
-  border-radius: 5px;
-  border: 0.8px solid #0909092a;
-  background: #FFF;
-  display: flex;
+.create-card,
+.received-card {
   width: 300px;
-  height:40px;
-  padding: 0px 7.488px 8.986px 7.488px;
-  // img和text之间的padding
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 4px 10px #01000076;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+  padding: 20px;
 }
-.item-delete{
-  position: relative;
 
-}
-.item-delete{
-  position: absolute;
-  right : 20px;
 
+.create-card img,
+.received-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
-.received-card{
-  padding-left: 20px;
+
+.create-card .item-delete,
+.received-card .item-delete {
+  text-align: right;
+  margin-top: 10px;
 }
-.received-product-container {
-    border-radius: 5px;
-    border: 0.8px solid #0909092a;
-    background: #FFF;
-    display: flex;
-    width: 300px;
-    height:40px;
-    padding: 0px 7.488px 8.986px 7.488px;
-    // img和text之间的padding
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0px 4px 10px #01000076;
+
+.create-card p,
+.received-card p {
+  text-align: center;
+  margin: 10px 0 0;
+  color: #348972;
+  cursor: pointer;
 }
-.see-more-button {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
+
+.create-card p:hover,
+.received-card p:hover {
+  text-decoration: underline;
+  color: #287359;
 }
