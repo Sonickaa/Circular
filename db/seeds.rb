@@ -244,24 +244,6 @@ products = [
     image_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg",
     condition: "new",
     price: 59
-  },
-  {
-    title: "The Legend of Sonia: Breath of the Wild",
-    user_id: emma.id,
-    category_id: video_games.id,
-    description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
-    image_url: "https://tse3.mm.bing.net/th?id=OIP.MQoX2BnpzRODg6MC6XmQpAHaFs&pid=Api&P=0&h=180",
-    condition: "new",
-    price: 59
-  },
-  {
-    title: "Macbook Pro M3",
-    user_id: sachini.id,
-    category_id: electronics.id,
-    description: "Macbook Pro Brand New For Sale",
-    image_url: "https://drive.google.com/file/d/1nlfMUpWgqgB1RKAJBOeqnXhAAaDODixV/view?usp=drive_link",
-    condition: "new",
-    price: 2120
   }
 ]
 

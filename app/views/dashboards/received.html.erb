@@ -1,0 +1,17 @@
+<% @received_offers.each do |offer| %>
+  <% offer.products.each do |product| %>
+  <% other_user = User.find(offer.user_sender_id) %>
+  <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
+  <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose some and exchange!</h3>
+  <form action="offer/createCounterOffer" method="post">
+    <input type="integer" hidden name="offer[my_product]" value="<%= product.id %>">
+    <input type="integer" hidden name="offer[offer_id]" value="<%= offer.id %>">
+    <select multiple name="offer[their_product]" id="their_product">
+    <% other_user.products.each do |product| %>
+      <option value="<%= product.id %>"><%= product.title %></option>
+    <% end %>
+    </select>
+    <button type="submit">Press here to submit</button>
+  </form>
+  <% end %>
+<% end %>
