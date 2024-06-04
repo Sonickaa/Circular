@@ -10,7 +10,7 @@ class OffersController < ApplicationController
     # creating offer and linking it to the product and all
 
     @product = Product.find(params[:product_id])
-    @offer = Offer.new(user_sender: current_user, user_receiver: @product.user)
+    @offer = Offer.new(user_sender: current_user, user_receiver: @product.user, status: "pending")
 
     OfferProduct.create(offer: @offer, product: @product)
     # current_user.products.each do |product|
