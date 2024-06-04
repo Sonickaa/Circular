@@ -44,7 +44,9 @@
                 <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
               </div>
               <div class="send-offer-button-container">
+
                 <%= link_to "Send an offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
+
               </div>
             </div>
           </div>
