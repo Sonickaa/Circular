@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "dashboard/received", to: "dashboards#received"
   post "dashboard/offer/createCounterOffer", to: "offers#create_counter_offer", as: "counter_offer"
 
-
   get "/profile", to: "profiles#profile", as: :my_profile
   patch "/profile", to: "profiles#update", as: :profile
 
+  delete "/product_wishlists/:id", to: "product_wishlists#unheart_wishlist_product", as: :unheart_wishlist_product
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :product_wishlists, only: [:create]
@@ -26,4 +26,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :product_wishlists, only: [:destroy]
   resources :wishlists, only: [:show]
+
+  resources :products do
+    post 'toggle_favorite', on: :member
+  end
+
 end

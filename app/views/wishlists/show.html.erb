@@ -9,7 +9,8 @@
     <div class="container">
     <% @wishlist.products.each do |product|  %>
       <h3><%= product.title %></h3>
-      <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+        <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
+        <%= link_to "Delete", product_wishlist_path(product_wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
       <% end %>
   </div>
 

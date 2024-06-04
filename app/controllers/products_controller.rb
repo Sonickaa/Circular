@@ -43,6 +43,23 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def toggle_favorite
+    @product = Product.find(params[:id])
+    if current_user.wishlist.include?(@product)
+      current_user.wishlist.delete(@product)
+      favorited = false
+    else
+      current_user.wishlist << @product
+      favorited = true
+    end
+
+    if current_user.save
+      render json: { success: true, favorited: favorited }
+    else
+      render json: { success: false }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def product_params

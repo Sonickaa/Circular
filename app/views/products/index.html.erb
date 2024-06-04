@@ -25,9 +25,19 @@
         <% @products.each_with_index do |product, index| %>
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="container-white position-relative">
-              <%= link_to product_product_wishlists_path(product), data: { turbo_method: :post }, class: 'favorite-btn' do %>
-                <%= image_tag 'icons/heart_icon_gray.png', alt: 'Add to favorite', class: 'favorite-icon' %>
+
+              <% if current_user.wishlist.products.include?(product) %>
+                <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
+
+               <%= link_to unheart_wishlist_product_path(product_wishlist.id), data: { turbo_method: :delete }, class: 'favorite-btn' do %>
+                <%= image_tag 'heart_icon_red', class: 'red-favorite-btn' %>
+                <% end %>
+              <% else %>
+                <%= link_to product_product_wishlists_path(product.id), data: { turbo_method: :post }, class: 'favorite-btn' do %>
+                  <%= image_tag 'heart_icon_gray', alt: 'Add to favorite', class: 'favorite-icon' %>
+                <% end %>
               <% end %>
+
               <div class="product-image-container">
                 <% if product.photo.key.present? %>
                   <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
