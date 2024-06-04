@@ -24,6 +24,7 @@ class OffersController < ApplicationController
   def create_counter_offer
     @their_product = Product.find(params[:offer][:their_product])
     @offer = Offer.find(params[:offer][:offer_id])
+    @offer.pending!
     OfferProduct.create(offer: @offer, product: @their_product)
     redirect_to dashboard_path
   end
