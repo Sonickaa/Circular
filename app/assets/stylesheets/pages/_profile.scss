@@ -1,10 +1,3 @@
-
-.profile-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
 .profile-picture-placeholder {
   width: 100px;
   height: 100px;
@@ -13,7 +6,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #666; }
+  color: #666;
+}
 
 
 .profile-picture {
@@ -55,26 +49,100 @@
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.buttons {
-  text-align: center;
+.profile-product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  // padding: 10px;
 }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4dad97d0;
+.profile-product-card {
+  background: #fff;
+  // border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 10px);
+  /* Two columns on mobile */
+  height: 300px;
+  /* Fixed height for all cards */
+  margin-bottom: 10px;
+}
+
+.profile-product-image {
+  height: 50%;
+  /* 50% of the card height */
+  overflow: hidden;
+}
+
+.profile-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-product-info {
+  padding: 2px;
+  margin: 0 0 0 0;
+}
+
+.profile-product-title {
+  font-size: .8em;
+  color: #000000;
+  margin: 0 0 0 0;
+}
+
+.profile-product-description {
+  font-size: .6em;
+  color: #666;
+  margin: 0 0 0 0;
+}
+
+
+.profile-product-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0 0;
+  align-items: flex-end;
+}
+
+
+.profile-product-edit-button {
+  // background: #007bff;
   color: #fff;
+  padding: 2px;
+  /* Adjust padding */
   text-decoration: none;
-  border-radius: 5px;
-  margin: 0 10px;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  border-radius: 2px;
+  font-size: 0.7em;
+  /* Adjust font size */
+  min-width: 60px;
+  /* Ensure minimum width */
+  text-align: center;
+  /* Center text */
 }
 
-.button:hover {
-  background-color: #266e55c4;
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+
+.profile-product-delete-button {
+  padding: 2px 2px;
 }
 
+@media (min-width: 768px) {
+  .wishlist-card {
+    width: calc(33.333% - 20px);
+    /* Three columns on tablets and above */
+  }
+}
+
+@media (min-width: 1024px) {
+  .wishlist-card {
+    width: calc(25% - 20px);
+    /* Four columns on desktops and above */
+  }
+}
