@@ -1,31 +1,34 @@
 <div class="container-full">
   <div class="container-greetings">
-    <h1> Hello, <%= current_user.first_name %></h1>
-      <div class="container-greetings-message">
-        <h4>Your wishlist</h4>
+    <h1>Hello, <%= current_user.first_name %></h1>
+    <div class="container-greetings-message">
+      <h4>Your wishlist</h4>
     </div>
   </div>
-
-
-    <div class="product-container">
-    <% @wishlist.products.each do |product|  %>
-      <h3><%= product.title %></h3>
-
-        <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
-
-      <%# <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
-       <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"),product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
-
-      <% end %>
+  <div class="wishlist-container">
+    <% @wishlist.products.each do |product| %>
+      <div class="wishlist-card">
+        <div class="wishlist-product-image">
+          <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+        </div>
+        <div class="product-info">
+          <div class="product-title-container">
+            <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+          </div>
+          <div class="product-description-container">
+            <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+          </div>
+          <div class="product-actions">
+            <div class="wishlist-send-and-offer-button">
+              <%= link_to "Offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
+            </div>
+            <div class="delete-button">
+              <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
+              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="container">
-    <button type="button" class="btn btn-primary">Confirm</button>
-      <%= link_to 'Back', dashboard_path %>
-      <div class="button-container">
-
-    <button onclick="confirmSelection()">Send an offer</button>
-    <button onclick="cancelSelection()">Back</button>
 </div>
-  </div>
-  </div>
