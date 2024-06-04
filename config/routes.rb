@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "dashboards#dashboard"
   get "dashboard/sent", to: "dashboards#sent"
-  get "dashboard/accepted_offer", to: "dashboards#accepted_offer"
-  get "dashboard/declined_offer", to: "dashboards#declined_offer"
+  patch "dashboard/:id/accepted_offer", to: "dashboards#accepted_offer", as: "accepted"
+  patch "dashboard/:id/declined_offer", to: "dashboards#declined_offer", as: "declined"
   get "dashboard/received", to: "dashboards#received"
+  get "dashboard/finished", to: "dashboards#finished"
   post "dashboard/offer/createCounterOffer", to: "offers#create_counter_offer", as: "counter_offer"
 
 
