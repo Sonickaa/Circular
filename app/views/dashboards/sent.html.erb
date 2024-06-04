@@ -1,4 +1,9 @@
+
+<h2>Hi <%= current_user.first_name %>! Your sent offers:</h2>
+
+<div class="sent-container">
 <h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+
 
 <% @my_offers.each do |offer| %>
 <% next if offer.status != "pending" %>
@@ -6,7 +11,8 @@
   <% their_product = offer.products.first.title %>
   <% counter_offer_product = offer.products.second&.title %>
   <div class="card">
-    <p>You want <%= receiver.first_name.pluralize %> <%= their_product %></p>
+    <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
+
       <% if counter_offer_product %>
         <p>They want your <%= counter_offer_product %></p>
           <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" %>
@@ -14,5 +20,22 @@
       <% end %>
   </div>
 
-
 <% end %>
+
+
+<div class="container-checkbox">
+    <span class="close">&times;</span>
+    <h2>your own Items</h2>
+    <ul>
+        <li><input type="checkbox" id="item1"> <label for="item1">item 1</label></li>
+        <li><input type="checkbox" id="item2"> <label for="item2">item 2</label></li>
+        <li><input type="checkbox" id="item3"> <label for="item3">item 3</label></li>
+    </ul>
+</div>
+<div class="button-container">
+
+    <button onclick="confirmSelection()">Comfirm</button>
+    <button onclick="cancelSelection()">Reject</button>
+</div>
+
+</div>

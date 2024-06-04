@@ -1,0 +1,62 @@
+.container-checkbox {
+  width: 300px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.container h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close:hover {
+  color: #666;
+}
+
+button {
+  padding: 8px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #097a69;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button.cancel {
+  background-color: #f44336;
+}
+
+button.cancel:hover {
+  background-color: #da190b;
+}

@@ -5,9 +5,8 @@
     <% counter_offer_product = offer.products.second&.title %>
     <% other_user = User.find(offer.user_receiver_id) %>
     <div>
-      <h2>Congratulations! <%= other_user.first_name %> wants your <%= counter_offer_product %></h2>
-      <h3>You want <%= other_user.first_name %>´s <%= their_product %>.</h3>
+      <h2>Exchange of <%= counter_offer_product %> & their <%= their_product %> </h2>
       <h3>Status: <%= offer.status&.capitalize %></h3>
+      <hr>
     </div>
   <% end %>
-<%# <% end %>

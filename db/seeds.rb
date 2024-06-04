@@ -18,9 +18,9 @@ User.destroy_all
 
 
 sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
-tuo = User.create!(first_name: "Tuo", last_name: "Chaboud", email: "tuo@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
-emma = User.create!(first_name: "Emma", last_name: "Chaboud", email: "emma@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
-chris = User.create!(first_name: "Chris", last_name: "Chaboud", email: "chris@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
+tuo = User.create!(first_name: "Tuo", last_name: "Wang", email: "tuo@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
+emma = User.create!(first_name: "Emma", last_name: "Teacher", email: "emma@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
+chris = User.create!(first_name: "Christian", last_name: "Breuckmann", email: "chris@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
 sachini = User.create!(first_name: "Sachini", last_name: "Srimali", email: "sachini@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
 alex = User.create!(first_name: "Alexander", last_name: "Holz", email: "alex@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
 remi = User.create!(first_name: "Remi", last_name: "Li", email: "remi@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
@@ -38,7 +38,6 @@ end
   user.save!
 end
 
-# Array of 20 category names for products
 electronics = Category.create!(name: "Electronics")
 home_appliances = Category.create!(name: "Home, garden & furniture")
 toys_games = Category.create!(name: "Books, toys & video games")
@@ -330,8 +329,8 @@ products = [
      tell. This battle-scarred warrior has endured countless movie marathons and gaming sessions. It may not be fancy,
      but it's got character and a price tag that won't break the bank. Sit back, relax, and embrace the shittiness!",
     condition: "used",
-    image_url: "https://classifieds.248am.com/oc-content/uploads/351/55716.jpg",
-    price: 525
+    image_url: "https://d6qwfb5pdou4u.cloudfront.net/product-images/6700001-6710000/6703450/1699185341ae0796428b7564bf00401c6773b6fcf0/1500-1500-frame-0.jpg",
+    price: 20
   },
 
   {
