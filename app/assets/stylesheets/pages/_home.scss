@@ -67,16 +67,25 @@ h1 {
 .favorite-icon {
   width: 30px;
   height: 30px;
-}
-
-.favorite-btn {
   position: absolute;
   top: 10px;
   right: 10px;
   background: transparent;
   border: none;
   z-index: 2;
-  /* Ensure it's above the carousel controls */
+}
+
+
+
+.red-favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
 }
 
 .product-image-container {

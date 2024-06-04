@@ -34,13 +34,16 @@
     </div>
   <% end %>
 
-  <h1> <%= @product.title %></h1>
+  <h1>　<%= @product.title %></h1>
 
   <div class="product-info">
     <p><strong>Category:</strong> <%= @product.category.name %></p>
-    <p><strong>Description:</strong> <%= @product.description %></p>
+    <p><strong>Description:</strong>
+    <br><%= @product.description %></p>
     <p><strong>Condition:</strong> <%= @product.condition %></p>
-    <p><strong>Price:</strong> <%= @product.price %></p>
+
+    <p><strong>Price:</strong> <%= number_to_currency(@product.price, unit: "€", precision: 0) %> ~ <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
+
   </div>
 
   <div class="product-actions">
@@ -48,6 +51,4 @@
     <button class="button">Add to Wishlist</button>
   </div>
 </div>
-<p></p>
-<p></p>
 <%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>

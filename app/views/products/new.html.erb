@@ -1,5 +1,6 @@
-  <p></p>
+ <div class = "page">
   <!-- Big Header -->
+  <p></p>
   <h1 class="dark-gray-text">Upload your offer!</h1>
 
   <!-- Close button -->
@@ -32,8 +33,9 @@
   </svg>
 
   <!-- Simple form for uploading offer -->
+  <br>
   <form class="dark-gray-text" action="/submit" method="post" enctype="multipart/form-data">
-    <p></p>
+
     <div class="styled-input">
       <label>Image:</label>
       <input type="file" name="image">
@@ -43,22 +45,18 @@
       <label>Title:</label>
       <input type="text" name="title">
     </div>
-    <div class="styled-input">
 
+    <div class="styled-input">
      <!-- need to be implemented -->
       <label>Category:</label>
-      <select name="category" class="styled-input">
-        <option value="" disabled selected>Select a category</option>
-        <option value="clothing">Clothing</option>
-        <option value="electronics">Electronics</option>
-        <option value="furniture">Furniture</option>
-        <option value="service">Service</option>
+      <select name="category">
+      <% Category.all.each do |category| %>
+        <option><%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %></option>
+      <% end %>
 
-
-
-        <option value="other">Ohter</option>
-      </select>
+    </select>
     </div>
+
     <div class="styled-input">
         <!-- -->
 
@@ -70,8 +68,8 @@
       </select>
     </div>
      <!-- price range -->
-     <label>　Price:</label>
-     <br><br>
+     <label>　Price €:</label>
+     <br>
     <div class="range_container">
     <div class="sliders_control">
         <input id="fromSlider" type="range" value="10" min="0" max="1000"/>
@@ -188,3 +186,4 @@ toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
   </script>
 
 </body>
+</div>
