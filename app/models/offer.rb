@@ -3,4 +3,5 @@ class Offer < ApplicationRecord
   belongs_to :user_receiver, class_name: 'User'
   has_many :offer_products
   has_many :products, through: :offer_products
+  enum :status, pending: 0, finished: 1
 end

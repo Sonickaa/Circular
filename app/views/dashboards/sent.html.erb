@@ -1,3 +1,18 @@
+<h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+
 <% @my_offers.each do |offer| %>
-<li><%= offer.products.where.not(user: current_user).first.title %></li>
+  <% receiver = User.find(offer.user_receiver_id) %>
+  <% their_product = offer.products.first.title %>
+  <% counter_offer_product = offer.products.second.title %>
+  <div class="card">
+    <p>You want <%= receiver.first_name.pluralize %> <%= offer.products.first.title %></p>
+      <% if counter_offer_product %>
+        <p>They want your <%= counter_offer_product %></p>
+          <%= link_to "Accept", dashboard_path, class: "button" %>
+          <%= link_to "Decline", dashboard_path, class: "button" %>
+
+      <% end %>
+  </div>
+
+
 <% end %>
