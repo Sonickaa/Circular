@@ -6,17 +6,26 @@
     </div>
   </div>
 
-    <div class="container">
+
+    <div class="product-container">
     <% @wishlist.products.each do |product|  %>
       <h3><%= product.title %></h3>
+
         <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
-        <%= link_to "Delete", product_wishlist_path(product_wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+
+      <%# <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+       <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"),product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+
       <% end %>
   </div>
 
   <div class="container">
     <button type="button" class="btn btn-primary">Confirm</button>
       <%= link_to 'Back', dashboard_path %>
-  </div>
+      <div class="button-container">
 
+    <button onclick="confirmSelection()">Send an offer</button>
+    <button onclick="cancelSelection()">Back</button>
+</div>
+  </div>
   </div>

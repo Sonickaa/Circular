@@ -2,8 +2,8 @@
   <% offer.products.each do |product| %>
   <% other_user = User.find(offer.user_sender_id) %>
   <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
-  <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose some and exchange!</h3>
-  <form action="offer/createCounterOffer" method="post">
+  <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
+  <form action="offer/createCounterOffer" method="post", class="form-offer">
     <input type="integer" hidden name="offer[my_product]" value="<%= product.id %>">
     <input type="integer" hidden name="offer[offer_id]" value="<%= offer.id %>">
     <select multiple name="offer[their_product]" id="their_product">
@@ -11,7 +11,27 @@
       <option value="<%= product.id %>"><%= product.title %></option>
     <% end %>
     </select>
-    <button type="submit">Press here to submit</button>
+    <button type="submit">Make an offer</button>
+
   </form>
+   <div>
+   <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
+   </div>
   <% end %>
 <% end %>
+
+
+<div class=“container-checkbox”>
+    <span class=“close”>&times;</span>
+    <h2>your own Items</h2>
+    <ul>
+        <li><input type=“checkbox” id=“item1"> <label for=“item1”>item 1</label></li>
+        <li><input type=“checkbox” id=“item2”> <label for=“item2">item 2</label></li>
+        <li><input type=“checkbox” id=“item3"> <label for=“item3”>item 3</label></li>
+    </ul>
+</div>
+<div class=“button-container”>
+    <button onclick=“confirmSelection()“>Comfirm</button>
+    <button onclick=“cancelSelection()“>Reject</button>
+</div>
+</div>

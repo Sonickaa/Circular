@@ -1,0 +1,12 @@
+<%# <%= if offer.status == 2 %>
+
+  <% @received_offers.each do |offer| %>
+    <% their_product = offer.products.first.title %>
+    <% counter_offer_product = offer.products.second&.title %>
+    <% other_user = User.find(offer.user_receiver_id) %>
+    <div>
+      <h2>Exchange of <%= counter_offer_product %> & their <%= their_product %> </h2>
+      <h3>Status: <%= offer.status&.capitalize %></h3>
+      <hr>
+    </div>
+  <% end %>
