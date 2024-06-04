@@ -3,9 +3,9 @@
   <h1>Hello, <%= current_user.first_name %></h1>
 </div>
 <div class="button-container">
-  <button class="button">Sent Offers</button>
-  <button class="button">Received Offers</button>
-  <button class="button">Matched Offers</button>
+  <%= link_to "Sent Offer", dashboard_sent_path, class: "button" %>
+  <button class="button">Matched Offer</button>
+  <button class="button">Finished Offer</button>
 </div>
 <div class="content-container">
   <div class="create-card">
