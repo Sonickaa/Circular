@@ -21,6 +21,9 @@ sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@te
 tuo = User.create!(first_name: "Tuo", last_name: "Chaboud", email: "tuo@test.com", password: "123456")
 emma = User.create!(first_name: "Emma", last_name: "Chaboud", email: "emma@test.com", password: "123456")
 chris = User.create!(first_name: "Chris", last_name: "Chaboud", email: "chris@test.com", password: "123456")
+sachini = User.create!(first_name: "Sachini", last_name: "Srimali", email: "sachini@test.com", password: "123456")
+
+
 
 User.all.each do |user|
   Wishlist.create(user: user)
@@ -250,13 +253,35 @@ products = [
     image_url: "https://tse3.mm.bing.net/th?id=OIP.MQoX2BnpzRODg6MC6XmQpAHaFs&pid=Api&P=0&h=180",
     condition: "new",
     price: 59
+  },
+  {
+    title: "Macbook Pro M3",
+    user_id: sachini.id,
+    category_id: electronics.id,
+    description: "Macbook Pro Brand New For Sale",
+    image_url: "https://drive.google.com/file/d/1nlfMUpWgqgB1RKAJBOeqnXhAAaDODixV/view?usp=drive_link",
+    condition: "new",
+    price: 2120
   }
 ]
 
+# products.each_with_index do |product, index|
+#   file = URI.open(product[:image_url])
+#   product.delete(:image_url)
+#   new_product = Product.new(product)
+#   new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
+#   new_product.save
+# end
+
 products.each_with_index do |product, index|
-  file = URI.open(product[:image_url])
-  product.delete(:image_url)
-  new_product = Product.new(product)
-  new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
-  new_product.save
+  if product[:image_url].present?
+    file = URI.open(product[:image_url])
+    product.delete(:image_url)
+    new_product = Product.new(product)
+    new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
+    new_product.save
+  else
+    new_product = Product.new(product)
+    new_product.save
+  end
 end

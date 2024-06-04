@@ -3,60 +3,151 @@
 // }
 .container-full {
   margin: 35px;
-  }
+}
 
-  .container-white {
-    background-color: white;
-    height: 50vh;
-    padding: 4vw;
-    border-radius: 21px;
-  }
+.container-white {
+  background-color: white;
+  height: 50vh;
+  border-radius: 21px;
+  position: relative;
+}
 
-  .carousel-item {
-    backface-visibility:unset!important;
-  }
+.carousel-item {
+  backface-visibility: unset !important;
+  padding: 0;
+}
 
-  .dropdown-toggle {
-    width: 348px;
-    margin-bottom: 20px;
-    margin-top: 50px;
-    color: black;
-    background: #DDFEF6;
-    height: 42px;
-    border-radius: 21px;
-    border: 0;
-  }
+.dropdown-toggle {
+  width: 348px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  color: black;
+  background: #DDFEF6;
+  height: 42px;
+  border-radius: 21px;
+  border: 0;
+}
 
-  .container-greetings-message {
+.container-greetings-message {
   text-align: right;
   color: #348972;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+.send-offer-button-container {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  box-shadow: #DDFEF6;
+
+}
+
+.user-button {
+  padding: 10px 20px;
+  background-color: #114235;
+  color: white;
+  border-radius: 21px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.user-button:hover {
+  background-color: #0b1d16;
+}
+
+.favorite-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  z-index: 2;
+  /* Ensure it's above the carousel controls */
+}
+
+.product-image-container {
+  position: relative;
+  height: 65%;
+  /* Set image height to 60% of the carousel container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  max-width: 100%;
+  max-height: 100%;
+  /* Ensure the image doesn't exceed the container height */
+  width: auto;
+  /* Maintain aspect ratio */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.product-title-container {
+  position: relative;
+  height: 7%;
+  display: flex;
+  align-items: left;
+  padding: 0px 15px 0px 15px;
+}
+
+
+.product-title {
+  font-weight: bold;
+  font-size: 2vw;
+  /* Set a base font size of 2vw */
+}
+
+.product-description-container {
+  position: relative;
+  height: 18%;
+  display: flex;
+  align-items: left;
+  padding: 0px 15px 10px 15px;
+}
+
+.product-description {
+  font-weight: regular;
+  font-size: 1.5vw;
+  /* Set a base font size of 2vw */
+}
+
+/* For screens smaller than 1000px */
+@media (max-width: 1000px) {
+  .product-title {
+    font-size: 1.2em;
   }
 
-  h4 {
-    font-size: 18px;
+  .product-description {
+    font-size: 1em;
   }
+}
 
-  h1 {
-    font-size:32px;
-  }
-  .send-offer-button-container {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    box-shadow: #DDFEF6;
-  }
+.send-offer-button-container {
+  position: absolute;
+  height: 10%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 
-  .user-button {
-    padding: 10px 20px;
-    background-color: #114235;
-    color: white;
-    border-radius: 21px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-
-  .user-button:hover {
-    background-color: #0b1d16;
-  }
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 1;
+  /* Ensure controls are behind the favorite button */
+}
