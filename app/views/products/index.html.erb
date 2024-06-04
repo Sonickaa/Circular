@@ -5,6 +5,7 @@
       <h4>Ready to circle today?</h4>
     </div>
   </div>
+
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Categories
@@ -15,6 +16,7 @@
       <% end %>
     </ul>
   </div>
+  
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% if @products.empty? %>
@@ -42,7 +44,7 @@
                 <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
               </div>
               <div class="send-offer-button-container">
-                <a href="/dashboard" class="user-button">Send an Offer</a>
+                <%= link_to "Send an offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
               </div>
             </div>
           </div>
