@@ -247,6 +247,7 @@ products = [
     user_id: emma.id,
     category_id: video_games.id,
     description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
+    image_url: "https://tse3.mm.bing.net/th?id=OIP.MQoX2BnpzRODg6MC6XmQpAHaFs&pid=Api&P=0&h=180",
     condition: "new",
     price: 59
   }
