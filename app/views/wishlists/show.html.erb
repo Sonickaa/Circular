@@ -6,16 +6,12 @@
     </div>
   </div>
 
-    <div class="container">
+
     <% @wishlist.products.each do |product|  %>
       <h3><%= product.title %></h3>
-      <%= link_to "Delete", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+      <%= link_to "Remove", product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", class:"btn btn-info", data: {turbo_method: :delete, turbo_confirm: "Sure?"}%>
+      <%= link_to 'send an offer', dashboard_path, style: "width:100px", class:"btn btn-info" %>
       <% end %>
-  </div>
-
-  <div class="container">
-    <button type="button" class="btn btn-primary">Confirm</button>
-      <%= link_to 'Back', dashboard_path %>
   </div>
 
   </div>
