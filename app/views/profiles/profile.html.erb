@@ -7,7 +7,7 @@
 <%# <h2>My own items:</h2>
 <ul> %>
   <%# <% @products.each do |product| %>
-    <%# <li><%= product.title %></li> 
+    <%# <li><%= product.title %></li>
   <%# <% end %>
 <%# </ul> %>
 
@@ -15,9 +15,9 @@
 <%# <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete } %>
 
 <!-- Profile picture -->
-<img src="<%= current_user.avatar %>" alt="Profile Picture" class="profile-picture">
 
 <div class="container-full">
+<img src="<%= current_user.avatar %>" alt="Profile Picture" class="profile-picture">
   <div class="container-greetings">
     <h1>Hello, <%= current_user.first_name %></h1>
     <div class="container-greetings-message">
@@ -26,16 +26,23 @@
 
   <div class="container-bio">
     <h3>Bio: <%= current_user.bio %></h3>
-    <h3>My Own Items:</h3>
-    <ul>
-      <% @products.each do |product| %>
-        <li><%= product.title %></li>
-      <% end %>
-    </ul>
+  <div class="my-items">
+    <h3>My items:</h3>
   </div>
+
+<div class="container-items">
+  <div class="each-item">
+      <% @products.each do |product| %>
+          <%= product.title %>
+          <%= cl_image_tag product.photo.key %>
+      <% end %>
+  </div>
+</div>
 
   <div class="buttons">
     <%= link_to "Edit Profile", edit_profile_path(@user), class: "button" %>
     <%= link_to "Log Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "button" %>
   </div>
+
+</div>
 </div>
