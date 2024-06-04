@@ -1,35 +1,29 @@
 <div class="footbar">
-
   <div class="container-fluid">
 
-      <div class="item item-home">
-          <%= image_tag "icons/btn categories.svg", style: "width: 36px" %>
-          <%= link_to "home", "/", class: "nav-link" %>
-      </div>
-
-      <div class="item item-wishlist">
-        <%= image_tag "icons/btn home.svg", style: "width: 36px" %>
-        <% if current_user.wishlist %>
-          <%= link_to "wishlist", wishlist_path(current_user.wishlist.id), class: "nav-link" %>
-        <% else %>
-          <%= link_to "wishlist", "#", class: "nav-link" %>
-        <% end %>
-      </div>
-
-      <div class="item item-addnew">
-      <%= image_tag "icons/btn add.svg", style: "width: 36px" %>
-          <%= link_to "add new", "/products/new", class: "nav-link" %>
-      </div>
-
-      <div class="item item-dashboard">
-      <%= image_tag "icons/btn dashboard.svg", style: "width: 36px" %>
-          <%= link_to "dashboard", "/dashboard", class: "nav-link" %>
-      </div>
-
-        <div class="item item-profile">
-          <%= image_tag "icons/btn profile.svg", style: "width: 36px" %>
-        <%= link_to "profile", my_profile_path, class: "nav-link" %>
-        </div>
-
+    <div class="item item-home">
+      <%= link_to image_tag("icons/btn Home_final.svg", style: "width: 40px"), root_path %>
     </div>
+
+    <div class="item item-wishlist">
+      <% if current_user.wishlist %>
+        <%= link_to image_tag("icons/btn Favorite_final.svg", style: "width: 40px"), wishlist_path(current_user.wishlist.id) %>
+      <% else %>
+        <%= link_to image_tag("icons/btn Favorite_final.svg", style: "width: 40px"), "#" %>
+      <% end %>
+    </div>
+
+    <div class="item item-addnew">
+      <%= link_to image_tag("icons/btn add_ring_final.svg", style: "width: 40px"), "/products/new" %>
+    </div>
+
+    <div class="item item-dashboard">
+      <%= link_to image_tag("icons/btn bag_final.svg", style: "width: 40px"), "/dashboard" %>
+    </div>
+
+    <div class="item item-profile">
+      <%= link_to image_tag("icons/btn user_final.svg", style: "width: 40px"), my_profile_path %>
+    </div>
+
+  </div>
 </div>
