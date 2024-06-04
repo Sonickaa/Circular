@@ -31,7 +31,7 @@ class DashboardsController < ApplicationController
 
     # Step 3: Filter out the offers that have these offer_ids
     @received_offers = @received_offers_unfiltered
-      .where.not(id: offer_ids_with_multiple_products)
+      .where.not(id: offer_ids_with_multiple_products).and(@received_offers_unfiltered.where.not(status: "declined"))
     @new_offer = Offer.new
   end
 
@@ -45,7 +45,7 @@ class DashboardsController < ApplicationController
     .pluck(:offer_id)
 
     @received_offers = @received_offers_1
-      .where(id: offer_ids_with_multiple_products)
+      .where(id: offer_ids_with_multiple_products).or(@received_offers_1.where(status: "declined"))
 
     @received_offers.uniq(&:products)
     # the same as receivef but with sender
