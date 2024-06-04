@@ -5,6 +5,7 @@
   <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose some and exchange!</h3>
   <form action="offer/createCounterOffer" method="post">
     <input type="integer" hidden name="offer[my_product]" value="<%= product.id %>">
+    <input type="integer" hidden name="offer[offer_id]" value="<%= offer.id %>">
     <select multiple name="offer[their_product]" id="their_product">
     <% other_user.products.each do |product| %>
       <option value="<%= product.id %>"><%= product.title %></option>

@@ -242,14 +242,6 @@ products = [
     condition: "new",
     price: 59
   },
-  {
-    title: "The Legend of Sonia: Breath of the Wild",
-    user_id: emma.id,
-    category_id: video_games.id,
-    description: "Critically acclaimed open-world adventure game for the Nintendo Switch.",
-    condition: "new",
-    price: 59
-  }
 ]
 
 products.each_with_index do |product, index|

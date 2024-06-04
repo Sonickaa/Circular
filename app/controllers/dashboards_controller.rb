@@ -21,7 +21,19 @@ class DashboardsController < ApplicationController
 
   # received offers from other users to current user
   def received
-    @received_offers = Offer.where(user_receiver_id: current_user.id)
+    @received_offers_unfiltered = Offer.where(user_receiver_id: current_user.id)
+
+    # Step 2: Get the offer_ids that appear more than once in OfferProduct
+    offer_ids_with_multiple_products = OfferProduct
+      .group(:offer_id)
+      .having('COUNT(*) > 1')
+      .pluck(:offer_id)
+
+    # Step 3: Filter out the offers that have these offer_ids
+    @received_offers = @received_offers_unfiltered
+      .where.not(id: offer_ids_with_multiple_products)
+
+
     @new_offer = Offer.new
   end
 
@@ -53,6 +65,13 @@ class DashboardsController < ApplicationController
 
   # users can chat after Match
   def chat
+  end
+
+  def accepted_offer
+    @offer.accepted!
+  end
+
+  def declined_offer
   end
 
 end

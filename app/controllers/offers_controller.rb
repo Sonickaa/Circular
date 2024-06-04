@@ -22,11 +22,9 @@ class OffersController < ApplicationController
   end
 
   def create_counter_offer
-    raise
-    @product = Product.find(params[:offer][:their_product])
-
-    @offer = Offer.new(user_sender: @product.user, user_receiver: current_user )
-
-    OfferProduct.create(offer: @offer, product: @product)
+    @their_product = Product.find(params[:offer][:their_product])
+    @offer = Offer.find(params[:offer][:offer_id])
+    OfferProduct.create(offer: @offer, product: @their_product)
+    redirect_to dashboard_path
   end
 end
