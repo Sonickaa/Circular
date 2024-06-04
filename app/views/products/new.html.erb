@@ -1,5 +1,6 @@
  <div class = "page">
   <!-- Big Header -->
+  <p></p>
   <h1 class="dark-gray-text">Upload your offer!</h1>
 
   <!-- Close button -->
@@ -44,29 +45,18 @@
       <label>Title:</label>
       <input type="text" name="title">
     </div>
-    <div class="styled-input">
 
+    <div class="styled-input">
      <!-- need to be implemented -->
       <label>Category:</label>
-      <select name="category" class="styled-input">
-        <option value="" disabled selected>Select a category</option>
-        <option value="art">Art</option>
-        <option value="automotive">Automotive</option>
-        <option value="beauty products">Beauty Products</option>
-        <option value="book">Books</option>
-        <option value="clothing">Clothing</option>
-        <option value="electronics">Electronics</option>
-        <option value="furniture">Furniture</option>
-        <option value="grocery">Grocery</option>
-        <option value="home appliances">Home Appliances</option>
-        <option value="jewelry">Jewelry</option>
-        <option value="pet supplies">Pet Supplies</option>
-        <option value="sports equipment">Sports Equipment</option>
-        <option value="toys">Toys</option>
-        <option value="others">Others</option>
+      <select name="category">
+      <% Category.all.each do |category| %>
+        <option><%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %></option>
+      <% end %>
 
-      </select>
+    </select>
     </div>
+
     <div class="styled-input">
         <!-- -->
 
