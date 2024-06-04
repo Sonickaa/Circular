@@ -21,17 +21,27 @@
 <% end %>
 
 
-<div class=“container-checkbox”>
-    <span class=“close”>&times;</span>
-    <h2>your own Items</h2>
+<div class="container-full">
+  <div class="container-greetings">
+    <h1> Congratulations <%= current_user.first_name%> !</h1>
+    <h3>Are some of..........´s items interesting for you?</h3>
+  <h4>Choose and exchange!</h4>
+      <div class="container-greetings-message">
+        <h4>Your Received offers</h4>
+    </div>
+  </div>
+
+<div class="container-checkbox">
+    <span class="close">&times;</span>
     <ul>
-        <li><input type=“checkbox” id=“item1"> <label for=“item1”>item 1</label></li>
-        <li><input type=“checkbox” id=“item2”> <label for=“item2">item 2</label></li>
-        <li><input type=“checkbox” id=“item3"> <label for=“item3”>item 3</label></li>
+        <li><input type="checkbox" id="item1"> <label for="item1">item 1</label></li>
+        <li><input type="checkbox" id="item2"> <label for="item2">item 2</label></li>
+        <li><input type="checkbox" id="item3"> <label for="item3">item 3</label></li>
     </ul>
 </div>
-<div class=“button-container”>
-    <button onclick=“confirmSelection()“>Comfirm</button>
-    <button onclick=“cancelSelection()“>Reject</button>
+<div class="button-container">
+
+    <button onclick="confirmSelection()">Make an offer</button>
+    <button onclick="cancelSelection()">Decline</button>
 </div>
 </div>
