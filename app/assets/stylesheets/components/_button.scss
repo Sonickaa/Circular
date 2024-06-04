@@ -1,0 +1,30 @@
+.submit-button {
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: #333333;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 100px;
+  margin-left: 5%
+}
+
+.submit-button:hover {
+  background-color: #888888;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  fill: #333333;
+}
+
+.close-button:hover {
+  fill: #888888;
+}

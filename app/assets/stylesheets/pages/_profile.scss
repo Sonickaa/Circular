@@ -3,6 +3,23 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
+
+.profile-picture-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666; }
+
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   display: block;
   margin: 0 auto 20px;
 }
@@ -60,3 +77,4 @@
   background-color: #266e55c4;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
