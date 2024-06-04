@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   root "products#index"
 
   get "dashboard", to: "dashboards#dashboard"
+  get "dashboard/sent", to: "dashboards#sent"
 
   get "/profile", to: "profiles#profile", as: :my_profile
   patch "/profile", to: "profiles#update", as: :profile
 
+
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :product_wishlists, only: [:create]
+    resources :offers, only: [:create]
   end
   resources :offer_products, only: [:index]
   resources :messages, only: [:index, :show, :new, :create, :destroy]
