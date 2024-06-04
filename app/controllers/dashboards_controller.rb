@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
 
     @my_offers = Offer.where(user_sender: current_user)
 
-    # better to have a direct query for the product
+    ##### better to have a direct query for the product
 
   end
 
@@ -21,7 +21,8 @@ class DashboardsController < ApplicationController
 
   # received offers from other users to current user
   def received
-       @products.current_user = Product.find(params[:current_user])
+    @received_offers = Offer.where(user_receiver_id: current_user.id)
+    @new_offer = Offer.new
   end
 
    # current user must select from other´s users items

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "dashboards#dashboard"
   get "dashboard/sent", to: "dashboards#sent"
+  get "dashboard/received", to: "dashboards#received"
+  post "dashboard/offer/createCounterOffer", to: "offers#create_counter_offer", as: "counter_offer"
 
   get "/profile", to: "profiles#profile", as: :my_profile
   patch "/profile", to: "profiles#update", as: :profile

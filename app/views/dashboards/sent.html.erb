@@ -1,3 +1,5 @@
+<h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+
 <% @my_offers.each do |offer| %>
 <li><%= offer.products.where.not(user: current_user).first.title %></li>
 <% end %>
