@@ -1,4 +1,4 @@
-  <p></p>
+ <div class = "page">
   <!-- Big Header -->
   <h1 class="dark-gray-text">Upload your offer!</h1>
 
@@ -32,8 +32,9 @@
   </svg>
 
   <!-- Simple form for uploading offer -->
+  <br>
   <form class="dark-gray-text" action="/submit" method="post" enctype="multipart/form-data">
-    <p></p>
+
     <div class="styled-input">
       <label>Image:</label>
       <input type="file" name="image">
@@ -49,14 +50,21 @@
       <label>Category:</label>
       <select name="category" class="styled-input">
         <option value="" disabled selected>Select a category</option>
+        <option value="art">Art</option>
+        <option value="automotive">Automotive</option>
+        <option value="beauty products">Beauty Products</option>
+        <option value="book">Books</option>
         <option value="clothing">Clothing</option>
         <option value="electronics">Electronics</option>
         <option value="furniture">Furniture</option>
-        <option value="service">Service</option>
+        <option value="grocery">Grocery</option>
+        <option value="home appliances">Home Appliances</option>
+        <option value="jewelry">Jewelry</option>
+        <option value="pet supplies">Pet Supplies</option>
+        <option value="sports equipment">Sports Equipment</option>
+        <option value="toys">Toys</option>
+        <option value="others">Others</option>
 
-
-
-        <option value="other">Ohter</option>
       </select>
     </div>
     <div class="styled-input">
@@ -71,7 +79,7 @@
     </div>
      <!-- price range -->
      <label>　Price €:</label>
-     <br><br>
+     <br>
     <div class="range_container">
     <div class="sliders_control">
         <input id="fromSlider" type="range" value="10" min="0" max="1000"/>
@@ -188,3 +196,4 @@ toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
   </script>
 
 </body>
+</div>
