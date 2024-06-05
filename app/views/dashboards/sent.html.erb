@@ -1,9 +1,5 @@
-
-<%# <h2>Hi <%= current_user.first_name %>
-<%# ! Your sent offers:</h2> %>
-
 <div class="sent-container">
-<h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+<h2>Hi <%= current_user.first_name %>!</h2>
 
 </div>
 <div class="sent-offer-container">
@@ -23,12 +19,3 @@
       <% end %>
   </div>
 <% end %>
-</div>
-
-<div class="button-container">
-
-    <button onclick="confirmSelection()">Comfirm</button>
-    <button onclick="cancelSelection()">Reject</button>
-</div>
-
-</div>
