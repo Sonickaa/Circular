@@ -49,6 +49,8 @@ class DashboardsController < ApplicationController
 
     @received_offers.uniq(&:products)
     # the same as receivef but with sender
+
+    @received_offers = @received_offers.sort_by(&:created_at).reverse
   end
 
    # current user must select from other´s users items
