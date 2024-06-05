@@ -1,12 +1,25 @@
-// .container-greetings{
-//   text-align: right;
-// }
 .container-full {
   margin: 35px;
 }
 
+.product-image-container{
+  height: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+
+
 .container-white {
-  background-color: white;
+  background-color:#DDFEF6;
   height: 50vh;
   border-radius: 21px;
   position: relative;
@@ -18,7 +31,7 @@
 }
 
 .dropdown-toggle {
-  width: 348px;
+  width: 320px;
   margin-bottom: 20px;
   margin-top: 50px;
   color: black;
@@ -91,7 +104,6 @@ h1 {
 .product-image-container {
   position: relative;
   height: 65%;
-  /* Set image height to 60% of the carousel container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,11 +112,8 @@ h1 {
 .product-image {
   max-width: 100%;
   max-height: 100%;
-  /* Ensure the image doesn't exceed the container height */
   width: auto;
-  /* Maintain aspect ratio */
   height: auto;
-  /* Maintain aspect ratio */
 }
 
 .product-title-container {
@@ -119,7 +128,7 @@ h1 {
 .product-title {
   font-weight: bold;
   font-size: 2vw;
-  /* Set a base font size of 2vw */
+  padding-top: 6px;
 }
 
 .product-description-container {
@@ -132,7 +141,7 @@ h1 {
 
 .product-description {
   font-weight: regular;
-  font-size: 1.5vw;
+  font-size: 8vw;
   /* Set a base font size of 2vw */
 }
 
@@ -143,7 +152,8 @@ h1 {
   }
 
   .product-description {
-    font-size: 1em;
+    font-size: em;
+    margin-top: 10px;
   }
 }
 
@@ -158,5 +168,19 @@ h1 {
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 1;
-  /* Ensure controls are behind the favorite button */
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(3, 22, 19, 0.385);
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
 }

@@ -1,10 +1,8 @@
 <div class="footbar">
   <div class="container-fluid">
-
     <div class="item item-home">
       <%= link_to image_tag("icons/btn Home_final.svg", style: "width: 40px"), root_path %>
     </div>
-
     <div class="item item-wishlist">
       <% if current_user.wishlist %>
         <%= link_to image_tag("icons/btn Favorite_final.svg", style: "width: 40px"), wishlist_path(current_user.wishlist.id) %>
@@ -12,18 +10,14 @@
         <%= link_to image_tag("icons/btn Favorite_final.svg", style: "width: 40px"), "#" %>
       <% end %>
     </div>
-
     <div class="item item-addnew">
       <%= link_to image_tag("icons/btn add_ring_final.svg", style: "width: 40px"), "/products/new" %>
     </div>
-
     <div class="item item-dashboard">
       <%= link_to image_tag("icons/btn bag_final.svg", style: "width: 40px"), "/dashboard" %>
     </div>
-
     <div class="item item-profile">
       <%= link_to image_tag("icons/btn user_final.svg", style: "width: 40px"), my_profile_path %>
     </div>
-
   </div>
 </div>
