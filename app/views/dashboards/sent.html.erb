@@ -1,8 +1,6 @@
 
-<h2>Hi <%= current_user.first_name %>! Your sent offers:</h2>
-
 <div class="sent-container">
-<h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+<h2>Hi <%= current_user.first_name %>!</h2>
 
 
 <% @my_offers.each do |offer| %>
@@ -23,7 +21,7 @@
 <% end %>
 
 
-<div class="container-checkbox">
+<%# <div class="container-checkbox">
     <span class="close">&times;</span>
     <h2>your own Items</h2>
     <ul>
@@ -38,4 +36,4 @@
     <button onclick="cancelSelection()">Reject</button>
 </div>
 
-</div>
+</div> %>

@@ -2,26 +2,38 @@
   <% offer.products.each do |product| %>
   <% other_user = User.find(offer.user_sender_id) %>
   <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
-  <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
-  <form action="offer/createCounterOffer" method="post", class="form-offer">
-    <input type="integer" hidden name="offer[my_product]" value="<%= product.id %>">
-    <input type="integer" hidden name="offer[offer_id]" value="<%= offer.id %>">
-    <select multiple name="offer[their_product]" id="their_product">
-    <% other_user.products.each do |product| %>
-      <option value="<%= product.id %>"><%= product.title %></option>
-    <% end %>
-    </select>
-    <button type="submit">Make an offer</button>
+   <div class="product-image-container">
+     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+     </div>
+  <h3>Is some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
+<form action="offer/createCounterOffer" method="post" class="form-offer">
+  <input type="hidden" name="offer[my_product]" value="<%= product.id %>">
+  <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
 
-  </form>
-   <div>
-   <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
-   </div>
+  <div class="container-radio">
+    <ul>
+      <% other_user.products.each do |product| %>
+        <li>
+          <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
+          <label for="product_<%= product.id %>"><%= product.title %></label>
+             <div class="product-image-container">
+     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+     </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <button type="submit">Make an offer</button>
+  <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+</form>
+
+
   <% end %>
 <% end %>
 
 
-<div class=“container-checkbox”>
+<%# <div class=“container-checkbox”>
     <span class=“close”>&times;</span>
     <h2>your own Items</h2>
     <ul>
@@ -34,4 +46,4 @@
     <button onclick=“confirmSelection()“>Comfirm</button>
     <button onclick=“cancelSelection()“>Reject</button>
 </div>
-</div>
+</div> %>
