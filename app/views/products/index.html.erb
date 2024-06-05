@@ -26,45 +26,52 @@
           <p>No products yet!</p>
         </div>
       <% else %>
-        <% @products.each_with_index do |product, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <div class="container-white position-relative">
 
-              <% if current_user.wishlist.products.include?(product) %>
-                <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
-
-               <%= link_to unheart_wishlist_product_path(product_wishlist.id), data: { turbo_method: :delete }, class: 'favorite-btn' do %>
-                <%= image_tag 'heart_icon_red', class: 'red-favorite-btn' %>
-                <% end %>
-              <% else %>
-                <%= link_to product_product_wishlists_path(product.id), data: { turbo_method: :post }, class: 'favorite-btn' do %>
-                  <%= image_tag 'heart_icon_gray', alt: 'Add to favorite', class: 'favorite-icon' %>
-                <% end %>
-              <% end %>
+        <!-- Inside products/index.html.erb -->
+   <% @products.each_with_index do |product, index| %>
+  <div class="carousel-item <%= 'active' if index == 0 %>">
+    <div class="container-white position-relative">
+      <% if current_user.wishlist.products.include?(product) %>
+        <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
+        <%= turbo_frame_tag "wishlist_#{product.id}" do %>
+          <%= link_to unheart_wishlist_product_path(product_wishlist.id), data: { turbo_method: :delete }, class: 'favorite-btn' do %>
+            <%= image_tag 'heart_icon_red', class: 'red-favorite-btn' %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= turbo_frame_tag "wishlist_#{product.id}" do %>
+          <%= link_to product_product_wishlists_path(product.id), data: { turbo_method: :post }, class: 'favorite-btn' do %>
+            <%= image_tag 'heart_icon_gray', alt: 'Add to favorite', class: 'favorite-icon' %>
+          <% end %>
+        <% end %>
+      <% end %>
 
               <div class="product-image-container">
-                <% if product.photo.key.present? %>
-                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-                <% else %>
-                  <%= image_tag "default_product.jpg", class: 'product-image img-fluid' %>
+                <%= link_to product_path(product) do %>
+                  <% if product.photo.key.present? %>
+                    <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+                  <% else %>
+                    <%= image_tag "default_product.jpg", class: 'product-image img-fluid' %>
+                  <% end %>
                 <% end %>
               </div>
               <div class="product-title-container">
-                <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                <%= link_to product_path(product) do %>
+                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                <% end %>
               </div>
               <div class="product-description-container">
-                <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                <%= link_to product_path(product) do %>
+                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                <% end %>
               </div>
+
               <div class="send-offer-button-container">
-
-                <%= link_to "Send an offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
-
+                <%= link_to "Send an offer", product_offers_path(product), data: { turbo_method: :post }, class: "user-button" %>
               </div>
             </div>
           </div>
         <% end %>
-
-
       <% end %>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -76,5 +83,4 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-</button>
 </div>
