@@ -2,44 +2,33 @@
   <% offer.products.each do |product| %>
   <% other_user = User.find(offer.user_sender_id) %>
   <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
-  <h3>Are some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
-  <form action="offer/createCounterOffer" method="post", class="form-offer">
-    <input type="integer" hidden name="offer[my_product]" value="<%= product.id %>">
-    <input type="integer" hidden name="offer[offer_id]" value="<%= offer.id %>">
-    <select multiple name="offer[their_product]" id="their_product">
-    <% other_user.products.each do |product| %>
-      <option value="<%= product.id %>"><%= product.title %></option>
-    <% end %>
-    </select>
-    <button type="submit">Make an offer</button>
+   <div class="product-image-container">
+     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+     </div>
+  <h3>Is some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
+<form action="offer/createCounterOffer" method="post" class="form-offer">
+  <input type="hidden" name="offer[my_product]" value="<%= product.id %>">
+  <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
 
-  </form>
-   <div>
-   <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
-   </div>
-  <% end %>
-<% end %>
-
-
-<div class="container-full">
-  <div class="container-greetings">
-    <h1> Congratulations <%= current_user.first_name%> !</h1>
-    <h3>Are some of..........´s items interesting for you?</h3>
-  <h4>Choose and exchange!</h4>
-      <div class="container-greetings-message">
-        <h4>Your Received offers</h4>
-    </div>
+  <div class="container-radio">
+    <ul>
+      <% other_user.products.each do |product| %>
+        <li>
+          <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
+          <label for="product_<%= product.id %>"><%= product.title %></label>
+             <div class="product-image-container">
+     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+     </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
-<div class="container-checkbox">
-    <span class="close">&times;</span>
-    <ul>
-        <li><input type="checkbox" id="item1"> <label for="item1">item 1</label></li>
-        <li><input type="checkbox" id="item2"> <label for="item2">item 2</label></li>
-        <li><input type="checkbox" id="item3"> <label for="item3">item 3</label></li>
-    </ul>
-</div>
-<div class="button-container">
+  <button type="submit">Make an offer</button>
+  <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+</form>
+  <% end %>
+<% end %>
 
     <button onclick="confirmSelection()">Make an offer</button>
     <button onclick="cancelSelection()">Decline</button>
@@ -49,6 +38,7 @@
 <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <defs>
+      
       <style>
         .cls-1 {
           fill: #000;
@@ -62,7 +52,9 @@
           stroke-miterlimit: 10;
           stroke-width: 2px;
         }
+
       </style>
+      
     </defs>
     <g id="Layer_1-2" data-name="Layer 1">
       <g id="nav-bar">

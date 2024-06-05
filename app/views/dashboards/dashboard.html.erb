@@ -6,40 +6,7 @@
 
   <%= link_to "Sent Offer", dashboard_sent_path, class: "button" %>
   <%= link_to "Received Offer", dashboard_received_path, class: "button" %>
-
-  <button class="button">Finished Offer</button>
-
-</div>
-
-<div class="content-container">
-  <div class="create-card">
-    <h5>Processing</h5>
-    <div class="create-product-container">
-      <% if @pending_product.present? %>
-        <img src="<%= @pending_product.image_url %>" alt="pending-product-img">
-        <div class="item-delete">
-          <%= link_to image_tag("icons/btn trash.svg", style: "width: 25px"), product_path(@pending_product), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% else %>
-        <img src="" alt="pending-product-img">
-      <% end %>
-    </div>
-    <p>See More</p>
-  </div>
-  <div class="received-card">
-    <h5>Finished</h5>
-    <div class="received-product-container">
-      <% if @received_product.present? %>
-        <img src="<%= @received_product.image_url %>" alt="received-product-img">
-        <div class="item-delete">
-          <%= link_to image_tag("icons/btn trash.svg", style: "width: 25px"), product_path(@received_product), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% else %>
-        <img src="" alt="received-product-img">
-      <% end %>
-    </div>
-    <p>See More</p>
-  </div>
+  <%= link_to "Finished Offer", dashboard_finished_path, class: "button" %>
 </div>
 
 <%= link_to products_path, class: 'btn btn-link' do %>

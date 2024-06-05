@@ -39,20 +39,17 @@ end
 end
 
 electronics = Category.create!(name: "Electronics")
-home_appliances = Category.create!(name: "Home, garden & furniture")
+home_appliances = Category.create!(name: "Home & furniture")
 toys_games = Category.create!(name: "Books, toys & video games")
 clothing = Category.create!(name: "Clothing & Footwear")
-beauty_personal_care = Category.create!(name: "Beauty & personal Care")
-automotive = Category.create!(name: "Automotive parts")
+beauty_personal_care = Category.create!(name: "Beauty & personal care")
 musical_instruments = Category.create!(name: "Musical instruments")
 pet_supplies = Category.create!(name: "Pet supplies")
 sport_wellness = Category.create!(name: "Sport, health & wellness")
-tools_hardware = Category.create!(name: "Tools & hardware")
-baby_products = Category.create!(name: "Baby products")
 services = Category.create!(name: "Services")
 others = Category.create!(name: "Others")
 
-puts "13 categories have been created."
+puts "10 categories have been created."
 
 products = [
   {
