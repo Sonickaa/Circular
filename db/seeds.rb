@@ -203,7 +203,7 @@ products = [
     category_id: sport_wellness.id,
     description: "A jar of organic wildflower honey, half-used, with a rich, floral flavor. Perfect for sweetening tea
     or spreading on toast.",
-    image_url: "https://www.betterbee.com/images/hx_l.jpg",
+    image_url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/honey-pot-4d7c98d.jpg",
     condition: "new",
     price: 1
   },
