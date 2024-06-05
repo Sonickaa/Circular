@@ -1,6 +1,3 @@
-# db/seeds.rb
-
-# Assuming you have User and Category models
 require 'faker'
 require "open-uri"
 
@@ -115,7 +112,7 @@ products = [
     user_id: alex.id,
     category_id: clothing.id,
     description: "Own a piece of football history with this CR7 Real Madrid long sleeve jersey. Lightly worn but
-    well-maintained, it’s perfect for any Ronaldo fan. Stylish, iconic, and ready to wear! Don’t miss out!",
+    well-maintained, its perfect for any Ronaldo fan. Stylish, iconic, and ready to wear! Don’t miss out!",
     image_url: "https://i.ebayimg.com/images/g/SHUAAOSwuwpgYu3p/s-l1200.jpg",
     condition: "used",
     price: 80

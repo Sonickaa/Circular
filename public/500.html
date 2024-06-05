@@ -2,7 +2,7 @@
 <html>
 <head>
 
-  <title>404</title>
+  <title>500</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <style>
@@ -11,8 +11,8 @@
   }
 
   .container.full {
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
   }
 
   .error-message {
@@ -60,6 +60,24 @@
     margin-top: 300px;
   }
 
+  .btn-go-home {
+  border-top: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 42px;
+  border-radius: 21px;
+  background: #0C1D18;
+  margin: auto;
+
+  }
+
+.btn-goo-home {
+  color: #FFF;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
   </style>
 </head>
 </html>
@@ -74,7 +92,9 @@
         <h1>500</h1>
     </div>
 
-    
+        <div class="btn-go-home">
+            <a href="/" class="btn-goo-home">Go back home!</a>
+        </div>
 
     <div class="error-message">
         <h2>If you are the application owner check the logs for more information.</h2>
