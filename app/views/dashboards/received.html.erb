@@ -1,3 +1,4 @@
+
 <% @received_offers.each do |offer| %>
   <% offer.products.each do |product| %>
   <% other_user = User.find(offer.user_sender_id) %>

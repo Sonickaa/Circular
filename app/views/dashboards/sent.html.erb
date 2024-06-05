@@ -1,34 +1,28 @@
+    <div class="sent-container">
+        <h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+    </div>
+    <div class="sent-offer-container">
 
-<%# <h2>Hi <%= current_user.first_name %>
-<%# ! Your sent offers:</h2> %>
+        <% @my_offers.each do |offer| %>
+        <% next if offer.status != "pending" %>
+        <% receiver = User.find(offer.user_receiver_id) %>
+        <% their_product = offer.products.first.title %>
+        <% counter_offer_product = offer.products.second&.title %>
+        <div class="card">
+            <p> You are interested in <%= receiver.first_name.pluralize %> <%= their_product %></p>
 
-<div class="sent-container">
-<h2>Hi <%= current_user.first_name %>, you are interested in these things:</h2>
+            <% if counter_offer_product %>
+            <p>They want your <%= counter_offer_product %></p>
+            <div class="offer-buttons">
+                <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button accept" %>
+                <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button decline" %>
+            </div>
+            <% end %>
+        </div>
+        <% end %>
+    </div>
 
-</div>
-<div class="sent-offer-container">
-
-<% @my_offers.each do |offer| %>
-<% next if offer.status != "pending" %>
-  <% receiver = User.find(offer.user_receiver_id) %>
-  <% their_product = offer.products.first.title %>
-  <% counter_offer_product = offer.products.second&.title %>
-  <div class="card">
-    <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
-
-      <% if counter_offer_product %>
-        <p>They want your <%= counter_offer_product %></p>
-          <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" %>
-          <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
-      <% end %>
-  </div>
-<% end %>
-</div>
-
-<div class="button-container">
-
-    <button onclick="confirmSelection()">Comfirm</button>
-    <button onclick="cancelSelection()">Reject</button>
-</div>
-
-</div>
+    <div class="button-container">
+        <button onclick="confirmSelection()" class="confirm">Confirm</button>
+        <button onclick="cancelSelection()" class="cancel">Reject</button>
+    </div>
