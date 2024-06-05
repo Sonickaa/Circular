@@ -1,12 +1,25 @@
 .container-full {
   margin: 35px;
 }
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+}
 
 .product-image-container{
   height: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
+}
+
+.container-greetings{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 0;
 }
 
 .product-image-container img {
@@ -32,8 +45,8 @@
 
 .dropdown-toggle {
   width: 320px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  margin-bottom: 25px;
+  margin-top: 0;
   color: black;
   background: #DDFEF6;
   height: 42px;
