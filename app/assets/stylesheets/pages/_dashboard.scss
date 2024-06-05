@@ -1,75 +1,109 @@
-.profile-container {
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.profile-container img {
+.profile-picture-placeholder {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.container-greetings {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container-greetings h1 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
 }
 
 .button-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+  margin: 20px 0;
 }
 
 .button {
-  padding: 10px;
-  background-color: #348972;
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 20px;
-  margin: 0 5px;
+  border-radius: 4px;
+  text-decoration: none;
   cursor: pointer;
-  flex-grow: 1;
-  text-align: center;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
-
-
-.content-container {
+.Sentoffer-product-container,.receivedoffers-product-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
 }
 
-.create-card,
-.received-card {
-  width: 300px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 0 20px;
-  padding: 20px;
+.Sentoffer-product-card , .receivedoffers-product-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 10px); /* Two columns on mobile */
+  height: 100px; /* Fixed height for all cards */
+  margin-bottom: 10px;
 }
 
+.Sentoffer-product-image , .receivedoffers-product-image {
+  height: 50%; /* 50% of the card height */
+  overflow: hidden;
+}
 
-.create-card img,
-.received-card img {
+.Sentoffer-product-image img, .receivedoffers-product-image img {
   width: 100%;
-  height: auto;
-  border-radius: 5px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.create-card .item-delete,
-.received-card .item-delete {
-  text-align: right;
-  margin-top: 10px;
+.Sentoffer-product-info,.receivedoffers-product-info  {
+  padding: 2px;
+  margin: 0;
 }
 
-.create-card p,
-.received-card p {
-  text-align: center;
-  margin: 10px 0 0;
-  color: #348972;
-  cursor: pointer;
+.Sentoffer-product-title, .receivedoffers-product-title {
+  font-size: 0.8em;
+  color: #000;
+  margin: 0;
 }
 
-.create-card p:hover,
-.received-card p:hover {
-  text-decoration: underline;
-  color: #287359;
+.Sentoffer-product-description, .receivedoffers-product-description {
+  font-size: 0.6em;
+  color: #666;
+  margin: 0;
+}
+
+
+
+@media (min-width: 768px) {
+  .Sentoffer-product-card, .receivedoffers-product-card {
+    width: calc(33.333% - 20px); /* Three columns on tablets and above */
+  }
+}
+
+@media (min-width: 1024px) {
+  .Sentoffer-product-card {
+    width: calc(25% - 20px); /* Four columns on desktops and above */
+  }
 }
