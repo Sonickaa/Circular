@@ -1,6 +1,92 @@
-// .container-greetings{
-//   text-align: right;
-// }
+body {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dark-gray-text {
+  color: #333333;
+}
+
+.styled-input input[type="text"],
+.styled-input select,
+.styled-input textarea {
+  width: calc(100% - 10px);
+  margin: 1px 5px 5px 5px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #d2efe7;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.range_container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.sliders_control {
+  position: relative;
+  min-height: 5px;
+}
+
+.form_control {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: #635a5a;
+}
+
+/* Price range styles */
+input[type=range]::-webkit-slider-thumb,
+input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #C6C6C6;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb:hover,
+input[type=range]::-moz-range-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active,
+input[type=range]::-moz-range-thumb:active {
+  box-shadow: inset 0 0 3px #387bbe, 0 0 9px #387bbe;
+}
+
+input[type="number"] {
+  color: #8a8383;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  border: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  width: 100%;
+  background-color: #C6C6C6;
+  pointer-events: none;
+}
+
+.page {
+  margin: 20px;
+}
+
+/* Custom styles */
 .container-full {
   margin: 35px;
 }
@@ -13,19 +99,33 @@
 }
 
 .carousel-item {
-  backface-visibility: unset !important;
   padding: 0;
 }
 
+.product-image {
+ width: 100%;
+ height: 20%;
+
+}
+
 .dropdown-toggle {
-  width: 348px;
-  margin-bottom: 20px;
-  margin-top: 50px;
-  color: black;
+  width: 320px;
+  margin: 50px 0 20px 0;
+  color: #333333;
   background: #DDFEF6;
   height: 42px;
   border-radius: 21px;
-  border: 0;
+  border: none;
+}
+
+.dropdown-menu {
+  width: calc(100% - 10px);
+  margin: 1px 5px 5px 5px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #d2efe7;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .container-greetings-message {
@@ -46,9 +146,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
-  box-shadow: #DDFEF6;
-
+  margin: 0px auto;
+  box-shadow: 0px 0px 10px #DDFEF6;
 }
 
 .user-button {
@@ -64,34 +163,21 @@ h1 {
   background-color: #0b1d16;
 }
 
-.favorite-icon {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  z-index: 2;
-}
-
-
-
+.favorite-icon,
 .red-favorite-btn {
+  width: 30px;
+  height: 30px;
   position: absolute;
   top: 10px;
   right: 10px;
   background: transparent;
   border: none;
   z-index: 2;
-  width: 30px;
-  height: 30px;
 }
 
 .product-image-container {
   position: relative;
   height: 65%;
-  /* Set image height to 60% of the carousel container */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,63 +186,25 @@ h1 {
 .product-image {
   max-width: 100%;
   max-height: 100%;
-  /* Ensure the image doesn't exceed the container height */
   width: auto;
-  /* Maintain aspect ratio */
   height: auto;
-  /* Maintain aspect ratio */
 }
 
 .product-title-container {
-  position: relative;
   height: 7%;
   display: flex;
   align-items: left;
-  padding: 0px 15px 0px 15px;
+  padding: 0 15px;
 }
-
 
 .product-title {
   font-weight: bold;
   font-size: 2vw;
-  /* Set a base font size of 2vw */
 }
 
 .product-description-container {
-  position: relative;
-  height: 18%;
+  height: 15%;
   display: flex;
   align-items: left;
-  padding: 0px 15px 10px 15px;
-}
-
-.product-description {
-  font-weight: regular;
-  font-size: 1.5vw;
-  /* Set a base font size of 2vw */
-}
-
-/* For screens smaller than 1000px */
-@media (max-width: 1000px) {
-  .product-title {
-    font-size: 1.2em;
-  }
-
-  .product-description {
-    font-size: 1em;
-  }
-}
-
-.send-offer-button-container {
-  position: absolute;
-  height: 10%;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 1;
-  /* Ensure controls are behind the favorite button */
+  padding: 0 15px 10px
 }
