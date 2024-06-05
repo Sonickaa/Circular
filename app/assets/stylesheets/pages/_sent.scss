@@ -1,62 +1,52 @@
-.container-checkbox {
-  width: 300px;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  position: relative;
+.sent-container {
+  text-align: center;
+  margin-bottom: 20px;
 }
-.button-container{
+
+.sent-container h2 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 28px;
+  color: #032e2a;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+/* Offer Container Styles */
+.sent-offer-container {
   display: flex;
-  justify-content: center;
-}
-.container h2 {
-  margin-top: 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 20px;
 }
 
-li {
-  margin-bottom: 10px;
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  transition: transform 0.3s ease;
 }
 
-.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #aaa;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.close:hover {
-  color: #666;
+.card p {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
 }
 
-button {
-  padding: 8px 15px;
-  margin-right: 10px;
+.button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  background-color: #097a69;
-  color: white;
+  text-decoration: none;
   cursor: pointer;
-  position: relative;
-  justify-content: center;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-button.cancel {
-  background-color: #f44336;
-}
-
-button.cancel:hover {
-  background-color: #da190b;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }

@@ -13,11 +13,50 @@
   width: 150px;
 }
 
+
 .product-photoinfo-container{
   background-color: azure;
   padding: 5px;
   margin: 20px;
   border-radius: 15px;
+}
+
+.product-photoinfo-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zhaopian-container {
+  flex: 1;
+}
+
+.offer-deal-description-container {
+  flex: 2;
+}
+
+.product-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-title-container {
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.product-description-container {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #555;
 }
 
 .another-user-text{
