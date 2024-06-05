@@ -2,11 +2,25 @@
   margin: 35px;
 }
 
-.product-image-container{
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+}
+
+.product-image-container {
   height: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
+}
+
+.container-greetings {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 0;
 }
 
 .product-image-container img {
@@ -17,9 +31,8 @@
   border-radius: 10px;
 }
 
-
 .container-white {
-  background-color:#DDFEF6;
+  background-color: #DDFEF6;
   height: 50vh;
   border-radius: 21px;
   position: relative;
@@ -32,8 +45,8 @@
 
 .dropdown-toggle {
   width: 320px;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  margin-bottom: 25px;
+  margin-top: 0;
   color: black;
   background: #DDFEF6;
   height: 42px;
@@ -61,7 +74,6 @@ h1 {
   align-items: center;
   margin: 20px auto;
   box-shadow: #DDFEF6;
-
 }
 
 .user-button {
@@ -77,19 +89,7 @@ h1 {
   background-color: #0b1d16;
 }
 
-.favorite-icon {
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  z-index: 2;
-}
-
-
-
+.favorite-icon,
 .red-favorite-btn {
   position: absolute;
   top: 10px;
@@ -116,14 +116,22 @@ h1 {
   height: auto;
 }
 
-.product-title-container {
+.product-title-container,
+.product-description-container {
   position: relative;
-  height: 7%;
   display: flex;
   align-items: left;
-  padding: 0px 15px 0px 15px;
+  padding: 0 15px;
 }
 
+.product-title-container {
+  height: 7%;
+}
+
+.product-description-container {
+  height: 18%;
+  padding-bottom: 10px;
+}
 
 .product-title {
   font-weight: bold;
@@ -131,18 +139,9 @@ h1 {
   padding-top: 6px;
 }
 
-.product-description-container {
-  position: relative;
-  height: 18%;
-  display: flex;
-  align-items: left;
-  padding: 0px 15px 10px 15px;
-}
-
 .product-description {
   font-weight: regular;
   font-size: 8vw;
-  /* Set a base font size of 2vw */
 }
 
 /* For screens smaller than 1000px */
@@ -168,18 +167,12 @@ h1 {
 .carousel-control-prev,
 .carousel-control-next {
   z-index: 1;
-}
-.carousel-control-prev,
-.carousel-control-next {
   width: 50px;
   height: 50px;
   background-color: rgba(3, 22, 19, 0.385);
   border: none;
   border-radius: 50%;
   margin-left: 10px;
-}
-.carousel-control-prev,
-.carousel-control-next {
   top: 50%;
   transform: translateY(-50%);
   display: flex;
