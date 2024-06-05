@@ -1,3 +1,12 @@
+body {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dark-gray-text {
+  color: #333333;
+}
+
 .container-full {
   margin: 35px;
 }
@@ -45,13 +54,23 @@
 
 .dropdown-toggle {
   width: 320px;
-  margin-bottom: 25px;
+  margin: 50px 0 20px 0;
   margin-top: 0;
-  color: black;
+  color: #333333;
   background: #DDFEF6;
   height: 42px;
   border-radius: 21px;
   border: 0;
+}
+
+.dropdown-menu {
+  width: calc(100% - 10px);
+  margin: 1px 5px 5px 5px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #d2efe7;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
 .container-greetings-message {
@@ -72,8 +91,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
-  box-shadow: #DDFEF6;
+  margin: 0px auto;
+  box-shadow: 0px 0px 10px #DDFEF6;
 }
 
 .user-button {
@@ -121,7 +140,7 @@ h1 {
   position: relative;
   display: flex;
   align-items: left;
-  padding: 0 15px;
+  padding: 0px 15px 10px 15px;
 }
 
 .product-title-container {
