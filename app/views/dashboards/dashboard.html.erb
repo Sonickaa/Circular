@@ -2,71 +2,80 @@
   <div>
     <img src="<%= current_user.avatar %>" alt="Profile Picture" class="profile-picture">
   </div>
+  <div>
+    <h1>Hello, <%= current_user.first_name %></h1>
+  </div>
   <div class="container-greetings-message">
     <h4>Your Dashboard</h4>
   </div>
-  <h1>Hello, <%= current_user.first_name %></h1>
-</div>
-
-<div class="button-container">
-  <div class="Receivedoffer-product-container">
-    <% if @received_offers.present? %>
-      <%= link_to "Received offers", dashboard_received_path, class: "button" %>
-      <% @received_offers.each do |product| %>
-        <div class="Receivedoffer-product-card">
-
-
-            <% if offer.products %>
-              <% offer.products.each do |product| %>
-                <div class="Receivedoffer-product-image">
-                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-          </div>
-          <div class="Receivedoffer-product-info">
-            <div class="product-title-container">
-              <p class="Receivedoffer-product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
-            </div>
-
-            <div class="product-description-container">
-              <span class="Receivedoffer-product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
-            </div>
-          </div>
-        <% end %>
-        </div>
-        <% end %>
-      <% end %>
-    <% else %>
-      <p>No received offers found</p>
-    <% end %>
-    </div>
+  <div class="dashboard-offer-button-container">
+    <%= link_to "Received Offer", dashboard_received_path, class: "dashboard-offer-button" %>
   </div>
-
-<div class="button-container">
-  <%= link_to "Sent offers", dashboard_sent_path, class: "button" %>
-  <div class="Sentoffer-product-container">
-    <% if @sent_offers.present? %>
-      <% @sent_offers.each do |offer| %>
-        <div class="Sentoffer-product-card">
-
-            <% if offer.products %>
-              <% offer.products.each do |product| %>
-                <div class="Sentoffer-product-image">
-                      <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+  <div class="wishlist-container">
+    <% if @received_offers.present? %>
+      <% @received_offers.each do |offer| %>
+        <% if offer.products %>
+          <% offer.products.each do |product| %>
+            <div class="dashboard-product-card">
+              <div class="wishlist-product-image">
+                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+              </div>
+              <div class="product-info">
+                <div class="product-title-container">
+                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
                 </div>
-                <div class="Sentoffer-product-info">
-                  <div class="product-title-container">
-                    <p class="Sentoffer-product-title"><%= truncate(product.title, length: 30, omission: "...") %></p>
-                  </div>
-
-                  <div class="product-description-container">
-                    <span class="Sentoffer-product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
-                  </div>
+                <div class="product-description-container">
+                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
                 </div>
-              <% end %>
+              </div>
+              <div class="product-actions">
+                <div class="dashboard-offer-decline-container ">
+                  <%= link_to "Decline", offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
+                </div>
+              </div>
             </div>
           <% end %>
         <% end %>
+      <% end %>
     <% else %>
-      <p>No sent offers found</p>
+      <div>
+        <p>No Received offers found</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="dashboard-offer-button-container">
+    <%= link_to "Sent offers", dashboard_sent_path, class: "dashboard-offer-button" %>
+  </div>
+  <div class="wishlist-container">
+    <% if @sent_offers.present? %>
+      <% @sent_offers.each do |offer| %>
+        <% if offer.products %>
+          <% offer.products.each do |product| %>
+            <div class="dashboard-product-card">
+              <div class="wishlist-product-image">
+                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+              </div>
+              <div class="product-info">
+                <div class="product-title-container">
+                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                </div>
+                <div class="product-description-container">
+                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                </div>
+              </div>
+              <div class="product-actions">
+                <div class="dashboard-product-delete-button-container">
+                  <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") ,offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}  %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div>
+        <p>No Received offers found</p>
+      </div>
     <% end %>
   </div>
 </div>
@@ -106,4 +115,3 @@
     </g>
   </svg>
 <% end %>
-

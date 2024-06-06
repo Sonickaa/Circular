@@ -6,15 +6,13 @@
 }
 
 .wishlist-card {
+  position: relative;
   background: #fff;
-  // border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
   width: calc(50% - 10px);
-  /* Two columns on mobile */
   height: 280px;
-  /* Fixed height for all cards */
   margin-bottom: 10px;
 }
 
@@ -59,35 +57,31 @@
 
 
 .wishlist-send-and-offer-button {
-  // background: #007bff;
+  position: absolute;
+  bottom: 10px; // Adjust as needed
+  left: 10px; // Adjust as needed
   color: #fff;
-  padding: 2px;
-  /* Adjust padding */
+  padding: 2px 2px;
   text-decoration: none;
   border-radius: 2px;
   font-size: 0.7em;
-  /* Adjust font size */
   min-width: 60px;
-  /* Ensure minimum width */
   text-align: center;
-  /* Center text */
 }
-
-.wishlist-send-and-offer-button::before {
-  content: "";
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 8px 8px 0;
-  border-style: solid;
-  border-color: #fff transparent transparent;
-}
-
 
 .delete-button {
+  position: absolute;
+  bottom: 10px; // Adjust as needed
+  right: 10px; // Adjust as needed
   padding: 2px 2px;
+  color: white; // Example styling for the delete button
+  border: none; // Example styling for the delete button
+  border-radius: 5px; // Example styling for the delete button
+  cursor: pointer; // Example styling for the delete button
+  text-decoration: none;
 }
+
+
 
 @media (min-width: 768px) {
   .wishlist-card {

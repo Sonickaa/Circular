@@ -21,6 +21,15 @@ class OffersController < ApplicationController
     redirect_to products_path
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    sent_offer = @user.sent_offers.find(params[:id])
+    offer_product = sent_offer.offer_products.find(params[:id])
+    offer_product.destroy
+    sent_offer.destroy
+    redirect_to dashboard_path
+  end
+
   def create_counter_offer
     @their_product = Product.find(params[:offer][:their_product])
     @offer = Offer.find(params[:offer][:offer_id])
