@@ -33,7 +33,7 @@
               <%= link_to "Edit", edit_product_path(product), class: "button" %>
             </div>
             <div class="profile-product-edit-button">
-              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") %>
+             <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_path(product.id), data: { turbo_method: "delete", confirm: "Are you sure?" }, class: "delete-link" %>
             </div>
           </div>
         </div>
