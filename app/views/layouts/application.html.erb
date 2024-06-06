@@ -2,11 +2,15 @@
 <html>
   <head>
     <title>Circular</title>
+    <%= render 'shared/ios_pwa_links' %>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
   </head>
   <body>
     <div class="content">
