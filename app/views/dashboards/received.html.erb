@@ -3,7 +3,7 @@
   <% other_user = User.find(offer.user_sender_id) %>
 
   <div class="greetings-text">
-  <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
+  <h3>Hey!<%= other_user.first_name %> matched <%= product.title %></h3>
   </div>
 
 <div class="product-photoinfo-container">
@@ -25,7 +25,7 @@
 
 
 <div class="another-user-text">
-  <h3>Have a look <%= other_user.first_name %>´s items here!</h3>
+  <h3>Check <%= other_user.first_name %>´s items list!</h3>
 </div>
 
 <div class="product-name-recieved-container">
