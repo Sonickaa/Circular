@@ -2,38 +2,47 @@
   <div>
     <img src="<%= current_user.avatar %>" alt="Profile Picture" class="profile-picture">
   </div>
-  <div>
+  <div class="container-greetings">
     <h1>Hello, <%= current_user.first_name %></h1>
   </div>
   <div class="container-greetings-message">
     <h4>Your Dashboard</h4>
   </div>
   <div class="dashboard-offer-button-container">
-    <%= link_to "Received Offer", dashboard_received_path, class: "dashboard-offer-button" %>
+    <% if @received_offers.present? %>
+      <%= link_to "Received Offer", dashboard_received_path, class: "dashboard-offer-button" %>
+    <% else %>
+      <%= link_to "Received Offer", "#", class: "dashboard-offer-button disabled", disabled: true %>
+    <% end %>
   </div>
   <div class="wishlist-container">
     <% if @received_offers.present? %>
       <% @received_offers.each do |offer| %>
         <% if offer.products %>
           <% offer.products.each do |product| %>
-            <div class="dashboard-product-card">
-              <div class="wishlist-product-image">
-                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-              </div>
-              <div class="product-info">
-                <div class="product-title-container">
-                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+            <% if offer.status=="pending"%>
+              <div class="dashboard-product-card">
+                <div class="wishlist-product-image">
+                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
                 </div>
-                <div class="product-description-container">
-                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                <div class="product-info">
+                  <div class="product-title-container">
+                    <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                  </div>
+                  <div class="product-description-container">
+                    <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                  </div>
+                </div>
+                <div class="product-actions">
+                  <div class="dashboard-offer-decline-container">
+                    <%= link_to "Decline" ,declined_path(offer), data: {"turbo-method": :patch}, class: "delete-icon" ,class: "decline-button decline-button-left-align"  %>
+                  </div>
+                  <div class="dashboard-offer-accept-container">
+                    <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" ,class: "accept-button accept-button-right-align" %>
+                  </div>
                 </div>
               </div>
-              <div class="product-actions">
-                <div class="dashboard-offer-decline-container ">
-                  <%= link_to "Decline", user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
-                </div>
-              </div>
-            </div>
+            <%end%>
           <% end %>
         <% end %>
       <% end %>
@@ -44,7 +53,11 @@
     <% end %>
   </div>
   <div class="dashboard-offer-button-container">
-    <%= link_to "Sent offers", dashboard_sent_path, class: "dashboard-offer-button" %>
+    <% if @sent_offers.present? %>
+      <%= link_to "Sent offers", dashboard_sent_path, class: "dashboard-offer-button" %>
+    <% else %>
+      <%= link_to "Sent offers", "#", class: "dashboard-offer-button disabled", disabled: true %>
+    <% end %>
   </div>
   <div class="wishlist-container">
     <% if @sent_offers.present? %>
@@ -74,7 +87,62 @@
       <% end %>
     <% else %>
       <div>
-        <p>No Received offers found</p>
+        <p>No Sent offers found</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="dashboard-offer-button-container">
+    <% if @received_offers.present? %>
+      <%= link_to "Finished Deals", dashboard_finished_path, class: "dashboard-offer-button" %>
+    <% else %>
+      <%= link_to "Finished Deals", "#", class: "dashboard-offer-button disabled", disabled: true %>
+    <% end %>
+  </div>
+  <div class="wishlist-container">
+    <% if @received_offers.present? %>
+      <% @received_offers.each do |offer| %>
+        <% if offer.products %>
+          <% offer.products.each do |product| %>
+            <% if offer.status!="pending"%>
+              <div class="dashboard-product-card">
+                <div class="wishlist-product-image">
+                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+                </div>
+                <div class="product-info">
+                  <div class="product-title-container">
+                    <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                  </div>
+                </div>
+                <div>
+                  <%if offer.status=="declined"%>
+                    <div class="offer-status-container">
+                      <span> Offer Declined</span>
+                    </div>
+                    <div class="product-actions d-flex justify-content-center">
+                      <div class="dashboard-offer-accept-container d-flex justify-content-center">
+                        <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" ,class: "accept-button " %>
+                      </div>
+                    </div>
+                  <%end%>
+                  <%if offer.status=="accepted"%>
+                    <div class="offer-status-container">
+                      <span> Offer Accepted</span>
+                    </div>
+                    <div class="product-actions d-flex justify-content-center">
+                      <div class="dashboard-offer-decline-container d-flex justify-content-center">
+                        <%= link_to "Decline" ,declined_path(offer), data: {"turbo-method": :patch}, class: "delete-icon" ,class: "decline-button "  %>
+                      </div>
+                    </div>
+                  <%end%>
+                </div>
+              </div>
+            <%end%>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div>
+        <p>There are no Completed Offers Found!</p>
       </div>
     <% end %>
   </div>

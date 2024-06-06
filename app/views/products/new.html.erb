@@ -1,188 +1,55 @@
- <div class = "page">
-  <!-- Big Header -->
-  <p></p>
-  <h1 class="dark-gray-text">Upload your offer!</h1>
-
-  <!-- Close button -->
-  <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-    <defs>
-      <style>
-        .cls-1 {
-          fill: #000;
-          stroke-width: 0px;
-        }
-
-        .cls-2 {
-          fill: none;
-          stroke: #000;
-          stroke-linecap: round;
-          stroke-miterlimit: 10;
-          stroke-width: 2px;
-        }
-      </style>
-    </defs>
-    <g id="Layer_1-2" data-name="Layer 1">
-      <g id="nav-bar">
-        <g id="btn_edit" data-name="btn edit">
-          <path class="cls-1" d="M20,2c9.93,0,18,8.07,18,18s-8.07,18-18,18S2,29.93,2,20,10.07,2,20,2M20,0C8.95,0,0,8.95,0,20s8.95,20,20,20,20-8.95,20-20S31.05,0,20,0h0Z"/>
-          <line class="cls-2" x1="11.36" y1="11.37" x2="28.44" y2="28.57"/>
-          <line class="cls-2" x1="28.5" y1="11.43" x2="11.3" y2="28.51"/>
-        </g>
-      </g>
-    </g>
-  </svg>
-
-  <!-- Simple form for uploading offer -->
-  <br>
-  <form class="dark-gray-text" action="/products" method="post" enctype="multipart/form-data">
-
-    <div class="styled-input">
-      <label>Image:</label>
-      <input type="file" name="image">
+<div class="container">
+  <div class="product-submit-page">
+    <div>
+      <h1 class="dark-gray-text">Add Your Item!</h1>
     </div>
-    <p></p>
-    <div class="styled-input">
-      <label>Title:</label>
-      <input type="text" name="title">
-    </div>
-
-    <div class="styled-input">
-     <!-- need to be implemented -->
-      <label>Category:</label>
-      <select name="category">
-      <% Category.all.each do |category| %>
-        <option><%= link_to category.name, products_path(category: category.id), class: "dropdown-item" %></option>
-      <% end %>
-
-    </select>
-    </div>
-
-    <div class="styled-input">
-        <!-- -->
-
-      <label>Condition:</label>
-      <select name="condition">
-        <option value="New">New</option>
-        <option value="Used">Used</option>
-        <option value="Refurbished">Refurbished</option>
-      </select>
-    </div>
-     <!-- price range -->
-     <label>　Price €:</label>
-     <br>
-    <div class="range_container">
-    <div class="sliders_control">
-        <input id="fromSlider" type="range" value="10" min="0" max="1000"/>
-        <input id="toSlider" type="range" value="40" min="0" max="1000"/>
-    </div>
-    <div class="form_control">
-        <div class="form_control_container">
-            <div class="form_control_container__time">Min</div>
-            <input class="form_control_container__time__input" type="number" id="fromInput" value="10" min="0" max="1000"/>
+    <div>
+      <form id="productForm" class="dark-gray-text" action="/products" method="post" enctype="multipart/form-data">
+        <div class="styled-input">
+          <input type="text" id="title" name="product[title]" placeholder="Title">
         </div>
-        <div class="form_control_container">
-            <div class="form_control_container__time">Max</div>
-            <input class="form_control_container__time__input" type="number" id="toInput" value="40" min="0" max="1000"/>
+        <div class="styled-input">
+          <select id="category_id" name="product[category_id]" class="narrow-dropdown-categories">
+            <% Category.all.each do |category| %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% end %>
+          </select>
         </div>
+        <div class="styled-input">
+          <select id="condition" name="product[condition]">
+            <option value="New">New</option>
+            <option value="Used">Used</option>
+            <option value="Refurbished">Refurbished</option>
+          </select>
+        </div>
+        <div class="styled-input">
+          <input type="number" id="price" name="product[price]" placeholder="Price">
+        </div>
+        <div class="styled-input">
+          <textarea id="description" name="product[description]" rows="5" placeholder="Description"></textarea>
+        </div>
+        <div class="styled-input">
+          <input type="file" id="photo" name="product[photo]" class="circle-input">
+        </div>
+        <div class="styled-input">
+          <button type="submit" class="submit-button">Submit</button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
-</select>
+<script>
+  document.getElementById('productForm').addEventListener('submit', function(event) {
+    var title = document.getElementById('title').value;
+    var category = document.getElementById('category_id').value;
+    var condition = document.getElementById('condition').value;
+    var price = document.getElementById('price').value;
+    var description = document.getElementById('description').value;
+    var photo = document.getElementById('photo').value;
 
-    <div class="styled-input">
-      <label>Description:</label>
-      <textarea name="description" rows="5"></textarea>
-    </div>
-    <button type="submit" class="submit-button">Submit</button>
-  </form>
-   <!-- price range JS -->
-  <script>
-    function controlFromInput(fromSlider, fromInput, toInput, controlSlider) {
-    const [from, to] = getParsed(fromInput, toInput);
-    fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
-    if (from > to) {
-        fromSlider.value = to;
-        fromInput.value = to;
-    } else {
-        fromSlider.value = from;
+    if (!title || !category || !condition || !price || !description || !photo) {
+      alert('Please fill in all fields.');
+      event.preventDefault(); // Prevent form submission
     }
-    }
-
-    function controlToInput(toSlider, fromInput, toInput, controlSlider) {
-        const [from, to] = getParsed(fromInput, toInput);
-        fillSlider(fromInput, toInput, '#C6C6C6', '#25daa5', controlSlider);
-        setToggleAccessible(toInput);
-        if (from <= to) {
-            toSlider.value = to;
-            toInput.value = to;
-        } else {
-            toInput.value = from;
-        }
-    }
-
-    function controlFromSlider(fromSlider, toSlider, fromInput) {
-      const [from, to] = getParsed(fromSlider, toSlider);
-      fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
-      if (from > to) {
-        fromSlider.value = to;
-        fromInput.value = to;
-      } else {
-        fromInput.value = from;
-      }
-    }
-
-    function controlToSlider(fromSlider, toSlider, toInput) {
-      const [from, to] = getParsed(fromSlider, toSlider);
-      fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
-      setToggleAccessible(toSlider);
-      if (from <= to) {
-        toSlider.value = to;
-        toInput.value = to;
-      } else {
-        toInput.value = from;
-        toSlider.value = from;
-      }
-    }
-
-    function getParsed(currentFrom, currentTo) {
-      const from = parseInt(currentFrom.value, 10);
-      const to = parseInt(currentTo.value, 10);
-      return [from, to];
-    }
-
-    function fillSlider(from, to, sliderColor, rangeColor, controlSlider) {
-        const rangeDistance = to.max-to.min;
-        const fromPosition = from.value - to.min;
-        const toPosition = to.value - to.min;
-        controlSlider.style.background = `linear-gradient(
-          to right,
-          ${sliderColor} 0%,
-          ${sliderColor} ${(fromPosition)/(rangeDistance)*100}%,
-          ${rangeColor} ${((fromPosition)/(rangeDistance))*100}%,
-          ${rangeColor} ${(toPosition)/(rangeDistance)*100}%,
-          ${sliderColor} ${(toPosition)/(rangeDistance)*100}%,
-          ${sliderColor} 100%)`;
-    }
-
-    function setToggleAccessible(currentTarget) {
-      const toSlider = document.querySelector('#toSlider');
-      if (Number(currentTarget.value) <= 0 ) {
-        toSlider.style.zIndex = 2;
-      } else {
-        toSlider.style.zIndex = 0;
-      }
-    }
-
-    const fromSlider = document.querySelector('#fromSlider');
-    const toSlider = document.querySelector('#toSlider');
-    const fromInput = document.querySelector('#fromInput');
-    const toInput = document.querySelector('#toInput');
-    fillSlider(fromSlider, toSlider, '#C6C6C6', '#25daa5', toSlider);
-    setToggleAccessible(toSlider);
-
-    fromSlider.oninput = () => controlFromSlider(fromSlider, toSlider, fromInput);
-    toSlider.oninput = () => controlToSlider(fromSlider, toSlider, toInput);
-    fromInput.oninput = () => controlFromInput(fromSlider, fromInput, toInput, toSlider);
-    toInput.oninput = () => controlToInput(toSlider, fromInput, toInput, toSlider);
-  </script>
-</body>
-</div>
+  });
+</script>

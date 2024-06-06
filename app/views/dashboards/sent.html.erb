@@ -1,21 +1,23 @@
-<div class="sent-container">
-<h2>Hi <%= current_user.first_name %>!</h2>
-
-</div>
-<div class="sent-offer-container">
-
-<% @my_offers.each do |offer| %>
-<% next if offer.status != "pending" %>
-  <% receiver = User.find(offer.user_receiver_id) %>
-  <% their_product = offer.products.first.title %>
-  <% counter_offer_product = offer.products.second&.title %>
-  <div class="card">
-    <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
-
-      <% if counter_offer_product %>
-        <p>They want your <%= counter_offer_product %></p>
-          <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" %>
-          <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
-      <% end %>
+<div class="container-full">
+  <div class="container-greetings">
+    <h1>Hello, <%= current_user.first_name %></h1>
   </div>
-<% end %>
+  <div class="sent-offer-container">
+    <% @my_offers.each do |offer| %>
+      <% receiver = User.find(offer.user_receiver_id) %>
+      <% their_product = offer.products.first.title %>
+      <div class="card">
+        <div class="card-content">
+          <div>
+            <div>
+              <p>You are interested in <%= receiver.first_name %>'s <%= their_product %></p>
+            </div>
+            <div>
+              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") , user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?", redirect_to: request.original_url}  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

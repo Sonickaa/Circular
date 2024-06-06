@@ -41,27 +41,70 @@
 }
 
 .dashboard-offer-decline-container {
-  position: absolute;
-  bottom: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 2px 10px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 12px;
+  bottom: 10px;
+  left: 5px;
+
 }
 
 .decline-button {
-  padding: 5px 10px;
+  padding: 3px 6px;
   background-color: #b70e0e;
   color: white;
-  border-radius: 21px;
+  border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  font-size: 11px;
+}
+
+.decline-button-left-align {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
 }
 
 .decline-button:hover {
   background-color: #950a0a;
+}
+
+.accept-offer-decline-container {
+  bottom: 10px;
+  right: 5px;
+
+}
+
+.accept-button {
+  padding: 3px 6px;
+  background-color: #0ec54b;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 11px;
+}
+
+.accept-button-right-align {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.accept-button:hover {
+  background-color: #0ba03d;
+}
+
+.offer-status-container {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  justify-content: center;
+}
+
+.offer-status-declined {
+  background-color: #b70e0e;
+
+}
+
+.offer-status-accepted {
+  background-color: #0ec54b;
+
 }

@@ -1,62 +1,59 @@
-.container-checkbox {
-  width: 300px;
-  margin: 20px auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  position: relative;
-}
-.button-container{
+.sent-offer-container {
   display: flex;
-  justify-content: center;
-}
-.container h2 {
-  margin-top: 0;
+  flex-direction: column;
+  gap: 15px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.sent-offer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-li {
-  margin-bottom: 10px;
+.sent-offer-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #aaa;
+.sent-offer-card-content div {
+  display: flex;
+  align-items: center;
 }
 
-.close:hover {
-  color: #666;
-}
+// p {
+//   margin: 0;
+//   padding: 0 10px;
+// }
 
-button {
-  padding: 8px 15px;
-  margin-right: 10px;
-  border: none;
-  border-radius: 5px;
-  background-color: #097a69;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  justify-content: center;
-}
+// .button {
+//   margin-left: 10px;
+//   padding: 5px 10px;
+//   background-color: #007bff;
+//   color: #fff;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   text-decoration: none;
+// }
 
-button:hover {
-  background-color: #45a049;
-}
+// .button:hover {
+//   background-color: #0056b3;
+// }
 
-button.cancel {
-  background-color: #f44336;
-}
+// .delete-icon {
+//   color: #dc3545;
+//   font-size: 18px;
+//   cursor: pointer;
+//   text-decoration: none;
+// }
 
-button.cancel:hover {
-  background-color: #da190b;
-}
+// .delete-icon:hover {
+//   color: #c82333;
+// }

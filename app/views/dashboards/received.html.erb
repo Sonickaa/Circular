@@ -1,32 +1,118 @@
-<% @received_offers.each do |offer| %>
-  <% offer.products.each do |product| %>
-  <% other_user = User.find(offer.user_sender_id) %>
-  <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
-   <div class="product-image-container">
-     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-     </div>
-  <h3>Is some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
-<form action="offer/createCounterOffer" method="post" class="form-offer">
-  <input type="hidden" name="offer[my_product]" value="<%= product.id %>">
-  <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
-
-  <div class="container-radio">
-    <ul>
-      <% other_user.products.each do |product| %>
-        <li>
-          <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
-          <label for="product_<%= product.id %>"><%= product.title %></label>
-             <div class="product-image-container">
-     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-     </div>
-        </li>
-      <% end %>
-    </ul>
+<div class="container-full">
+  <div class="wishlist-container">
+    <% if @received_offers.present? %>
+      <% @received_offers.each do |offer| %>
+        <% offer.products.each do |product| %>
+          <% other_user = User.find(offer.user_sender_id) %>
+          <div class="greetings-text">
+            <h3>Hello!<%= other_user.first_name %> matched <%= product.title %></h3>
+          </div>
+          <div class="wishlist-product-image">
+            <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+          </div>
+          <div class="product-info">
+            <div class="product-title-container">
+              <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+            </div>
+            <div class="product-description-container">
+              <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    <%end%>
   </div>
+  <%#  %>
+  <%#  %>
+  <% @received_offers.each do |offer| %>
+    <% offer.products.each do |product| %>
+      <% other_user = User.find(offer.user_sender_id) %>
+      <div class="greetings-text">
+        <h3>Hey!<%= other_user.first_name %> matched <%= product.title %></h3>
+      </div>
+      <div class="product-photoinfo-container">
+        <div class="zhaopian-container">
+          <div class="product-image-container">
+            <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+          </div>
+        </div>
+        <div class="offer-deal-description-container">
+          <div class="product-title-container">
+            <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+          </div>
+          <div class="product-description-container">
+            <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+          </div>
+        </div>
+      </div>
+      <div class="another-user-text">
+        <h3>Check <%= other_user.first_name %>´s items list!</h3>
+      </div>
+      <div class="product-name-recieved-container">
+        <form action="offer/createCounterOffer" method="post" class="form-offer">
+          <input type="hidden" name="offer[my_product]" value="<%= product.id %>">
+          <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
+          <div class="recieved-user-itemlist-container">
+            <div class="zhaopian2-container">
+              <div class="container-radio">
+                <ul>
+                  <% other_user.products.each do |product| %>
+                    <li>
+                      <div class="info-list-container d-flex justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                          <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
+                          <label for="product_<%= product.id %>"><%= product.title %></label>
+                        </div>
+                        <%= cl_image_tag product.photo.key, class: 'received-product-image img-fluid' %>
+                      </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="recieved-button-container">
+            <button type="submit">Make an offer</button>
+            <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+          </div>
+        </form>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
 
-  <button type="submit">Make an offer</button>
-  <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
-</form>
-  <% end %>
-<% end %>
+<%#
 
+//<div class="container-full">
+  <%# <div class="container-greetings">
+    <h1>Hello, <%= current_user.first_name %></h1>
+  </div>
+  <div class="sent-offer-container">
+    <% @my_offers.each do |offer| %>
+      <% next if offer.status != "pending" || offer.products.empty? %>
+      <% receiver = User.find(offer.user_receiver_id) %>
+      <% their_product = offer.products.first.title %>
+      <% counter_offer_product = offer.products.second&.title %>
+      <div class="card">
+        <div class="card-content">
+          <div>
+            <p>You are interested in <%= receiver.first_name %>'s <%= their_product %></p>
+            <% unless counter_offer_product %>
+              <%= link_to  declined_path(offer), data: {"turbo-method": :patch}, class: "delete-icon" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <% if counter_offer_product %>
+            <div>
+              <p>They want your <%= counter_offer_product %></p>
+              <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+              <%# <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %> %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div> %> %>
