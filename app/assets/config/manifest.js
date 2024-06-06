@@ -7,3 +7,6 @@
 //= link application.css
 //= require rails-ujs
 //= require_tree .
+// app/assets/config/manifest.js
+// ...
+//= link manifest.json
