@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   resources :offer_products, only: [:index]
   resources :messages, only: [:index, :show, :new, :create, :destroy]
-  resources :offers, only: [:index, :show]
+  resources :offers, only: [:index, :show, :destroy]
   resources :profiles, only: [:new, :show, :create, :edit, :update, :destroy]
   resources :categories, only: [:index]
   resources :product_wishlists, only: [:destroy]

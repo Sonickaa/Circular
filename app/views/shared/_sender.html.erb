@@ -1,5 +1,6 @@
 <%= if offer.status&.capitalize == "pending" %>
   <% @received_offers.each do |offer| %>
+    <% next if offer.products.empty? %>
     <% their_product = offer.products.first.title %>
     <% counter_offer_product = offer.products.second&.title %>
     <% other_user = User.find(offer.user_receiver_id) %>

@@ -22,9 +22,9 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = current_user
     sent_offer = @user.sent_offers.find(params[:id])
-    offer_product = sent_offer.offer_products.find(params[:id])
+    offer_product = sent_offer.offer_products
     offer_product.destroy
     sent_offer.destroy
     redirect_to dashboard_path
