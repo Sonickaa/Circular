@@ -1,0 +1,6 @@
+class CounterOffer < ApplicationRecord
+  belongs_to :offer
+  belongs_to :my_product, class_name: 'Product'
+  has_many :counter_offer_products
+  has_many :their_products, through: :counter_offer_products, source: :product
+end
