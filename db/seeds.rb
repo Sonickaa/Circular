@@ -1,7 +1,7 @@
 require 'faker'
 require "open-uri"
 
-
+puts "Cleaning Database! 🧼"
 OfferProduct.destroy_all
 Message.destroy_all
 Review.destroy_all
@@ -15,16 +15,17 @@ User.destroy_all
 
 sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@test.com", password: "123456", avatar_url: "https://i.ibb.co/ykj5t3b/sonia.png")
 tuo = User.create!(first_name: "Tuo", last_name: "Wang", email: "tuo@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
-emma = User.create!(first_name: "Emma", last_name: "Teacher", email: "emma@test.com", password: "123456", avatar_url: "https://i.ibb.co/BjC2L1V/tuo.jpg")
+emma = User.create!(first_name: "Emma", last_name: "Ruenzel", email: "emma@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/90188399?v=4")
+josh = User.create!(first_name: "Josh", last_name: "Smith", email: "josh@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/111142848?v=4")
+kat = User.create!(first_name: "Kat", last_name: "Syndall", email: "kat@test.com", password: "123456", avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg")
 chris = User.create!(first_name: "Christian", last_name: "Breuckmann", email: "chris@test.com", password: "123456", avatar_url: "https://i.ibb.co/pnYp2Nz/chris.jpg")
 sachini = User.create!(first_name: "Sachini", last_name: "Srimali", email: "sachini@test.com", password: "123456", avatar_url: "https://i.ibb.co/TYvQN97/sachini.jpg")
 alex = User.create!(first_name: "Alexander", last_name: "Holz", email: "alex@test.com", password: "123456", avatar_url: "https://i.ibb.co/Tm350BV/alex.jpg")
 remi = User.create!(first_name: "Remi", last_name: "Li", email: "remi@test.com", password: "123456", avatar_url: "https://i.ibb.co/Zm3wtqw/remi.jpg")
 
 User.all.each do |user|
-  Wishlist.create(user: user)
+  Wishlist.create(user:)
 end
-
 
 20.times do
   user = User.new(
@@ -55,6 +56,16 @@ products = [
     description: "Elevate your sound with the Electro-Harmonix Cathedral Stereo Reverb, a versatile pedal that offers a
     wide range of lush, ambient reverb effects. This used unit has been well-maintained and is in excellent working
     condition, offering you top-tier performance at a fraction of the cost of a new pedal.",
+    image_url: "https://www.russomusic.com/cdn/shop/products/DSC_9421_a7703a5e-5fbd-444a-9072-585c13acc6f9_500x.jpg",
+    condition: "used",
+    price: 600
+  },
+
+  {
+    title: "Singing about JavaScript",
+    user_id: josh.id,
+    category_id: musical_instruments.id,
+    description: "Elevate your sound with the with my great teachings about singing about the console.logs of your life!!! JS 4 Life lol",
     image_url: "https://www.russomusic.com/cdn/shop/products/DSC_9421_a7703a5e-5fbd-444a-9072-585c13acc6f9_500x.jpg",
     condition: "used",
     price: 600
@@ -99,8 +110,8 @@ products = [
     user_id: chris.id,
     category_id: clothing.id,
     description: "Show your love for Seahaven with this Halo of Hurt T-shirt. Lightly worn and in excellent condition,
-     this tee features the iconic album artwork. Perfect for fans and collectors alike, it offers a stylish way
-     to rep your favorite band.",
+    this tee features the iconic album artwork. Perfect for fans and collectors alike, it offers a stylish way
+    to rep your favorite band.",
     image_url: "https://www.coldcutsmerch.com/cdn/shop/products/SEAHAVENSEH005CURSETHESMILESHIRTMOCK.jpg",
     condition: "used",
     price: 40
@@ -213,7 +224,7 @@ products = [
     category_id: clothing.id,
     description: "Introducing the Supreme Morrissey T-shirt, gently used and full of style. Embrace iconic fashion with
     this pre-loved tee, perfect for fans of both Supreme and Morrissey. Add a touch of streetwear flair to your wardrobe
-     today.",
+    today.",
     image_url: "https://soledoutjc.com/cdn/shop/products/610b7fb7f0aca43995c6b13bd10ad1ea.jpg",
     condition: "used",
     price: 180
@@ -224,8 +235,8 @@ products = [
     user_id: tuo.id,
     category_id: services.id,
     description: "Embark offers professional walking dog services tailored to your furry friend's needs. Our experienced
-     team ensures your dog gets the exercise and attention they deserve, leaving you with peace of mind.
-      Let's keep those tails wagging together!",
+    team ensures your dog gets the exercise and attention they deserve, leaving you with peace of mind.
+    Let's keep those tails wagging together!",
     image_url: "https://upload.wikimedia.org/wikipedia/commons/5/51/Dog_walker_-_Buenos_Aires.jpg",
     condition: "used",
     price: 20
@@ -350,10 +361,9 @@ products = [
     condition: "used",
     image_url: "https://soulkitchenblog.wordpress.com/wp-content/uploads/2011/12/clay-chatties.jpg",
     price: 90
-  },
+  }
 
 ]
-
 
 products.each_with_index do |product, index|
   if product[:image_url].present?
@@ -361,9 +371,10 @@ products.each_with_index do |product, index|
     product.delete(:image_url)
     new_product = Product.new(product)
     new_product.photo.attach(io: file, filename: "image#{index}.png", content_type: "image/png")
-    new_product.save
   else
     new_product = Product.new(product)
-    new_product.save
   end
+  new_product.save
 end
+
+puts "Done!"
