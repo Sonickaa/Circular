@@ -18,10 +18,10 @@ class User < ApplicationRecord
   def avatar
     if avatar_url.present?
       # Use avatar url from database
-      return avatar_url
+       avatar_url
     else
       # Use default image
-      return "https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg"
+       "https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg"
     end
   end
 end
