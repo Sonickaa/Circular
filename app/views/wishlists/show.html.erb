@@ -1,10 +1,11 @@
 <div class="container-full">
-  <div class="container-greetings">
+  <div>
     <h1>Hello, <%= current_user.first_name %></h1>
-    <div class="container-greetings-message">
-      <h4>Your wishlist</h4>
-    </div>
   </div>
+  <div class="container-greetings-message">
+    <h4>Your Wishlist</h4>
+  </div>
+
   <div class="wishlist-container">
     <% @wishlist.products.each do |product| %>
       <div class="wishlist-card">

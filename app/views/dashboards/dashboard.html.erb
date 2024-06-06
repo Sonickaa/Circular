@@ -9,39 +9,8 @@
     <h4>Your Dashboard</h4>
   </div>
   <div class="dashboard-offer-button-container">
-    <%= link_to "Received Offer", dashboard_received_path, class: "dashboard-offer-button" %>
-  </div>
-  <div class="wishlist-container">
-    <% if @received_offers.present? %>
-      <% @received_offers.each do |offer| %>
-        <% if offer.products %>
-          <% offer.products.each do |product| %>
-            <div class="dashboard-product-card">
-              <div class="wishlist-product-image">
-                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-              </div>
-              <div class="product-info">
-                <div class="product-title-container">
-                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
-                </div>
-                <div class="product-description-container">
-                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
-                </div>
-              </div>
-              <div class="product-actions">
-                <div class="dashboard-offer-decline-container ">
-                  <%= link_to "Decline", offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% else %>
-      <div>
-        <p>No Received offers found</p>
-      </div>
-    <% end %>
+    <%= link_to "Received Offers", dashboard_received_path, class: "dashboard-offer-button" %>
+    <%= link_to "Finished Deals", dashboard_finished_path, class: "dashboard-offer-button" %>
   </div>
   <div class="dashboard-offer-button-container">
     <%= link_to "Sent offers", dashboard_sent_path, class: "dashboard-offer-button" %>
@@ -74,7 +43,7 @@
       <% end %>
     <% else %>
       <div>
-        <p>No Received offers found</p>
+        <p>No Sent offers found</p>
       </div>
     <% end %>
   </div>
@@ -82,10 +51,10 @@
 
 
       <div class="container-message">
-          <h1>Keep Circulating! </h1>
+          <h1> Keep Circulating! </h1>
       </div>
 
-
+<div>
 <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <defs>
@@ -115,3 +84,4 @@
     </g>
   </svg>
 <% end %>
+</div>
