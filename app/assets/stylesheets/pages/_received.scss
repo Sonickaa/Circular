@@ -41,9 +41,9 @@
 }
 
 .product-image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
+  // max-width: 100%;
+  // height: auto;
+  // border-radius: 5px;
 }
 
 .product-title-container {
@@ -99,9 +99,10 @@ li {
 }
 button {
   padding: 8px 15px;
-  margin-right: 10px;
+  margin-right: 0%;
+  margin-bottom: 8px;
   border: none;
-  border-radius: 5px;
+  border-radius: 21px;
   background-color: #097A69;
   color: white;
   cursor: pointer;
@@ -118,3 +119,17 @@ button:hover {
   display: flex;
   padding: 10px;
 }
+.close-button{
+  .cls-1 {
+    fill: #000;
+    stroke-width: 0px;
+   }
+
+  .cls-2 {
+    fill: none;
+    stroke: #000;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+   }
+ }
