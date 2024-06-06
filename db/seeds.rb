@@ -1,6 +1,3 @@
-# db/seeds.rb
-
-# Assuming you have User and Category models
 require 'faker'
 require "open-uri"
 
@@ -115,7 +112,7 @@ products = [
     user_id: alex.id,
     category_id: clothing.id,
     description: "Own a piece of football history with this CR7 Real Madrid long sleeve jersey. Lightly worn but
-    well-maintained, it’s perfect for any Ronaldo fan. Stylish, iconic, and ready to wear! Don’t miss out!",
+    well-maintained, its perfect for any Ronaldo fan. Stylish, iconic, and ready to wear! Don’t miss out!",
     image_url: "https://i.ebayimg.com/images/g/SHUAAOSwuwpgYu3p/s-l1200.jpg",
     condition: "used",
     price: 80
@@ -206,7 +203,7 @@ products = [
     category_id: sport_wellness.id,
     description: "A jar of organic wildflower honey, half-used, with a rich, floral flavor. Perfect for sweetening tea
     or spreading on toast.",
-    image_url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/honey-pot-4d7c98d.jpg?quality=90&webp=true&resize=375,341",
+    image_url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/honey-pot-4d7c98d.jpg",
     condition: "new",
     price: 1
   },
