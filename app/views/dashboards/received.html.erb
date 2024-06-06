@@ -43,10 +43,13 @@
     <ul>
       <% other_user.products.each do |product| %>
         <li>
+          <div class="info-list-container d-flex justify-content-between">
+          <div class="d-flex align-items-center gap-2">
+
           <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
           <label for="product_<%= product.id %>"><%= product.title %></label>
-             <div class="product-image-container">
-          <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+          </div>
+          <%= cl_image_tag product.photo.key, class: 'received-product-image img-fluid' %>
          </div>
         </li>
        <% end %>
@@ -62,15 +65,14 @@
   <% end %>
 <% end %>
 
-    <button onclick="confirmSelection()">Make an offer</button>
-    <button onclick="cancelSelection()">Decline</button>
+
 </div>
 </div>
 
 <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <defs>
-      
+
       <style>
         .cls-1 {
           fill: #000;
@@ -86,7 +88,7 @@
         }
 
       </style>
-      
+
     </defs>
     <g id="Layer_1-2" data-name="Layer 1">
       <g id="nav-bar">
