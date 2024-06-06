@@ -105,29 +105,6 @@ products = [
   },
 
   {
-    title: "Seahaven t-shirt",
-    user_id: chris.id,
-    category_id: clothing.id,
-    description: "Show your love for Seahaven with this Halo of Hurt T-shirt. Lightly worn and in excellent condition,
-    this tee features the iconic album artwork. Perfect for fans and collectors alike, it offers a stylish way
-    to rep your favorite band.",
-    image_url: "https://www.coldcutsmerch.com/cdn/shop/products/SEAHAVENSEH005CURSETHESMILESHIRTMOCK.jpg",
-    condition: "used",
-    price: 40
-  },
-
-  {
-    title: "CR7 Real Madrid tricot",
-    user_id: alex.id,
-    category_id: clothing.id,
-    description: "Own a piece of football history with this CR7 Real Madrid long sleeve jersey. Lightly worn but
-    well-maintained, its perfect for any Ronaldo fan. Stylish, iconic, and ready to wear! Don’t miss out!",
-    image_url: "https://i.ebayimg.com/images/g/SHUAAOSwuwpgYu3p/s-l1200.jpg",
-    condition: "used",
-    price: 80
-  },
-
-  {
     title: "Saturday Sessions",
     user_id: emma.id,
     category_id: others.id,
@@ -159,17 +136,6 @@ products = [
   },
 
   {
-    title: "Fire ant colony",
-    user_id: remi.id,
-    category_id: others.id,
-    description: "Fire ants are small, aggressive ants known for their painful stings. They are reddish-brown in color
-    and are commonly found in warm climates.",
-    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717701185/Screenshot_2024-06-06_at_21.12.20_yg2rd2.jpg?_s=public-apps",
-    condition: "new",
-    price: 15
-  },
-
-  {
     title: "Origami Book",
     user_id: remi.id,
     category_id: toys_games.id,
@@ -190,17 +156,6 @@ products = [
     image_url: "https://i.etsystatic.com/21530912/r/il/64056b/2451976559/il_fullxfull.2451976559_2dpt.jpg",
     condition: "used",
     price: 3
-  },
-
-  {
-    title: "Half Used Honey",
-    user_id: remi.id,
-    category_id: sport_wellness.id,
-    description: "A jar of organic wildflower honey, half-used, with a rich, floral flavor. Perfect for sweetening tea
-    or spreading on toast.",
-    image_url: "https://images.immediate.co.uk/production/volatile/sites/30/2020/02/honey-pot-4d7c98d.jpg",
-    condition: "new",
-    price: 1
   },
 
   {
