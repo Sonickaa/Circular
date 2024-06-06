@@ -1,75 +1,67 @@
-.profile-container {
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
+.dashboard-product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 10px);
+  height: 280px;
+  margin-bottom: 10px;
 }
 
-.profile-container img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-
-.button-container {
+.dashboard-offer-button-container {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  text-align: center;
+  margin: 20px 0;
 }
 
-.button {
-  padding: 10px;
+.dashboard-offer-button {
+  flex: 1;
+  padding: 10px 20px;
   background-color: #348972;
   color: white;
   border: none;
   border-radius: 20px;
-  margin: 0 5px;
   cursor: pointer;
-  flex-grow: 1;
-  text-align: center;
+  text-decoration: none;
 }
 
-
-
-.content-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 60px;
-}
-
-.create-card,
-.received-card {
-  width: 300px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 0 20px;
-  padding: 20px;
-}
-
-
-.create-card img,
-.received-card img {
-  width: 100%;
-  height: auto;
+.dashboard-product-delete-button-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 2px 2px;
+  color: white;
+  border: none;
   border-radius: 5px;
-}
-
-.create-card .item-delete,
-.received-card .item-delete {
-  text-align: right;
-  margin-top: 10px;
-}
-
-.create-card p,
-.received-card p {
-  text-align: center;
-  margin: 10px 0 0;
-  color: #348972;
   cursor: pointer;
+  font-size: 12px;
 }
 
-.create-card p:hover,
-.received-card p:hover {
-  text-decoration: underline;
-  color: #287359;
+.dashboard-offer-decline-container {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.decline-button {
+  padding: 5px 10px;
+  background-color: #b70e0e;
+  color: white;
+  border-radius: 21px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.decline-button:hover {
+  background-color: #950a0a;
 }

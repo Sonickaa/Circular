@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :product_wishlists, only: [:create]
     resources :offers, only: [:create]
   end
+
   resources :offer_products, only: [:index]
   resources :messages, only: [:index, :show, :new, :create, :destroy]
   resources :offers, only: [:index, :show]
@@ -31,5 +32,4 @@ Rails.application.routes.draw do
   resources :products do
     post 'toggle_favorite', on: :member
   end
-
 end

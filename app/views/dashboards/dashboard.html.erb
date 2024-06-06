@@ -1,10 +1,117 @@
-<div class="profile-container">
-  <img src="https://wallpapers.com/images/featured/cool-profile-picture-87h46gcobjl5e4xu.jpg" class="card-img-top" alt="...">
-  <h1>Hello, <%= current_user.first_name %></h1>
+<div class="container-full">
+  <div>
+    <img src="<%= current_user.avatar %>" alt="Profile Picture" class="profile-picture">
+  </div>
+  <div>
+    <h1>Hello, <%= current_user.first_name %></h1>
+  </div>
+  <div class="container-greetings-message">
+    <h4>Your Dashboard</h4>
+  </div>
+  <div class="dashboard-offer-button-container">
+    <%= link_to "Received Offer", dashboard_received_path, class: "dashboard-offer-button" %>
+  </div>
+  <div class="wishlist-container">
+    <% if @received_offers.present? %>
+      <% @received_offers.each do |offer| %>
+        <% if offer.products %>
+          <% offer.products.each do |product| %>
+            <div class="dashboard-product-card">
+              <div class="wishlist-product-image">
+                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+              </div>
+              <div class="product-info">
+                <div class="product-title-container">
+                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                </div>
+                <div class="product-description-container">
+                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                </div>
+              </div>
+              <div class="product-actions">
+                <div class="dashboard-offer-decline-container ">
+                  <%= link_to "Decline", offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div>
+        <p>No Received offers found</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="dashboard-offer-button-container">
+    <%= link_to "Sent offers", dashboard_sent_path, class: "dashboard-offer-button" %>
+  </div>
+  <div class="wishlist-container">
+    <% if @sent_offers.present? %>
+      <% @sent_offers.each do |offer| %>
+        <% if offer.products %>
+          <% offer.products.each do |product| %>
+            <div class="dashboard-product-card">
+              <div class="wishlist-product-image">
+                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+              </div>
+              <div class="product-info">
+                <div class="product-title-container">
+                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                </div>
+                <div class="product-description-container">
+                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                </div>
+              </div>
+              <div class="product-actions">
+                <div class="dashboard-product-delete-button-container">
+                  <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") ,offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}  %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div>
+        <p>No Received offers found</p>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div class="button-container">
 
-  <%= link_to "Sent Offer", dashboard_sent_path, class: "button" %>
-  <%= link_to "Received Offer", dashboard_received_path, class: "button" %>
-  <%= link_to "Finished Offer", dashboard_finished_path, class: "button" %>
-</div>
+
+      <div class="container-message">
+          <h1>Keep Circulating! </h1>
+      </div>
+
+
+<%= link_to products_path, class: 'btn btn-link' do %>
+  <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+    <defs>
+      <style>
+        .cls-1 {
+          fill: #000;
+          stroke-width: 0px;
+        }
+
+        .cls-2 {
+          fill: none;
+          stroke: #000;
+          stroke-linecap: round;
+          stroke-miterlimit: 10;
+          stroke-width: 2px;
+        }
+      </style>
+    </defs>
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g id="nav-bar">
+        <g id="btn_edit" data-name="btn edit">
+          <path class="cls-1" d="M20,2c9.93,0,18,8.07,18,18s-8.07,18-18,18S2,29.93,2,20,10.07,2,20,2M20,0C8.95,0,0,8.95,0,20s8.95,20,20,20,20-8.95,20-20S31.05,0,20,0h0Z"/>
+          <line class="cls-2" x1="11.36" y1="11.37" x2="28.44" y2="28.57"/>
+          <line class="cls-2" x1="28.5" y1="11.43" x2="11.3" y2="28.51"/>
+        </g>
+      </g>
+    </g>
+  </svg>
+<% end %>

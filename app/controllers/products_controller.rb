@@ -36,11 +36,13 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     @product.update(product_params)
-    redirect_to product_path(@product)
+    redirect_to profile_path(@product)
   end
 
   def destroy
     @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to product_path
   end
 
   def toggle_favorite
