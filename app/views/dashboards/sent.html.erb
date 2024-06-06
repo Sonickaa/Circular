@@ -12,7 +12,9 @@
   <div class="card">
   <div>
     <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
+   <% unless counter_offer_product %>
     <%= link_to "Delete", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
+    <% end %>
   </div>
 
       <% if counter_offer_product %>
@@ -25,29 +27,14 @@
   </div>
 <% end %>
 </div>
-  
-<div class="container-checkbox">
-    <span class="close">&times;</span>
-    <h2>your own Items</h2>
-    <ul>
-        <li><input type="checkbox" id="item1"> <label for="item1">item 1</label></li>
-        <li><input type="checkbox" id="item2"> <label for="item2">item 2</label></li>
-        <li><input type="checkbox" id="item3"> <label for="item3">item 3</label></li>
-    </ul>
-</div>
-<div class="button-container">
 
-    <button onclick="confirmSelection()">Comfirm</button>
-    <button onclick="cancelSelection()">Reject</button>
-</div>
 
-</div>
 
 <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-    
+
     <defs>
-      
+
       <style>
         .cls-1 {
           fill: #000;
@@ -61,11 +48,11 @@
           stroke-miterlimit: 10;
           stroke-width: 2px;
         }
-        
+
       </style>
-      
+
     </defs>
-    
+
     <g id="Layer_1-2" data-name="Layer 1">
       <g id="nav-bar">
         <g id="btn_edit" data-name="btn edit">
