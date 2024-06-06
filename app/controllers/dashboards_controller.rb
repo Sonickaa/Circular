@@ -1,6 +1,7 @@
 class DashboardsController < ApplicationController
   def dashboard
     @sent_offers = current_user.sent_offers
+    @received_offers = current_user.received_offers
   end
 
   # list of offers current user sent

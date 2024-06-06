@@ -1,34 +1,15 @@
-.profile-picture-placeholder {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #666;
-}
-
-.profile-picture {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 20px;
-}
-
-.container-greetings {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.container-greetings h1 {
+.dashboard-product-card {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  width: calc(50% - 10px);
+  height: 280px;
   margin-bottom: 10px;
-  font-size: 24px;
-  color: #333;
 }
 
-.button-container {
+.dashboard-offer-button-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -36,74 +17,51 @@
   margin: 20px 0;
 }
 
-.button {
+.dashboard-offer-button {
+  flex: 1;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #348972;
   color: white;
   border: none;
-  border-radius: 4px;
-  text-decoration: none;
+  border-radius: 20px;
   cursor: pointer;
-  display: inline-block;
-  margin-bottom: 20px;
+  text-decoration: none;
 }
 
-.Sentoffer-product-container,.receivedoffers-product-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 10px;
+.dashboard-product-delete-button-container {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 2px 2px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
 }
 
-.Sentoffer-product-card , .receivedoffers-product-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
-  width: calc(50% - 10px); /* Two columns on mobile */
-  height: 100px; /* Fixed height for all cards */
-  margin-bottom: 10px;
+.dashboard-offer-decline-container {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
 }
 
-.Sentoffer-product-image , .receivedoffers-product-image {
-  height: 50%; /* 50% of the card height */
-  overflow: hidden;
+.decline-button {
+  padding: 5px 10px;
+  background-color: #b70e0e;
+  color: white;
+  border-radius: 21px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.Sentoffer-product-image img, .receivedoffers-product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.Sentoffer-product-info,.receivedoffers-product-info  {
-  padding: 2px;
-  margin: 0;
-}
-
-.Sentoffer-product-title, .receivedoffers-product-title {
-  font-size: 0.8em;
-  color: #000;
-  margin: 0;
-}
-
-.Sentoffer-product-description, .receivedoffers-product-description {
-  font-size: 0.6em;
-  color: #666;
-  margin: 0;
-}
-
-
-
-@media (min-width: 768px) {
-  .Sentoffer-product-card, .receivedoffers-product-card {
-    width: calc(33.333% - 20px); /* Three columns on tablets and above */
-  }
-}
-
-@media (min-width: 1024px) {
-  .Sentoffer-product-card {
-    width: calc(25% - 20px); /* Four columns on desktops and above */
-  }
+.decline-button:hover {
+  background-color: #950a0a;
 }
