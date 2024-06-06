@@ -102,5 +102,20 @@ input[type="range"] {
 }
 
 .narrow-dropdown {
-  max-width: 200px; /* Adjust this value as needed */
+  max-width: 200px;
+}
+
+.close-button{
+ .cls-1 {
+  fill: #000;
+  stroke-width: 0px;
+ }
+
+ .cls-2 {
+  fill: none;
+  stroke: #000;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+ }
 }
