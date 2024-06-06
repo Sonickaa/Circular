@@ -14,7 +14,7 @@ body {
 .profile-picture {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 20px;
   display: block;
 }
 
@@ -37,8 +37,9 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
+  border-radius: 21px;
 }
+
 
 .container-white {
   background-color: #DDFEF6;
@@ -58,8 +59,8 @@ body {
 }
 
 .dropdown-toggle {
-  width: 320px;
-  margin: 50px 0 20px 0;
+  width: 280px;
+  margin: 0 0 20px 0;
   color: #333333;
   background: #DDFEF6;
   height: 42px;
@@ -71,7 +72,7 @@ body {
   width: calc(100% - 10px);
   margin: 1px 5px 5px 5px;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   background-color: #d2efe7;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -106,7 +107,6 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 0px auto;
-  box-shadow: 0px 0px 10px #DDFEF6;
 }
 
 .user-button {
@@ -185,11 +185,12 @@ h1 {
     font-size: 1.2em;
   }
 
-  .product-description {
+
+.product-description {
     font-size: em;
     margin-top: 10px;
   }
-  
+
 }
 .send-offer-button-container {
   position: absolute;
