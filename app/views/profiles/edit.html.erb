@@ -1,7 +1,14 @@
-<%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :address %>
-  <%= f.submit %>
-<% end %>
+<div class="login-container">
+  <div class="login-box">
+    <%= simple_form_for(@user, url: profile_path, method: :patch) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :bio %>
+      <%= f.input :address %>
+      <div class="d-flex justify-content-center">
+        <%= f.submit "Update", class: "update-button" %>
+        <button class="cancel-button" onclick="window.location.href='/profile'; return false;">Cancel</button>
+      </div>
+    <% end %>
+  </div>
+</div>

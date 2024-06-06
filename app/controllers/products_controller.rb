@@ -40,7 +40,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    user = User.find(params[:user_id])
+    product = user.products.find(params[:id])
+    product.destroy
   end
 
   def toggle_favorite

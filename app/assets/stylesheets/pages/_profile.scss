@@ -56,19 +56,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  // padding: 10px;
 }
 
 .profile-product-card {
+  position: relative;
   background: #fff;
-  // border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
   width: calc(50% - 10px);
-  /* Two columns on mobile */
   height: 300px;
-  /* Fixed height for all cards */
   margin-bottom: 10px;
 }
 
@@ -113,25 +110,31 @@
 
 
 .profile-product-edit-button {
-  // background: #007bff;
+  position: absolute;
+  bottom: 10px; // Adjust as needed
+  left: 10px; // Adjust as needed
   color: #fff;
-  padding: 2px;
-  /* Adjust padding */
+  padding: 5px 10px;
   text-decoration: none;
-  border-radius: 2px;
+  border-radius: 21px;
   font-size: 0.7em;
-  /* Adjust font size */
   min-width: 60px;
-  /* Ensure minimum width */
   text-align: center;
-  /* Center text */
 }
 
 
 
 .profile-product-delete-button {
+  position: absolute;
+  bottom: 10px; // Adjust as needed
+  right: 10px; // Adjust as needed
   padding: 2px 2px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 
 @media (min-width: 768px) {
   .wishlist-card {

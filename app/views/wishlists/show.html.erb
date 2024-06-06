@@ -24,7 +24,7 @@
             </div>
             <div class="delete-button">
               <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
-              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_wishlist_path(product, wishlist_id: @wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"} %>
+              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_wishlist_path(product_wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"} %>
             </div>
           </div>
         </div>

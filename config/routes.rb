@@ -32,4 +32,9 @@ Rails.application.routes.draw do
     post 'toggle_favorite', on: :member
   end
 
+  resources :users do
+    resources :products, only: [ :edit, :destroy]
+    resources :offers, only: [:destroy]
+  end
+
 end
