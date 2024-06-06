@@ -30,7 +30,7 @@ class DashboardsController < ApplicationController
 
     # Step 3: Filter out the offers that have these offer_ids
     @received_offers = @received_offers_unfiltered
-      .where.not(id: offer_ids_with_multiple_products).and(@received_offers_unfiltered.where.not(status: "declined"))
+    .where.not(id: offer_ids_with_multiple_products).and(@received_offers_unfiltered.where.not(status: "declined"))
     @new_offer = Offer.new
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   patch "dashboard/:id/declined_offer", to: "dashboards#declined_offer", as: "declined"
   get "dashboard/received", to: "dashboards#received"
   get "dashboard/finished", to: "dashboards#finished"
-  post "dashboard/offer/createCounterOffer", to: "offers#create_counter_offer", as: "counter_offer"
+  post "/counter_offers", to: "offers#create_counter_offer", as: "counter_offers"
 
   get "/profile", to: "profiles#profile", as: :my_profile
   patch "/profile", to: "profiles#update", as: :profile

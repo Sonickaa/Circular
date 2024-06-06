@@ -1,8 +1,8 @@
 <div class="container-full">
   <div class="container-greetings">
-    <h1>Hello, <%= current_user.first_name %></h1>
+    <h1>Hello <%= current_user.first_name %>  </h1>
     <div class="container-greetings-message">
-      <h4>Your wishlist</h4>
+      <h4>, your wishlist</h4>
     </div>
   </div>
   <div class="wishlist-container">
@@ -20,11 +20,11 @@
           </div>
           <div class="product-actions">
             <div class="wishlist-send-and-offer-button">
-              <%= link_to "Offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
+              <%# <%= link_to "Offer", product_offers_path(product), data: {turbo_method: :post}, class: "user-button" %>
             </div>
             <div class="delete-button">
               <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: product.id) %>
-              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_wishlist_path(product_wishlist.id), style: "width:100px", data: {turbo_method: :delete, turbo_confirm: "Sure?"} %>
+              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_wishlist_path(product_wishlist.id), style: "width:100px", data: { turbo_method: :delete } %>
             </div>
           </div>
         </div>
