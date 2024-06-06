@@ -3,7 +3,8 @@
   <p></p>
   <h1 class="dark-gray-text">Upload your offer!</h1>
 
-  <!-- Close button -->
+  <!-- Close button unfunctined-->
+  <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <g id="Layer_1-2" data-name="Layer 1">
       <g id="nav-bar">
@@ -15,6 +16,7 @@
       </g>
     </g>
   </svg>
+<% end %>
 
   <!-- Simple form for uploading offer -->
   <br>
@@ -42,7 +44,6 @@
     </select>
 
     <div class="styled-input">
-        <!-- -->
 
       <label>Condition:</label>
       <select name="product[condition]">
@@ -55,7 +56,7 @@
      <label>Price €:</label>
      <input type="integer", name="product[price]">
      </div>
-     
+
 </select>
 
     <div class="styled-input">
