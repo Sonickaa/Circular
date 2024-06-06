@@ -1,12 +1,9 @@
 <div class="container-full">
   <div class="product-details">
-   <div class="picstogether">
-    <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class:"show-pic"%>
-
+    <div class="picstogether">
+      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class:"show-pic"%>
         <%= image_tag @product.user.avatar, height: 72, width: 72,  crop: :fill, class: "css-style" %>
-
-
-    <h2>　<%= @product.title %></h2>
+          <h2><%= @product.title %></h2>
 
       <p><strong>Owner:</strong> <%= @product.user.first_name %></p>
       <p><strong>Category:</strong> <%= @product.category.name %></p>
@@ -15,12 +12,9 @@
       <p><strong>Condition:</strong> <%= @product.condition %></p>
       <p><strong>Price:</strong> <%= number_to_currency(@product.price, unit: "€", precision: 0) %> ~ <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
 
-
       <div class="product-actions">
-
-      <%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
+        <%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
       </div>
-
   </div>
 
   <%= link_to products_path, class: 'btn btn-link' do %>

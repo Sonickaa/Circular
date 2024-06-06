@@ -9,15 +9,17 @@
     </div>
   </div>
   <div class="container-greetings">
-    <h1>Hello, <%= current_user.first_name %></h1>
+    <h1>Good Morning, <%= current_user.first_name %>! ☀️</h1>
   </div>
-  <div class="container-bio">
-    <h3>Bio<%= current_user.bio %></h3>
-    <div class="my-items">
-      <h3>My items</h3>
-    </div>
+  <div class="container-bio mb-3">
+    <h3>About me:</h3>
+    <p><%= current_user.bio %></p>
+      <div class="my-items">
+        <h3>MY ITEMS</h3>
+      </div>
   </div>
   <div class="profile-product-container">
+  <% if @user.products.any? %>
     <% @products.each do |product| %>
       <div class="profile-product-card">
         <div class="profile-product-image">
@@ -35,14 +37,20 @@
               <%= link_to "Edit", edit_product_path(product), class: "user-button" %>
             </div>
             <div class="profile-product-delete-button">
-             <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_path(product.id), data: { turbo_method: "delete", confirm: "Are you sure?" } %>
+              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px"), product_path(product.id), data: { turbo_method: "delete", confirm: "Are you sure?" } %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
+  <% else %>
+    <div class="text-center mx-auto">
+      <p class="opacity-50 text-center">No products yet.</p>
+    </div>
+  <% end %>
   </div>
 </div>
+
 <%= link_to products_path, class: 'btn btn-link' do %>
   <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <defs>

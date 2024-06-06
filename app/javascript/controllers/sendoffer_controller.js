@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="sendoffer"
 export default class extends Controller {
+  static targets = ['button']
   static values = {
     id: Number
   }
@@ -22,5 +23,6 @@ export default class extends Controller {
       body: {}}
     )
     console.log("sent fetch");
+    this.buttonTarget.innerHTML = "Offer sent"
   }
 }

@@ -27,8 +27,8 @@
         </div>
       <% else %>
 
-        <!-- Inside products/index.html.erb -->
-   <% @products.each_with_index do |product, index| %>
+  <!-- Inside products/index.html.erb -->
+  <% @products.each_with_index do |product, index| %>
   <div class="carousel-item <%= 'active' if index == 0 %>">
     <div data-controller="sendoffer" data-sendoffer-id-value="<%= product.id %>" class="container-white position-relative">
       <% if current_user.wishlist.products.include?(product) %>
@@ -56,18 +56,18 @@
                 <% end %>
               </div>
               <div class="product-title-container">
-                <%= link_to product_path(product) do %>
+                <%= link_to product_path(product), class: "text-decoration-none" do %>
                   <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
                 <% end %>
               </div>
               <div class="product-description-container">
-                <%= link_to product_path(product) do %>
+                <%= link_to product_path(product), class: "text-decoration-none" do %>
                   <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
                 <% end %>
               </div>
 
               <div class="send-offer-button-container">
-                <button class="sendoffer" data-action="click->sendoffer#send">Send an offer</button>
+                <button class="sendoffer" data-sendoffer-target="button" data-action="click->sendoffer#send">Send an offer</button>
               </div>
             </div>
           </div>

@@ -13,15 +13,15 @@ Product.destroy_all
 Category.destroy_all
 User.destroy_all
 
-sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@test.com", password: "123456", avatar_url: "https://i.ibb.co/ykj5t3b/sonia.png")
-tuo = User.create!(first_name: "Tuo", last_name: "Wang", email: "tuo@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg")
-emma = User.create!(first_name: "Emma", last_name: "Ruenzel", email: "emma@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/90188399?v=4")
-josh = User.create!(first_name: "Josh", last_name: "Smith", email: "josh@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/111142848?v=4")
-kat = User.create!(first_name: "Kat", last_name: "Syndall", email: "kat@test.com", password: "123456", avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg")
-chris = User.create!(first_name: "Christian", last_name: "Breuckmann", email: "chris@test.com", password: "123456", avatar_url: "https://i.ibb.co/pnYp2Nz/chris.jpg")
-sachini = User.create!(first_name: "Sachini", last_name: "Srimali", email: "sachini@test.com", password: "123456", avatar_url: "https://i.ibb.co/TYvQN97/sachini.jpg")
-alex = User.create!(first_name: "Alexander", last_name: "Holz", email: "alex@test.com", password: "123456", avatar_url: "https://i.ibb.co/Tm350BV/alex.jpg")
-remi = User.create!(first_name: "Remi", last_name: "Li", email: "remi@test.com", password: "123456", avatar_url: "https://i.ibb.co/Zm3wtqw/remi.jpg")
+sonia = User.create!(first_name: "Sonia", last_name: "Chaboud", email: "sonia@test.com", password: "123456", avatar_url: "https://i.ibb.co/ykj5t3b/sonia.png", bio: "I love code!!!")
+tuo = User.create!(first_name: "Tuo", last_name: "Wang", email: "tuo@test.com", password: "123456", avatar_url: "https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg", bio: "I love code!!!")
+emma = User.create!(first_name: "Emma", last_name: "Ruenzel", email: "emma@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/90188399?v=4", bio: "Hey everyone! I'm Emma, and initially, I studied linguistics and literature, but I have been working in full-stack development within languages and beekeeping (don't ask haha) for some time now. Batch #741 ☀️")
+josh = User.create!(first_name: "Josh", last_name: "Smith", email: "josh@test.com", password: "123456", avatar_url: "https://avatars.githubusercontent.com/u/111142848?v=4", bio: "I love code!!!")
+kat = User.create!(first_name: "Kat", last_name: "Syndall", email: "kat@test.com", password: "123456", avatar_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696334260/xeoh9bn2dq3runng1m4v.jpg", bio: "I love code!!!")
+chris = User.create!(first_name: "Christian", last_name: "Breuckmann", email: "chris@test.com", password: "123456", avatar_url: "https://i.ibb.co/pnYp2Nz/chris.jpg", bio: "I love code!!!")
+sachini = User.create!(first_name: "Sachini", last_name: "Srimali", email: "sachini@test.com", password: "123456", avatar_url: "https://i.ibb.co/TYvQN97/sachini.jpg", bio: "I love code!!!")
+alex = User.create!(first_name: "Alexander", last_name: "Holz", email: "alex@test.com", password: "123456", avatar_url: "https://i.ibb.co/Tm350BV/alex.jpg", bio: "I love code!!!")
+remi = User.create!(first_name: "Remi", last_name: "Li", email: "remi@test.com", password: "123456", avatar_url: "https://i.ibb.co/Zm3wtqw/remi.jpg", bio: "I love code!!!")
 
 User.all.each do |user|
   Wishlist.create(user:)
@@ -60,22 +60,21 @@ products = [
     condition: "used",
     price: 600
   },
-
   {
     title: "Singing about JavaScript",
     user_id: josh.id,
     category_id: musical_instruments.id,
-    description: "Elevate your sound with the with my great teachings about singing about the console.logs of your life!!! JS 4 Life lol",
-    image_url: "https://www.russomusic.com/cdn/shop/products/DSC_9421_a7703a5e-5fbd-444a-9072-585c13acc6f9_500x.jpg",
-    condition: "used",
-    price: 600
+    description: "Elevate your sinigng with my great teachings about singing about the console.logs of your life!!! JS 4 Life lol",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717697975/Screenshot_2024-06-06_at_20.17.33_spkxg0.jpg?_s=public-apps",
+    condition: "new",
+    price: 404
   },
 
   {
-    title: "Portuguese basic lessons",
+    title: "Learn Coding in Portuguese",
     user_id: chris.id,
     category_id: services.id,
-    description: "Learn some portuguese with me!",
+    description: "Learn some portuguese (coding) with me! 🇧🇷",
     image_url: "https://assets-global.website-files.com/5cdc34afa4217f8020168210/5e727fa67d25fe70b2535346_languageIcon_portuguese.png",
     condition: "used",
     price: 100
@@ -129,18 +128,17 @@ products = [
   },
 
   {
-    title: "IPad 1st Gen",
-    user_id: alex.id,
-    category_id: electronics.id,
-    description: "Grab this classic iPad 1st Generation! Lightly used and well-maintained, it’s perfect for browsing,
-    reading, or basic apps. A great deal for those who appreciate tech history or need a simple tablet.",
-    image_url: "https://i.ebayimg.com/images/g/lQgAAOSwdHlfzDDg/s-l1600.jpg",
+    title: "Saturday Sessions",
+    user_id: emma.id,
+    category_id: others.id,
+    description: "We offer these sessions completly for free! Just come to Le Wagon on Saturdays OR thursdays and see what will happen!",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717700890/Screenshot_2024-06-06_at_21.07.50_dci4pn.jpg?_s=public-apps",
     condition: "refurbished",
     price: 40
   },
 
   {
-    title: "Personal Styling",
+    title: "Personal Styling 😎",
     user_id: alex.id,
     category_id: services.id,
     description: "Trying swipe services? Upgrade your style with personalized flair! Offering expert personal styling
@@ -151,13 +149,11 @@ products = [
   },
 
   {
-    title: "Gameboy color",
-    user_id: alex.id,
-    category_id: electronics.id,
-    description: "Relive the nostalgia with this Game Boy Color! Lightly used and well-maintained, it’s perfect for
-    classic gaming fun. A great addition for collectors or anyone looking to enjoy retro games. Don't miss out on this
-    timeless piece!",
-    image_url: "https://media.karousell.com/media/photos/products/2021/1/31/nintendo_gameboy_color__5_game_1612066440_2e34574e_progressive.jpg",
+    title: "Used Chessboard",
+    user_id: josh.id,
+    category_id: others.id,
+    description: "Check out our old chess board and maybe also play with us!! We also solve coding bugs hehe ♟️",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717700668/Screenshot_2024-06-06_at_21.03.47_yfegqw.jpg?_s=public-apps",
     condition: "used",
     price: 110
   },
@@ -168,18 +164,18 @@ products = [
     category_id: others.id,
     description: "Fire ants are small, aggressive ants known for their painful stings. They are reddish-brown in color
     and are commonly found in warm climates.",
-    image_url: "https://www.extermpro.com/wp-content/uploads/2019/02/fire-ants.jpg",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717701185/Screenshot_2024-06-06_at_21.12.20_yg2rd2.jpg?_s=public-apps",
     condition: "new",
     price: 15
   },
 
   {
-    title: "Origami book",
+    title: "Origami Book",
     user_id: remi.id,
     category_id: toys_games.id,
-    description: "Discover the magic of origami with this amazing used book! Perfect for beginners or enthusiasts,
-    it's filled with captivating designs and easy-to-follow instructions. ",
-    image_url: "https://m.media-amazon.com/images/I/71cLZioN1pL._AC_UF894,1000_QL80_.jpg",
+    description: "Discover the magic of origami with this amazing used book of me! Perfect for beginners or enthusiasts,
+    it's filled with captivating designs and easy-to-follow instructions. Also, you can maybe learn how to code a bird 🗞️",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717700024/Screenshot_2024-06-06_at_20.53.01_xcyybd.jpg?_s=public-apps",
     condition: "new",
     price: 55
   },
@@ -197,17 +193,6 @@ products = [
   },
 
   {
-    title: "High Protein Chocolate Chip Cookies",
-    user_id: remi.id,
-    category_id: sport_wellness.id,
-    description: "Homemade chocolate chip cookies with high protein levels, freshly baked with high-quality ingredients, including real butter
-    and semi-sweet chocolate chips. Get big or get home!",
-    image_url: "https://i.etsystatic.com/21530912/r/il/64056b/2451976559/il_fullxfull.2451976559_2dpt.jpg",
-    condition: "new",
-    price: 10
-  },
-
-  {
     title: "Half Used Honey",
     user_id: remi.id,
     category_id: sport_wellness.id,
@@ -219,13 +204,11 @@ products = [
   },
 
   {
-    title: "SUPREME Morrisey",
+    title: "Running away from Coding Bugs",
     user_id: tuo.id,
-    category_id: clothing.id,
-    description: "Introducing the Supreme Morrissey T-shirt, gently used and full of style. Embrace iconic fashion with
-    this pre-loved tee, perfect for fans of both Supreme and Morrissey. Add a touch of streetwear flair to your wardrobe
-    today.",
-    image_url: "https://soledoutjc.com/cdn/shop/products/610b7fb7f0aca43995c6b13bd10ad1ea.jpg",
+    category_id: sport_wellness.id,
+    description: "I'll teach you how to get away from your coding errors AND how to run a marathon!! 🏃🏼🏃🏼🏃🏼",
+    image_url: "https://res.cloudinary.com/dk5glvhr6/image/upload/fl_preserve_transparency/v1717700891/Screenshot_2024-06-06_at_21.07.59_kmgifa.jpg?_s=public-apps",
     condition: "used",
     price: 180
   },
@@ -250,18 +233,6 @@ products = [
     image_url: "https://www.languagebird.com/wp-content/uploads/2021/06/Mandarin-Language-e1629327465771.jpg",
     condition: "new",
     price: 65
-  },
-
-  {
-    title: "Nike Alpha Fly",
-    user_id: tuo.id,
-    category_id: clothing.id,
-    description: "Step into elite performance with our gently used Nike Alpha Fly sneakers. These shoes have been
-    crafted for speed and comfort, making them ideal for runners of all levels.
-    Elevate your runs with the quality and innovation of Nike.",
-    image_url: "https://www.languagebird.com/wp-content/uploads/2021/06/Mandarin-Language-e1629327465771.jpg",
-    condition: "used",
-    price: 300
   },
 
   {
@@ -318,20 +289,20 @@ products = [
     user_id: sonia.id,
     category_id: sport_wellness.id,
     description: "Level up your gaming arsenal with our used ASUS Gamer Laptop. It's seen its fair share of epic battles
-     and late-night raids, but it's ready for more. With specs that could make a dragon jealous,
-     this laptop is your trusty sidekick in virtual adventures. Get ready to slay some pixels!",
+    and late-night raids, but it's ready for more. With specs that could make a dragon jealous,
+    this laptop is your trusty sidekick in virtual adventures. Get ready to slay some pixels!",
     condition: "used",
     image_url: "https://classifieds.248am.com/oc-content/uploads/351/55716.jpg",
     price: 525
   },
 
   {
-    title: "Ikea used chair",
+    title: "Ikea used chair 🇸🇪",
     user_id: sonia.id,
     category_id: home_appliances.id,
     description: "Introducing the IKEA Shitty Used Chair – because sometimes even the worst seats have stories to
-     tell. This battle-scarred warrior has endured countless movie marathons and gaming sessions. It may not be fancy,
-     but it's got character and a price tag that won't break the bank. Sit back, relax, and embrace the shittiness!",
+    tell. This battle-scarred warrior has endured countless movie marathons and gaming sessions. It may not be fancy,
+    but it's got character and a price tag that won't break the bank. Sit back, relax, and embrace the shittiness!",
     condition: "used",
     image_url: "https://d6qwfb5pdou4u.cloudfront.net/product-images/6700001-6710000/6703450/1699185341ae0796428b7564bf00401c6773b6fcf0/1500-1500-frame-0.jpg",
     price: 20
@@ -351,7 +322,7 @@ products = [
   },
 
   {
-    title: "Sri Lankan Chatties",
+    title: "Sri Lankan Chatties 🇱🇰",
     user_id: sachini.id,
     category_id: beauty_personal_care.id,
     description: "
@@ -361,8 +332,17 @@ products = [
     condition: "used",
     image_url: "https://soulkitchenblog.wordpress.com/wp-content/uploads/2011/12/clay-chatties.jpg",
     price: 90
-  }
+  },
 
+  {
+    title: "Learn how to become a BM with Emma",
+    user_id: emma.id,
+    category_id: beauty_personal_care.id,
+    description: "Learn with Emma and her assistant Precious how to become a Batch Manager (Extra points for 👻)",
+    condition: "used",
+    image_url: "https://soulkitchenblog.wordpress.com/wp-content/uploads/2011/12/clay-chatties.jpg",
+    price: 90
+  }
 ]
 
 products.each_with_index do |product, index|
@@ -377,4 +357,4 @@ products.each_with_index do |product, index|
   new_product.save
 end
 
-puts "Done!"
+puts "Done! 🌱🌱🌱"
