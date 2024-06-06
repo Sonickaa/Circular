@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
 
-
   def profile
     @user = current_user
     @products = @user.products
