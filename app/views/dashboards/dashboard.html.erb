@@ -30,7 +30,7 @@
               </div>
               <div class="product-actions">
                 <div class="dashboard-offer-decline-container ">
-                  <%= link_to "Decline", user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
+                  <%= link_to "Decline", offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "decline-button" %>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
               </div>
               <div class="product-actions">
                 <div class="dashboard-product-delete-button-container">
-                  <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") , user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}  %>
+                  <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") ,offer_path(offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}  %>
                 </div>
               </div>
             </div>

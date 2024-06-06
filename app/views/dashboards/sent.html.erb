@@ -5,20 +5,26 @@
 <div class="sent-offer-container">
 
 <% @my_offers.each do |offer| %>
-<% next if offer.status != "pending" %>
+<% next if offer.status != "pending" || offer.products.empty? %>
   <% receiver = User.find(offer.user_receiver_id) %>
   <% their_product = offer.products.first.title %>
   <% counter_offer_product = offer.products.second&.title %>
   <div class="card">
+  <div>
     <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
+    <%= link_to "Delete", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
+  </div>
 
       <% if counter_offer_product %>
+       <div>
         <p>They want your <%= counter_offer_product %></p>
           <%= link_to "Accept", accepted_path(offer), data: {"turbo-method": :patch}, class: "button" %>
           <%= link_to "Decline", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
+       </div>
       <% end %>
   </div>
 <% end %>
+</div>
   
 <div class="container-checkbox">
     <span class="close">&times;</span>
