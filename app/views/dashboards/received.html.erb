@@ -1,62 +1,65 @@
 <% unless @received_offers.nil? %>
+
   <% @received_offers.each do |offer| %>
-    <% offer.products.each do |product| %>
-    <% other_user = User.find(offer.user_sender_id) %>
+    <div class="card p-3 mb-3">
+      <% offer.products.each do |product| %>
+      <% other_user = User.find(offer.user_sender_id) %>
 
-    <div class="greetings-text">
-      <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
-    </div>
 
-    <div class="product-photoinfo-container">
-      <div class="zhaopian-container">
-        <div class="product-image-container">
-          <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-        </div>
+      <div class="greetings-text">
+        <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
       </div>
-      <div class="offer-deal-description-container">
-        <div class="product-title-container">
-          <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
-        </div>
-        <div class="product-description-container">
-          <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="another-user-text">
-      <h3>Have a look <%= other_user.first_name %>´s items here!</h3>
-    </div>
-
-    <div class="product-name-recieved-container">
-      <form action="/counter_offers" method="post" class="form-offer">
-        <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
-        </div>
-        <div class="recieved-user-itemlist-container">
-          <div class="zhaopian2-container">
-            <div class="container-radio">
-              <ul>
-                <% other_user.products.each do |product| %>
-                  <li>
-                    <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
-                    <label for="product_<%= product.id %>"><%= product.title %></label>
-                      <div class="product-image-container">
-                        <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-                      </div>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+      <div class="product-photoinfo-container">
+        <div class="zhaopian-container">
+          <div class="product-image-container">
+            <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
           </div>
         </div>
-        <div lass="recieved-button-container">
-          <button class="button" >Make a Counter Offer</button>
-          <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+        <div class="offer-deal-description-container">
+          <div class="product-title-container">
+            <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+          </div>
+          <div class="product-description-container">
+            <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+          </div>
         </div>
-      </form>
+      </div>
+
+      <div class="another-user-text">
+        <h3>Have a look <%= other_user.first_name %>´s items here!</h3>
+      </div>
+
+      <div class="product-name-recieved-container">
+        <form action="/counter_offers" method="post" class="form-offer">
+          <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
+          </div>
+          <div class="recieved-user-itemlist-container">
+            <div class="zhaopian2-container">
+              <div class="container-radio">
+                <ul>
+                  <% other_user.products.each do |product| %>
+                    <li>
+                      <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
+                      <label for="product_<%= product.id %>"><%= product.title %></label>
+                        <div class="product-image-container">
+                          <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+                        </div>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div lass="recieved-button-container">
+            <button class="button">Make a Counter Offer</button>
+            <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+          </div>
+        </form>
     </div>
 
     <% end %>
   <% end %>
+</div>
 <% else %>
   <p>No offers yet 🤷‍♀️</p>
 <% end %>

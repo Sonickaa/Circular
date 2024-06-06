@@ -12,7 +12,7 @@
   <div class="card">
   <div>
     <p> You are interested in <%= receiver.first_name.pluralize %>  <%= their_product %></p>
-    <%= link_to "Delete", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
+    <%= link_to "Not interested anymore", declined_path(offer),data: {"turbo-method": :patch}, class: "button" %>
   </div>
 
       <% if counter_offer_product %>
