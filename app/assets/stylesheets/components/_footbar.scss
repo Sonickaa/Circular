@@ -1,7 +1,8 @@
 .footbar {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  height: 72px !important;
+  bottom: 50px !important;
   z-index: 1000;
   background: rgba(221, 254, 246, 1);
 }
@@ -14,7 +15,7 @@
   font-family: Helvetica;
   font-size: 2.8vw;
   justify-content: space-between;
-  height: 4.75rem;
+  height: 80px;
   bottom: 0;
   align-items: center;
 }

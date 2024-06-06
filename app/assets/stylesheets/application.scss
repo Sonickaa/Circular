@@ -13,10 +13,6 @@
 @import "pages/product_edit";
 @import "pages/product_new";
 
-html {
-  height: 100%;
-}
-
 body {
   background: linear-gradient(168deg, #80f2d7 50%, #348972 100%);
   display: flex;
@@ -27,9 +23,6 @@ body {
 .content {
   flex: 1;
   overflow: auto;
-  /* Enable scrolling if content overflows */
-  padding-bottom: 50px;
-  /* Ensure space at the bottom so content is not hidden behind the footer */
 }
 
 .alert {
