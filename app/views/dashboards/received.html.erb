@@ -1,14 +1,43 @@
 <% @received_offers.each do |offer| %>
   <% offer.products.each do |product| %>
   <% other_user = User.find(offer.user_sender_id) %>
+
+  <div class="greetings-text">
   <h2>Congratulations! <%= other_user.first_name %> wants your <%= product.title %></h2>
+  </div>
+
+<div class="product-photoinfo-container">
+  <div class="zhaopian-container">
+
    <div class="product-image-container">
      <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+  </div>
      </div>
-  <h3>Is some of <%= other_user.first_name %>´s items interesting for you? Choose and exchange!</h3>
+<div class="offer-deal-description-container">
+<div class="product-title-container">
+                <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+              </div>
+              <div class="product-description-container">
+                <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+              </div>
+</div>
+</div>
+
+
+<div class="another-user-text">
+  <h3>Have a look <%= other_user.first_name %>´s items here!</h3>
+</div>
+
+<div class="product-name-recieved-container">
+
 <form action="offer/createCounterOffer" method="post" class="form-offer">
   <input type="hidden" name="offer[my_product]" value="<%= product.id %>">
   <input type="hidden" name="offer[offer_id]" value="<%= offer.id %>">
+
+</div>
+<div class="recieved-user-itemlist-container">
+<div class="zhaopian2-container">
+
 
   <div class="container-radio">
     <ul>
@@ -17,15 +46,18 @@
           <input type="radio" id="product_<%= product.id %>" name="offer[their_product]" value="<%= product.id %>">
           <label for="product_<%= product.id %>"><%= product.title %></label>
              <div class="product-image-container">
-     <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-     </div>
+          <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
+         </div>
         </li>
-      <% end %>
-    </ul>
-  </div>
-
+       <% end %>
+     </ul>
+   </div>
+</div>
+</div>
+<div class="recieved-button-container">
   <button type="submit">Make an offer</button>
   <%= link_to "Decline", declined_path(offer), data: {"turbo-method": :patch}, class: "button" %>
+</div>
 </form>
   <% end %>
 <% end %>

@@ -1,11 +1,76 @@
-container-checkbox {
-  width: 300px;
-  margin: 20px auto;
-  background-color: #fff;
+.greetings-text{
+  text-align: center;
+  margin: 20px;
+  background-color: azure;
+  border-radius: 15px;
+  padding: 5px;
+}
+.zhaopian-container{
+  width: 150px;
+}
+
+.zhaopian2-container{
+  width: 150px;
+}
+
+
+.product-photoinfo-container{
+  background-color: azure;
+  padding: 5px;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.product-photoinfo-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #dcdcdc;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  position: relative;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.zhaopian-container {
+  flex: 1;
+}
+
+.offer-deal-description-container {
+  flex: 2;
+}
+
+.product-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product-title-container {
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  color: #333;
+}
+
+.product-description-container {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #555;
+}
+
+.another-user-text{
+  text-align: center;
+  margin: 20px;
+  padding: 5px;
+}
+
+.recieved-user-itemlist-container{
+  background-color: azure;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 15px;
+
 }
 .button-container{
   display: flex;
@@ -46,16 +111,10 @@ button {
 button:hover {
   background-color: #45A049;
 }
-button.cancel {
-  background-color: #F44336;
+
+.recieved-button-container{
+  justify-content: center;
+  margin-bottom: 10px;
+  display: flex;
+  padding: 10px;
 }
-button.cancel:hover {
-  background-color: #DA190B;
-}
-
-
-
-
-
-
-
