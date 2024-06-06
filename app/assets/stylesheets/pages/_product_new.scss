@@ -1,33 +1,26 @@
+body {
+  margin: 40px;
+}
+
 .dark-gray-text {
   color: #333333;
-  border: 0px;
-}
-
-.circle-input {
-  background-color: #d2efe7;
-  height: 248px;
-  width: 248px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  opacity: 100%;
-  box-shadow: 1px 1px 4px rgba(3, 3, 3, 0.2);
-}
-
-.styled-input {
-  margin: auto;
-  width: 296px;
 }
 
 .styled-input input[type="text"],
 .styled-input select,
-.styled-input textarea {
-  margin-bottom: 5px;
-  border-radius: 21px;
-  padding: 21px;
+.styled-input textarea,
+.styled-input input[type="integer"] {
+  width: 300px;
+  margin-left: 5px;
+  margin-top: 1px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 10px;
   background-color: #d2efe7;
+<<<<<<< HEAD
+  border: 1px solid #ccc;
+=======
   border: 0px;
   width: 296px;
   height: 40px;
@@ -88,4 +81,5 @@ input {
   width: 296px;
   border: 0px;
   box-shadow: 1px 1px 4px rgba(3, 3, 3, 0.2);
+>>>>>>> 2f4bcb9ec077143fb8f72439d5d093c03e6bf089
 }
