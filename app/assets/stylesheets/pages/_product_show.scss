@@ -7,16 +7,15 @@
   display: flex;
 }
 
-.css-style {
-  position: relative;
-  top: -300px;
-  right: 0px;
-  display: flex;
-  height: 118px;
-  width: 118px;
+.picstogether{
+  position: relative
+}
+
+.profile-pic{
+  position: absolute;
+  top: 0;
+  z-index:1;
   border-radius: 50%;
-  background: red;
-  z-index: 100;
 }
 
 .product-image img {

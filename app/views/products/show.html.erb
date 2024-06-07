@@ -1,21 +1,26 @@
-<div class="container-full">
+<div class="container-full mb-5">
   <div class="product-details">
-    <div class="picstogether">
-      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class:"show-pic"%>
-        <%= image_tag @product.user.avatar, height: 72, width: 72,  crop: :fill, class: "css-style" %>
-          <h2><%= @product.title %></h2>
+    <div class="picstogether"> 
+      <%= image_tag @product.user.avatar, height: 72, width: 72,  crop: :fill, class: "profile-pic m-3" %>
+      <%= cl_image_tag @product.photo.key, height: 300, width: 300, crop: :fill, class:"show-pic", style: "border-radius: 20px;"%>
+    </div>
 
-      <p><strong>Owner:</strong> <%= @product.user.first_name %></p>
-      <p><strong>Category:</strong> <%= @product.category.name %></p>
-      <p><strong>Description:</strong><br>
+    <h1 class="mt-3"><strong><%= @product.title %></strong></h1>
+
+    <p><strong>Owner:</strong><br>
+      <%= @product.user.first_name %></p>
+    <p><strong>Category:</strong><br>
+      <%= @product.category.name %></p>
+    <p><strong>Description:</strong><br>
       <%= truncate(@product.description, length: 170, omission: '...') %></p>
-      <p><strong>Condition:</strong> <%= @product.condition %></p>
-      <p><strong>Price:</strong> <%= number_to_currency(@product.price, unit: "€", precision: 0) %> ~ <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
+    <p><strong>Condition:</strong><br>
+      <%= @product.condition %></p>
+    <p><strong>Price:</strong><br>
+      <%= number_to_currency(@product.price, unit: "€", precision: 0) %> ~ <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
 
-      <div class="product-actions">
-        <%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
-      </div>
-  </div>
+    <div class="product-actions">
+      <%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
+    </div>
 
   <%= link_to products_path, class: 'btn btn-link' do %>
     <svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
@@ -45,5 +50,6 @@
         </g>
       </g>
     </svg>
-    </div>
+  </div>
   <% end %>
+</div>

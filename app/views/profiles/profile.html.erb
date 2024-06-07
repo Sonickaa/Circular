@@ -22,7 +22,7 @@
   <% if @user.products.any? %>
     <% @products.each do |product| %>
       <div class="profile-product-card">
-        <div class="profile-product-image">
+        <div class="profile-product-image product-background">
           <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
         </div>
         <div class="profile-product-info">

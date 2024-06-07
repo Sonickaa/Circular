@@ -9,7 +9,7 @@
   <div class="wishlist-container">
     <% @wishlist.products.each do |product| %>
       <div class="wishlist-card">
-        <div class="wishlist-product-image">
+        <div class="wishlist-product-image product-background">
           <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
         </div>
         <div class="product-info">
@@ -17,7 +17,7 @@
             <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
           </div>
           <div class="product-description-container">
-            <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+            <span class="product-description"><%= truncate(product.description, length: 20, omission: "...") %></span>
           </div>
           <div class="product-actions">
             <div class="wishlist-send-and-offer-button">
