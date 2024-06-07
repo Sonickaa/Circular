@@ -1,54 +1,40 @@
-
-<svg class="close-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
-    <defs>
-      <style>
-        .cls-1 {
-          fill: #000;
-          stroke-width: 0px;
-        }
-
-        .cls-2 {
-          fill: none;
-          stroke: #000;
-          stroke-linecap: round;
-          stroke-miterlimit: 10;
-          stroke-width: 2px;
-        }
-      </style>
-    </defs>
-    <g id="Layer_1-2" data-name="Layer 1">
-      <g id="nav-bar">
-        <g id="btn_edit" data-name="btn edit">
-          <path class="cls-1" d="M20,2c9.93,0,18,8.07,18,18s-8.07,18-18,18S2,29.93,2,20,10.07,2,20,2M20,0C8.95,0,0,8.95,0,20s8.95,20,20,20,20-8.95,20-20S31.05,0,20,0h0Z"/>
-          <line class="cls-2" x1="11.36" y1="11.37" x2="28.44" y2="28.57"/>
-          <line class="cls-2" x1="28.5" y1="11.43" x2="11.3" y2="28.51"/>
-        </g>
-      </g>
-    </g>
-</svg>
-
-<div class="product-details">
-  <% if @product.photo.attached? %>
-    <div class="product-image">
-      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
-    </div>
-  <% end %>
-
-  <h1>　<%= @product.title %></h1>
-
-  <div class="product-info">
-    <p><strong>Category:</strong> <%= @product.category.name %></p>
-    <p><strong>Description:</strong>
-    <br><%= @product.description %></p>
-    <p><strong>Condition:</strong> <%= @product.condition %></p>
-
-    <p><strong>Price:</strong> <%= number_to_currency(@product.price, unit: "€", precision: 0) %> ~ <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
-
-  </div>
-
-  <div class="product-actions">
-    <button class="button">Send an Offer</button>
-    <button class="button">Add to Wishlist</button>
+<div class="fixed-top-container">
+  <div >
+    <%= link_to '⬅️ Back', 'javascript:history.back()' , class: "back-button"%>
   </div>
 </div>
-<%= link_to 'Back to Products', products_path, class: 'btn btn-link' %>
+<div class="container-full">
+  <div class="product-details">
+    <div>
+      <% if current_user.wishlist.products.include?(@product) %>
+        <% product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: @product.id) %>
+        <%= link_to unheart_wishlist_product_path(product_wishlist.id), data: { turbo_method: :delete }, class: 'favorite-btn' do %>
+          <%= image_tag 'heart_icon_red', class: 'red-favorite-btn' %>
+        <% end %>
+      <% else %>
+        <%= link_to product_product_wishlists_path(@product.id), data: { turbo_method: :post }, class: 'favorite-btn' do %>
+          <%= image_tag 'heart_icon_gray', alt: 'Add to favorite', class: 'favorite-icon' %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if @product.photo.attached? %>
+      <div class="product-image">
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid rounded shadow" %>
+      </div>
+    <% end %>
+    <div class="product-info">
+      <h1 class="display-4"><%= @product.title %></h1>
+      <p class="lead"><strong class="product-label">Category:</strong> <%= @product.category.name %></p>
+      <p class="lead"><strong class="product-label">Description:</strong></p>
+      <p><%= @product.description %></p>
+      <p class="lead"><strong class="product-label">Condition:</strong> <%= @product.condition %></p>
+      <p class="lead"><strong class="product-label">Price:</strong> <%= number_to_currency(@product.price, unit: "€", precision: 0) %></p>
+    </div>
+    <div class="product-actions mt-4">
+      <%# <button class="btn btn-primary mr-2">Send an Offer</button> %>
+      <div>
+        <%= link_to "Send an offer", product_offers_path(@product), data: {turbo_method: :post}, class: "user-button" %>
+      </div>
+    </div>
+  </div>
+</div>

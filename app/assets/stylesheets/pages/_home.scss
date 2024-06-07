@@ -2,7 +2,15 @@
   margin: 35px;
 }
 
-.product-image-container{
+.container-full-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.product-image-container {
   height: 50%;
   overflow: hidden;
   display: flex;
@@ -19,7 +27,7 @@
 
 
 .container-white {
-  background-color:#DDFEF6;
+  background-color: #DDFEF6;
   height: 50vh;
   border-radius: 21px;
   position: relative;
@@ -122,6 +130,8 @@ h1 {
   display: flex;
   align-items: left;
   padding: 0px 15px 0px 15px;
+
+
 }
 
 
@@ -130,6 +140,7 @@ h1 {
   font-size: 2vw;
   padding-top: 6px;
 }
+
 
 .product-description-container {
   position: relative;
@@ -142,7 +153,10 @@ h1 {
 .product-description {
   font-weight: regular;
   font-size: 8vw;
-  /* Set a base font size of 2vw */
+
+  a {
+    text-decoration: none;
+  }
 }
 
 /* For screens smaller than 1000px */
@@ -169,6 +183,7 @@ h1 {
 .carousel-control-next {
   z-index: 1;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
   width: 50px;
@@ -178,6 +193,7 @@ h1 {
   border-radius: 50%;
   margin-left: 10px;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
   top: 50%;

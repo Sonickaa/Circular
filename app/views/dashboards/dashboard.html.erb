@@ -22,17 +22,19 @@
           <% offer.products.each do |product| %>
             <% if offer.status=="pending"%>
               <div class="dashboard-product-card">
-                <div class="wishlist-product-image">
-                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-                </div>
-                <div class="product-info">
-                  <div class="product-title-container">
-                    <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                <%= link_to product_path(product) , class: "text-decoration-none" do %>
+                  <div class="wishlist-product-image">
+                    <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
                   </div>
-                  <div class="product-description-container">
-                    <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                  <div class="product-info">
+                    <div class="product-title-container">
+                      <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                    </div>
+                    <div class="product-description-container">
+                      <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                    </div>
                   </div>
-                </div>
+                <% end %>
                 <div class="product-actions">
                   <div class="dashboard-offer-decline-container">
                     <%= link_to "Decline" ,declined_path(offer), data: {"turbo-method": :patch}, class: "delete-icon" ,class: "decline-button decline-button-left-align"  %>
@@ -65,17 +67,19 @@
         <% if offer.products %>
           <% offer.products.each do |product| %>
             <div class="dashboard-product-card">
-              <div class="wishlist-product-image">
-                <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-              </div>
-              <div class="product-info">
-                <div class="product-title-container">
-                  <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+              <%= link_to product_path(product) , class: "text-decoration-none" do %>
+                <div class="wishlist-product-image">
+                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
                 </div>
-                <div class="product-description-container">
-                  <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                <div class="product-info">
+                  <div class="product-title-container">
+                    <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                  </div>
+                  <div class="product-description-container">
+                    <span class="product-description"><%= truncate(product.description, length: 80, omission: "...") %></span>
+                  </div>
                 </div>
-              </div>
+              <% end %>
               <div class="product-actions">
                 <div class="dashboard-product-delete-button-container">
                   <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") , user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?"}  %>
@@ -105,14 +109,16 @@
           <% offer.products.each do |product| %>
             <% if offer.status!="pending"%>
               <div class="dashboard-product-card">
-                <div class="wishlist-product-image">
-                  <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
-                </div>
-                <div class="product-info">
-                  <div class="product-title-container">
-                    <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                <%= link_to product_path(product) , class: "text-decoration-none" do %>
+                  <div class="wishlist-product-image">
+                    <%= cl_image_tag product.photo.key, class: 'product-image img-fluid' %>
                   </div>
-                </div>
+                  <div class="product-info">
+                    <div class="product-title-container">
+                      <span class="product-title"><%= truncate(product.title, length: 30, omission: "...") %></span>
+                    </div>
+                  </div>
+                <% end %>
                 <div>
                   <%if offer.status=="declined"%>
                     <div class="offer-status-container">

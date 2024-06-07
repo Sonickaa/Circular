@@ -1,21 +1,27 @@
-<div class="finished-deal-container">
-  <%= link_to "Back", dashboard_path, class: 'btn btn-link'  %>
-  <div class="finished-text">
-    <h1>Last exchanges </h1>
+<div class="fixed-top-container">
+  <div >
+    <%= link_to '⬅️ Back', 'javascript:history.back()' , class: "back-button"%>
   </div>
-  <div class="finished-inside-status-container">
-    <% @received_offers.each do |offer| %>
-      <% next if offer.products.empty? %>
-      <% their_product = offer.products.first.title %>
-      <% counter_offer_product = offer.products.second&.title %>
-      <% other_user = User.find(offer.user_receiver_id) %>
-      <div>
-        <h2> <%= counter_offer_product %> X  <%= their_product %> </h2>
-        <h3>Status: <%= offer.status&.capitalize %></h3>
-        <% if offer.accepted?%>
-          <%= link_to "Send message", messages_path, class: "button"  %>
-        <% end %>
-      </div>
-    <% end %>
+</div>
+<div class="container-full">
+  <div >
+    <div >
+      <h1>Last exchanges </h1>
+    </div>
+    <div >
+      <% @received_offers.each do |offer| %>
+        <% next if offer.products.empty? %>
+        <% their_product = offer.products.first.title %>
+        <% counter_offer_product = offer.products.second&.title %>
+        <% other_user = User.find(offer.user_receiver_id) %>
+        <div>
+          <h2> <%= counter_offer_product %> X  <%= their_product %> </h2>
+          <h3>Status: <%= offer.status&.capitalize %></h3>
+          <% if offer.accepted?%>
+            <%= link_to "Send message", messages_path, class: "button"  %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

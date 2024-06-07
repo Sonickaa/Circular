@@ -42,7 +42,10 @@ class ProductsController < ApplicationController
   def destroy
     user = User.find(params[:user_id])
     product = user.products.find(params[:id])
+    offer_product = OfferProduct.where(product_id: product.id)
+    offer_product.destroy_all
     product.destroy
+    redirect_to request.referer
   end
 
   def toggle_favorite

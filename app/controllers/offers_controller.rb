@@ -18,7 +18,7 @@ class OffersController < ApplicationController
     # end
 
     @offer.save
-    redirect_to products_path
+    redirect_to dashboard_path
   end
 
   def destroy

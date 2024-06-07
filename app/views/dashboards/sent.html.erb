@@ -1,3 +1,8 @@
+<div class="fixed-top-container">
+  <div >
+    <%= link_to '⬅️ Back', 'javascript:history.back()' , class: "back-button"%>
+  </div>
+</div>
 <div class="container-full">
   <div class="container-greetings">
     <h1>Hello, <%= current_user.first_name %></h1>
@@ -5,19 +10,21 @@
   <div class="sent-offer-container">
     <% @my_offers.each do |offer| %>
       <% receiver = User.find(offer.user_receiver_id) %>
-      <% their_product = offer.products.first.title %>
-      <div class="card">
-        <div class="card-content">
-          <div>
+      <% if offer.products.present?%>
+        <% their_product = offer.products.first.title %>
+        <div class="card">
+          <div class="card-content">
             <div>
-              <p>You are interested in <%= receiver.first_name %>'s <%= their_product %></p>
-            </div>
-            <div>
-              <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") , user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?", redirect_to: request.original_url}  %>
+              <div>
+                <p>You are interested in <%= receiver.first_name %>'s <%= their_product %></p>
+              </div>
+              <div>
+                <%= link_to image_tag("icons/btn Trash.svg", style: "width: 25px") , user_offer_path(current_user, offer), method: :delete, data: {turbo_method: :delete, turbo_confirm: "Sure?", redirect_to: request.original_url}  %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

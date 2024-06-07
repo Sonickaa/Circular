@@ -5,7 +5,7 @@ class ProductWishlistsController < ApplicationController
     @product_wishlist = ProductWishlist.new(wishlist: current_user.wishlist, product: @product)
 
     if @product_wishlist.save
-      redirect_to root_path
+      redirect_to request.referer
     else
       redirect_to products_path
     end
@@ -24,6 +24,6 @@ class ProductWishlistsController < ApplicationController
     # @product_wishlist = current_user.wishlist.product_wishlists.find_by(product_id: @product.id)
     # end
     @product_wishlist.destroy
-    redirect_to root_path
+    redirect_to request.referer
   end
 end

@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: left;
   // padding: 10px;
+
 }
 
 .wishlist-card {
@@ -13,6 +15,7 @@
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
   width: calc(50% - 10px);
   height: 280px;
+  min-width: 140px;
   margin-bottom: 10px;
 }
 

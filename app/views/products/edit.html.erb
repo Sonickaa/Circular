@@ -1,8 +1,12 @@
-<%= simple_form_for(@product, url: product_path, method: :patch) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :condition %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="login-container">
+  <div class="login-box">
+    <%= simple_form_for(@product, url: product_path, method: :patch) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :category %>
+      <%= f.input :description %>
+      <%= f.input :condition %>
+      <%= f.input :price %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
